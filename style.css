@@ -1,23 +1,26 @@
 /* =========================================================
    SRINITHA SREEKANTH — PORTFOLIO
-   Premium Biomedical Engineering / AI Portfolio
+   Dark editorial / biomedical research aesthetic
    ========================================================= */
 
 :root {
-    --black: #090909;
-    --black-soft: #0e0e0d;
-    --panel: #141310;
+    --black: #080807;
+    --black-soft: #0d0c0a;
+    --panel: #14120f;
+    --panel-light: #1a1713;
 
-    --cream: #e9e0d0;
-    --cream-soft: #c9c0b2;
-    --muted: #969087;
+    --cream: #eee5d5;
+    --cream-soft: #cfc5b5;
 
-    --gold: #a88a55;
-    --gold-light: #c4a66e;
+    --muted: #999187;
+    --muted-dark: #716b62;
 
-    --border: rgba(168, 138, 85, 0.32);
+    --gold: #a88954;
+    --gold-light: #c7a96c;
+
+    --border: rgba(168, 137, 84, 0.28);
+    --border-soft: rgba(168, 137, 84, 0.16);
 }
-
 
 /* =========================================================
    RESET
@@ -36,13 +39,9 @@ html {
 body {
     background: var(--black);
     color: var(--cream);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.7;
+    overflow-x: hidden;
 }
 
 a {
@@ -69,13 +68,12 @@ img {
     align-items: center;
     justify-content: space-between;
 
-    background: rgba(9, 9, 9, 0.97);
+    background: rgba(8, 8, 7, 0.97);
 
     border-bottom: 1px solid var(--border);
 
     position: sticky;
     top: 0;
-
     z-index: 1000;
 }
 
@@ -91,13 +89,9 @@ img {
 
     color: var(--cream);
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family: Georgia, "Times New Roman", serif;
 
     font-size: 15px;
-
     letter-spacing: 2px;
 }
 
@@ -112,12 +106,14 @@ img {
     color: var(--cream-soft);
 
     font-size: 12px;
+    font-weight: 500;
 
     letter-spacing: 1.5px;
-
     text-transform: uppercase;
 
-    transition: color 0.25s ease;
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
 }
 
 .navbar nav a:hover,
@@ -133,7 +129,7 @@ img {
 
 
 /* =========================================================
-   HERO
+   HERO / PROFILE
    ========================================================= */
 
 .profile {
@@ -143,21 +139,18 @@ img {
 
 
 /* =========================================================
-   BANNER IMAGE
+   BANNER
    ========================================================= */
 
 .banner {
     width: 100%;
-    height: 340px;
+    height: 360px;
 
     position: relative;
 
-    background-image: url("banner.png");
-
+    background-image: url("./banner.png");
     background-size: cover;
-
     background-position: center center;
-
     background-repeat: no-repeat;
 
     border-bottom: 1px solid var(--border);
@@ -165,41 +158,32 @@ img {
     overflow: hidden;
 }
 
-
-/* subtle dark cinematic overlay */
-
+/* Very subtle dark overlay so the profile remains readable */
 .banner::after {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.12),
+            rgba(0, 0, 0, 0.18),
             rgba(0, 0, 0, 0.02),
-            rgba(0, 0, 0, 0.16)
+            rgba(0, 0, 0, 0.18)
         );
 
     pointer-events: none;
 }
 
-
-/*
-   The banner image already contains the typography
-   and research graphics, so the old HTML banner text
-   is hidden.
-*/
-
+/* Hide old banner text because banner.png is the visual */
 .banner-content {
     display: none;
 }
 
 
 /* =========================================================
-   PROFILE AREA
+   PROFILE CONTENT
    ========================================================= */
 
 .profile-content {
@@ -209,7 +193,6 @@ img {
     margin: -105px auto 0;
 
     position: relative;
-
     z-index: 20;
 
     display: grid;
@@ -223,7 +206,7 @@ img {
 
 
 /* =========================================================
-   SQUARE PROFILE PHOTO
+   PROFILE PHOTO
    ========================================================= */
 
 .profile-photo {
@@ -231,16 +214,15 @@ img {
     height: 280px;
 
     position: relative;
-
     z-index: 30;
 
     overflow: hidden;
 
     background: #111;
 
-    border-radius: 0 !important;
-
     border: 2px solid var(--gold);
+
+    border-radius: 0 !important;
 
     outline: 8px solid var(--black);
 
@@ -255,7 +237,6 @@ img {
     display: block;
 
     object-fit: cover;
-
     object-position: center top;
 
     border-radius: 0 !important;
@@ -263,12 +244,11 @@ img {
 
 
 /* =========================================================
-   PROFILE INFORMATION
+   HERO TEXT
    ========================================================= */
 
 .profile-info {
     padding-top: 110px;
-
     padding-bottom: 85px;
 }
 
@@ -278,6 +258,7 @@ img {
     color: var(--gold-light);
 
     font-size: 12px;
+    font-weight: 500;
 
     letter-spacing: 5px;
 
@@ -289,10 +270,7 @@ img {
 
     color: var(--cream);
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family: Georgia, "Times New Roman", serif;
 
     font-size: clamp(50px, 5.5vw, 82px);
 
@@ -309,8 +287,9 @@ img {
     color: var(--cream-soft);
 
     font-size: 21px;
-
     font-weight: 400;
+
+    line-height: 1.5;
 }
 
 .bio {
@@ -332,9 +311,7 @@ img {
 
 .buttons {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 14px;
 }
 
@@ -344,9 +321,7 @@ img {
     padding: 0 24px;
 
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
     border: 1px solid var(--gold);
@@ -354,6 +329,7 @@ img {
     color: var(--cream);
 
     font-size: 12px;
+    font-weight: 500;
 
     letter-spacing: 1.2px;
 
@@ -361,13 +337,16 @@ img {
 
     transition:
         background 0.25s ease,
-        color 0.25s ease;
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .buttons a:hover {
     background: var(--gold);
 
     color: var(--black);
+
+    border-color: var(--gold);
 }
 
 
@@ -383,8 +362,7 @@ img {
 
     padding: 100px 0;
 
-    border-top: 1px solid
-        rgba(168, 138, 85, 0.18);
+    border-top: 1px solid var(--border-soft);
 }
 
 .dark-section {
@@ -394,7 +372,30 @@ img {
     padding-left: 6%;
     padding-right: 6%;
 
-    background: #11110f;
+    background: var(--black-soft);
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.section-title > span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--gold-light);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
 }
 
 .section h2 {
@@ -402,16 +403,15 @@ img {
 
     color: var(--cream);
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family: Georgia, "Times New Roman", serif;
 
     font-size: clamp(38px, 4vw, 58px);
 
     font-weight: 400;
 
     line-height: 1.1;
+
+    letter-spacing: -1px;
 }
 
 .section p {
@@ -426,30 +426,50 @@ img {
 
 
 /* =========================================================
-   RESEARCH / PROJECT GRIDS
+   ABOUT
    ========================================================= */
 
-.research-grid,
-.project-grid {
+.about-content {
+    max-width: 900px;
+}
+
+.about-content p {
+    margin-bottom: 24px;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   RESEARCH
+   ========================================================= */
+
+.research-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 24px;
 
     margin-top: 45px;
 }
 
-.card {
-    min-height: 210px;
+.research-card {
+    min-height: 240px;
 
     padding: 34px;
 
     background: var(--panel);
 
-    border: 1px solid
-        rgba(168, 138, 85, 0.24);
+    border: 1px solid var(--border-soft);
+
+    position: relative;
 
     transition:
         transform 0.25s ease,
@@ -457,30 +477,39 @@ img {
         background 0.25s ease;
 }
 
-.card:hover {
+.research-card:hover {
     transform: translateY(-5px);
 
     border-color: var(--gold);
 
-    background: #1b1814;
+    background: var(--panel-light);
 }
 
-.card h3 {
+.card-number {
+    display: block;
+
+    margin-bottom: 28px;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.research-card h3 {
     margin-bottom: 14px;
 
     color: var(--cream);
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family: Georgia, "Times New Roman", serif;
 
-    font-size: 25px;
+    font-size: 26px;
 
     font-weight: 400;
 }
 
-.card p {
+.research-card p {
     color: var(--muted);
 
     font-size: 15px;
@@ -490,15 +519,181 @@ img {
 
 
 /* =========================================================
+   PROJECTS
+   ========================================================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+
+    margin-top: 45px;
+}
+
+.project-card {
+    min-height: 300px;
+
+    padding: 34px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border-soft);
+
+    position: relative;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--gold);
+
+    background: var(--panel-light);
+}
+
+.project-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 42px;
+}
+
+.project-number {
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.project-arrow {
+    color: var(--gold-light);
+
+    font-size: 22px;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+.project-card:hover .project-arrow {
+    transform: translate(4px, -4px);
+
+    color: var(--cream);
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+
+    color: var(--cream);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    line-height: 1.25;
+}
+
+.project-card p {
+    margin-bottom: 28px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   PROJECT TAGS
+   ========================================================= */
+
+.project-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.project-tags span {
+    padding: 7px 11px;
+
+    color: var(--cream-soft);
+
+    background: rgba(168, 137, 84, 0.06);
+
+    border: 1px solid var(--border-soft);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
    PUBLICATIONS
    ========================================================= */
 
-#publications p {
-    padding: 24px 0;
+.publication-list {
+    max-width: 1000px;
 
-    border-bottom:
-        1px solid
-        rgba(168, 138, 85, 0.18);
+    margin-top: 40px;
+}
+
+.publication {
+    display: grid;
+
+    grid-template-columns: 70px 1fr;
+
+    gap: 25px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.publication:first-child {
+    border-top: 1px solid var(--border-soft);
+}
+
+.publication-number {
+    color: var(--gold-light);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 18px;
+}
+
+.publication h3 {
+    margin-bottom: 10px;
+
+    color: var(--cream);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 24px;
+
+    font-weight: 400;
+}
+
+.publication p {
+    color: var(--muted);
+
+    font-size: 15px;
 }
 
 
@@ -510,23 +705,49 @@ img {
     text-align: center;
 }
 
+.contact .section-title {
+    margin-bottom: 30px;
+}
+
 .contact p {
+    max-width: 700px;
+
     margin-left: auto;
     margin-right: auto;
+
+    margin-bottom: 35px;
 }
 
-.contact a {
+.contact-links {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 28px;
+}
+
+.contact-links a {
     color: var(--gold-light);
 
-    border-bottom:
-        1px solid
-        var(--gold);
+    font-size: 13px;
 
-    transition: color 0.25s ease;
+    letter-spacing: 1px;
+
+    border-bottom: 1px solid var(--gold);
+
+    padding-bottom: 4px;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
-.contact a:hover {
+.contact-links a:hover {
     color: var(--cream);
+
+    border-color: var(--cream);
 }
 
 
@@ -539,22 +760,24 @@ footer {
 
     text-align: center;
 
-    background: #080807;
+    background: #070706;
 
-    border-top:
-        1px solid
-        rgba(168, 138, 85, 0.25);
+    border-top: 1px solid var(--border);
 
-    color: #706b63;
+    color: var(--muted-dark);
 
     font-size: 12px;
 
     letter-spacing: 1px;
 }
 
+footer p {
+    margin: 4px 0;
+}
+
 
 /* =========================================================
-   TABLET
+   LARGE TABLETS
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -572,7 +795,7 @@ footer {
     }
 
     .banner {
-        height: 280px;
+        height: 300px;
     }
 
     .profile-content {
@@ -605,6 +828,10 @@ footer {
     .section {
         width: 90%;
     }
+
+    .dark-section {
+        width: 100%;
+    }
 }
 
 
@@ -629,7 +856,7 @@ footer {
     }
 
     .banner {
-        height: 220px;
+        height: 230px;
 
         background-position: center center;
     }
@@ -653,7 +880,6 @@ footer {
 
     .profile-info {
         padding-top: 35px;
-
         padding-bottom: 60px;
     }
 
@@ -697,16 +923,63 @@ footer {
         width: 100%;
 
         padding-left: 20px;
-
         padding-right: 20px;
     }
 
+    .section h2 {
+        font-size: 40px;
+    }
+
     .research-grid,
-    .project-grid {
+    .projects-grid {
         grid-template-columns: 1fr;
     }
 
-    .card {
+    .research-card,
+    .project-card {
         padding: 28px;
+    }
+
+    .publication {
+        grid-template-columns: 45px 1fr;
+
+        gap: 15px;
+    }
+
+    .publication h3 {
+        font-size: 21px;
+    }
+
+    .contact-links {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 18px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .profile-photo {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profile-info h1 {
+        font-size: 36px;
+    }
+
+    .profile-info h2 {
+        font-size: 15px;
+    }
+
+    .section h2 {
+        font-size: 34px;
     }
 }
