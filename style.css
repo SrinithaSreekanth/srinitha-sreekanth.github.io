@@ -1,1 +1,701 @@
+/* =========================
+   BASIC SETUP
+   ========================= */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0b0b0a;
+    color: #e8dfcf;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.navbar {
+    height: 76px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #0b0b0a;
+    border-bottom: 1px solid #40372c;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #a88a55;
+
+    color: #e8dfcf;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 32px;
+}
+
+.navbar nav a {
+    color: #bdb3a2;
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #a88a55;
+}
+
+.social-links {
+    display: flex;
+    gap: 18px;
+}
+
+.social-links a {
+    color: #a88a55;
+    font-size: 13px;
+}
+
+
+/* =========================
+   PROFILE AREA
+   ========================= */
+
+.profile {
+    background: #0b0b0a;
+    padding-bottom: 70px;
+}
+
+
+/* =========================
+   LINKEDIN-STYLE BANNER
+   ========================= */
+
+.banner {
+    height: 300px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            120deg,
+            #11110f,
+            #242018,
+            #40372c,
+            #171511
+        );
+
+    border-bottom: 1px solid #514632;
+
+    overflow: hidden;
+}
+
+
+/* subtle technical pattern */
+
+.banner::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 49.8%,
+            rgba(168, 138, 85, 0.12) 50%,
+            transparent 50.2%
+        );
+
+    opacity: 0.35;
+}
+
+
+/* banner text */
+
+.banner::after {
+    content:
+        "BIOMEDICAL ENGINEERING  ·  MEDICAL IMAGING  ·  ARTIFICIAL INTELLIGENCE";
+
+    position: absolute;
+
+    right: 7%;
+    bottom: 30px;
+
+    color: #a88a55;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   PROFILE CONTENT
+   ========================= */
+
+.profile-content {
+
+    width: 86%;
+    max-width: 1200px;
+
+    margin: -85px auto 0;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 60px;
+}
+
+
+/* =========================
+   PROFILE PHOTO
+   ========================= */
+
+.profile-photo {
+
+    width: 220px;
+    height: 220px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    padding: 7px;
+
+    background: #0b0b0a;
+
+    border: 2px solid #a88a55;
+
+    box-shadow:
+        0 0 0 8px #0b0b0a,
+        0 0 30px rgba(168, 138, 85, 0.15);
+}
+
+.profile-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+}
+
+
+/* =========================
+   PROFILE INFORMATION
+   ========================= */
+
+.profile-info {
+
+    padding-top: 100px;
+
+    max-width: 700px;
+}
+
+.intro {
+
+    color: #a88a55;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 10px;
+}
+
+.profile-info h1 {
+
+    color: #e8dfcf;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(42px, 6vw, 70px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    margin-bottom: 15px;
+}
+
+.profile-info h2 {
+
+    color: #bdb3a2;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+}
+
+.bio {
+
+    max-width: 650px;
+
+    color: #9d9588;
+
+    font-size: 16px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.buttons a {
+
+    padding: 11px 20px;
+
+    border: 1px solid #6f5a35;
+
+    color: #e8dfcf;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.buttons a:hover {
+
+    background: #a88a55;
+
+    color: #0b0b0a;
+
+    border-color: #a88a55;
+}
+
+
+/* =========================
+   SECTIONS
+   ========================= */
+
+.section {
+
+    padding: 100px 8%;
+
+    background: #0f0e0c;
+
+    border-top: 1px solid #2d2923;
+}
+
+.dark-section {
+
+    background: #0b0b0a;
+}
+
+.section-title {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 18px;
+
+    margin-bottom: 45px;
+}
+
+.section-title span {
+
+    color: #a88a55;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+
+    color: #e8dfcf;
+
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    font-weight: 400;
+}
+
+.section > p {
+
+    max-width: 850px;
+
+    color: #aaa193;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================
+   RESEARCH
+   ========================= */
+
+.research-grid {
+
+    max-width: 1100px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.research-card {
+
+    padding: 35px;
+
+    border: 1px solid #302b24;
+
+    background: #151412;
+
+    transition: 0.3s;
+}
+
+.research-card:hover {
+
+    border-color: #806b43;
+
+    transform: translateY(-4px);
+}
+
+.research-card h3 {
+
+    color: #e8dfcf;
+
+    font-family: Georgia, serif;
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+    margin-bottom: 12px;
+}
+
+.research-card p {
+
+    color: #9d9588;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   PROJECTS
+   ========================= */
+
+.projects-grid {
+
+    max-width: 1100px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.project-card {
+
+    padding: 35px;
+
+    background: #151412;
+
+    border: 1px solid #302b24;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+
+    border-color: #a88a55;
+
+    transform: translateY(-5px);
+}
+
+.project-number {
+
+    color: #a88a55;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+.project-card h3 {
+
+    color: #e8dfcf;
+
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    margin: 18px 0;
+}
+
+.project-card p {
+
+    color: #9d9588;
+
+    margin-bottom: 25px;
+}
+
+.project-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.project-tags span {
+
+    padding: 5px 10px;
+
+    border: 1px solid #40372c;
+
+    color: #a88a55;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   PUBLICATIONS
+   ========================= */
+
+.publication {
+
+    max-width: 1000px;
+
+    padding: 30px;
+
+    border-left: 2px solid #a88a55;
+
+    background: #151412;
+}
+
+.publication h3 {
+
+    color: #e8dfcf;
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    margin-bottom: 10px;
+}
+
+.publication p {
+
+    color: #9d9588;
+}
+
+
+/* =========================
+   CONTACT
+   ========================= */
+
+.contact {
+
+    text-align: center;
+}
+
+.contact .section-title {
+
+    justify-content: center;
+}
+
+.contact > p {
+
+    margin: 0 auto 20px;
+}
+
+.email {
+
+    color: #a88a55;
+
+    font-size: 18px;
+
+    border-bottom: 1px solid #6f5a35;
+
+    padding-bottom: 4px;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+
+    padding: 35px 8%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top: 1px solid #302b24;
+
+    background: #080807;
+
+    color: #746e64;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .profile-content {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+    }
+
+    .profile-info {
+
+        padding-top: 0;
+    }
+
+    .buttons {
+
+        justify-content: center;
+    }
+
+    .research-grid,
+    .projects-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+
+        padding: 70px 7%;
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .banner {
+        height: 220px;
+    }
+
+    .profile-content {
+
+        margin-top: -65px;
+    }
+
+    .profile-photo {
+
+        width: 170px;
+        height: 170px;
+    }
+
+    .profile-info h1 {
+
+        font-size: 40px;
+    }
+
+    .profile-info h2 {
+
+        font-size: 15px;
+    }
+
+    .section-title h2 {
+
+        font-size: 30px;
+    }
+}
