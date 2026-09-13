@@ -190,7 +190,8 @@ img {
     width: 88%;
     max-width: 1250px;
 
-    margin: -105px auto 0;
+    /* Reduced top overlap from -105px to -60px to un-crop the image container */
+    margin: -60px auto 0;
 
     position: relative;
     z-index: 20;
@@ -236,8 +237,9 @@ img {
 
     display: block;
 
+    /* Fixed framing to reveal the top half of the portrait */
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center 15%;
 
     border-radius: 0 !important;
 }
@@ -805,7 +807,7 @@ footer p {
 
         column-gap: 40px;
 
-        margin-top: -90px;
+        margin-top: -50px;
     }
 
     .profile-photo {
@@ -868,7 +870,7 @@ footer p {
 
         flex-direction: column;
 
-        margin-top: -65px;
+        margin-top: -35px;
     }
 
     .profile-photo {
