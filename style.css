@@ -150,7 +150,7 @@ img {
 
     background-image: url("./banner.png");
     background-size: cover;
-    background-position: center center;
+    background-position: center 38%;;
     background-repeat: no-repeat;
 
     border-bottom: 1px solid var(--border);
