@@ -190,7 +190,6 @@ img {
     width: 88%;
     max-width: 1250px;
 
-    /* Reduced top overlap from -105px to -60px to un-crop the image container */
     margin: -60px auto 0;
 
     position: relative;
@@ -237,9 +236,8 @@ img {
 
     display: block;
 
-    /* Fixed framing to reveal the top half of the portrait */
-    object-fit: cover;
-    object-position: center 15%;
+    /* Shows the entire original image without cropping top/hair */
+    object-fit: contain;
 
     border-radius: 0 !important;
 }
