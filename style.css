@@ -190,7 +190,8 @@ img {
     width: 88%;
     max-width: 1250px;
 
-    margin: -60px auto 0;
+    /* Lowered frame overlap so gold top border clears banner text */
+    margin: -15px auto 0;
 
     position: relative;
     z-index: 20;
@@ -211,7 +212,7 @@ img {
 
 .profile-photo {
     width: 280px;
-    height: 280px;
+    height: 330px; /* Taller rectangular frame to comfortably fit portrait */
 
     position: relative;
     z-index: 30;
@@ -236,8 +237,9 @@ img {
 
     display: block;
 
-    /* Shows the entire original image without cropping top/hair */
+    /* Scaled down slightly & aligned to top to ensure full head/hair visibility */
     object-fit: contain;
+    object-position: center top;
 
     border-radius: 0 !important;
 }
@@ -248,7 +250,7 @@ img {
    ========================================================= */
 
 .profile-info {
-    padding-top: 110px;
+    padding-top: 60px;
     padding-bottom: 85px;
 }
 
@@ -805,16 +807,16 @@ footer p {
 
         column-gap: 40px;
 
-        margin-top: -50px;
+        margin-top: 0px;
     }
 
     .profile-photo {
         width: 230px;
-        height: 230px;
+        height: 270px;
     }
 
     .profile-info {
-        padding-top: 95px;
+        padding-top: 40px;
     }
 
     .profile-info h1 {
@@ -868,18 +870,18 @@ footer p {
 
         flex-direction: column;
 
-        margin-top: -35px;
+        margin-top: 10px;
     }
 
     .profile-photo {
         width: 210px;
-        height: 210px;
+        height: 250px;
 
         align-self: flex-start;
     }
 
     .profile-info {
-        padding-top: 35px;
+        padding-top: 25px;
         padding-bottom: 60px;
     }
 
@@ -968,7 +970,7 @@ footer p {
 
     .profile-photo {
         width: 180px;
-        height: 180px;
+        height: 210px;
     }
 
     .profile-info h1 {
