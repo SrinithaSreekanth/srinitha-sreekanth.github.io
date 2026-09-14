@@ -1,1 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>MASLD Quality-Aware Deep Learning | Srinitha S</title>
+
+  <style>
+    :root {
+      --bg: #0d0e10;
+      --panel: #141619;
+      --panel-hover: #1b1e22;
+      --border: #2a2d33;
+
+      --cream: #f0ede6;
+      --cream-soft: #cbc7bf;
+      --muted: #92959d;
+
+      --gold: #d4af37;
+      --gold-light: #e5c158;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    /* =========================
+       TOP NAV
+    ========================= */
+
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0b0c0e;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 18px;
+    }
+
+    .back-link {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      transition: 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--gold-light);
+    }
+
+    /* =========================
+       MAIN CONTAINER
+    ========================= */
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+      padding: 65px 0 100px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 45px;
+      margin-bottom: 50px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.1;
+      font-weight: 500;
+      color: var(--cream);
+      max-width: 1000px;
+      margin-bottom: 25px;
+    }
+
+    .subtitle {
+      color: var(--cream-soft);
+      font-size: 19px;
+      margin-bottom: 15px;
+    }
+
+    .author {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .author strong {
+      color: var(--cream);
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 7px 14px;
+      border: 1px solid #3c663c;
+      background: rgba(60, 102, 60, 0.12);
+      color: #9dcc9d;
+      border-radius: 30px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    /* =========================
+       IMAGE BLOCKS
+    ========================= */
+
+    .figure {
+      margin: 45px 0;
+    }
+
+    .figure img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--border);
+      background: #111;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    .caption {
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      color: var(--cream);
+      font-size: 31px;
+      font-weight: 500;
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      color: var(--gold-light);
+      font-size: 22px;
+      margin: 35px 0 15px;
+    }
+
+    p {
+      color: var(--cream-soft);
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    /* =========================
+       HIGHLIGHT BOX
+    ========================= */
+
+    .highlight {
+      border-left: 3px solid var(--gold);
+      background: var(--panel);
+      padding: 28px 30px;
+      margin: 30px 0;
+    }
+
+    .highlight strong {
+      color: var(--gold-light);
+    }
+
+    /* =========================
+       METHOD LIST
+    ========================= */
+
+    .method-list {
+      padding-left: 25px;
+    }
+
+    .method-list li {
+      color: var(--cream-soft);
+      font-size: 16px;
+      margin-bottom: 16px;
+      padding-left: 7px;
+    }
+
+    .method-list strong {
+      color: var(--cream);
+    }
+
+    /* =========================
+       RESULTS TABLE
+    ========================= */
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 25px 0 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      font-family: Arial, sans-serif;
+    }
+
+    th {
+      background: #1a1c20;
+      color: var(--gold-light);
+      text-align: left;
+      padding: 15px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    td {
+      color: var(--cream-soft);
+      padding: 14px 15px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    tr:hover td {
+      background: var(--panel-hover);
+    }
+
+    /* =========================
+       KEY FINDING
+    ========================= */
+
+    .finding {
+      border: 1px solid var(--gold);
+      background: linear-gradient(
+        135deg,
+        rgba(212,175,55,0.08),
+        rgba(20,22,25,0.8)
+      );
+      padding: 35px;
+      margin: 30px 0;
+    }
+
+    .finding-title {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .finding p {
+      margin-bottom: 0;
+    }
+
+    /* =========================
+       INFO GRID
+    ========================= */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .info-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 22px;
+    }
+
+    .info-card span {
+      display: block;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 7px;
+    }
+
+    .info-card p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    /* =========================
+       REFERENCES
+    ========================= */
+
+    .reference {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 25px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 35px;
+      margin-top: 80px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      .topbar {
+        padding: 16px 5%;
+      }
+
+      .container {
+        width: 90%;
+        padding-top: 45px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      h2 {
+        font-size: 27px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .figure img {
+        padding: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       TOP BAR
+  ========================== -->
+
+  <header class="topbar">
+
+    <div class="brand">
+      SS
+    </div>
+
+    <a class="back-link" href="../../index.html">
+      ← Back to Portfolio
+    </a>
+
+  </header>
+
+
+  <main class="container">
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <div class="hero">
+
+      <div class="eyebrow">
+        Research Project · Medical Imaging · AI
+      </div>
+
+      <h1>
+        Quality-Aware Evaluation and Confounding Analysis of Deep Learning Models for Ultrasound-Based MASLD Detection
+      </h1>
+
+      <p class="subtitle">
+        A quality-aware and explainable framework for evaluating deep learning models beyond accuracy.
+      </p>
+
+      <p class="author">
+        <strong>Srinitha Sreekanth</strong>
+        · Project Associate, Office of IC&amp;SR
+        · Indian Institute of Technology Madras
+      </p>
+
+      <div class="status">
+        🟢 Research Project
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         INTRODUCTION IMAGE
+    ========================== -->
+
+    <div class="figure">
+
+      <img
+        src="01-introduction.png"
+        alt="Introduction to quality-aware MASLD deep learning study"
+      >
+
+      <div class="caption">
+        Figure 1. Overview of the MASLD deep learning evaluation framework.
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         OVERVIEW
+    ========================== -->
+
+    <section>
+
+      <h2>Overview</h2>
+
+      <p>
+        Deep learning models routinely report very high accuracy for detecting
+        Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD) from
+        ultrasound. However, high accuracy alone does not confirm that a model
+        is learning disease-specific biomarkers rather than exploiting
+        shortcuts present in the dataset.
+      </p>
+
+      <p>
+        This study develops a quality-aware and explainable framework to
+        investigate this problem. EfficientNet-B0 and ResNet-18 were trained
+        on approximately 4,500 cropped liver ultrasound images from public
+        datasets, followed by systematic analysis of image quality,
+        data leakage, dataset confounding, and model attention.
+      </p>
+
+      <div class="highlight">
+
+        <p>
+          <strong>Core research question:</strong>
+          When a deep learning model achieves near-perfect performance on
+          ultrasound-based MASLD detection, is it actually learning
+          disease-related information — or is it exploiting differences
+          between datasets and acquisition conditions?
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         METHODS
+    ========================== -->
+
+    <section>
+
+      <h2>Methods</h2>
+
+      <ul class="method-list">
+
+        <li>
+          <strong>Datasets:</strong>
+          LUS-7Seg healthy liver scans and a NAFLD/MASLD dataset were combined
+          and standardized to grayscale 224 × 224 B-mode ultrasound images.
+        </li>
+
+        <li>
+          <strong>Leakage auditing:</strong>
+          MD5 hashing was used to identify exact duplicate images, while
+          perceptual hashing (pHash) was used to identify near-duplicate
+          images. Patient-level splitting was applied wherever possible.
+        </li>
+
+        <li>
+          <strong>Preprocessing:</strong>
+          Automated region-of-interest cropping was performed using OpenCV
+          to remove probe interfaces, depth text, and acoustic cone borders,
+          followed by CLAHE contrast enhancement.
+        </li>
+
+        <li>
+          <strong>Image-quality analysis:</strong>
+          Brightness, contrast, sharpness, and entropy were extracted
+          for individual images.
+        </li>
+
+        <li>
+          <strong>Deep learning models:</strong>
+          EfficientNet-B0 and ResNet-18 were fine-tuned for binary
+          classification of normal versus MASLD images.
+        </li>
+
+        <li>
+          <strong>Training:</strong>
+          Models were trained using AdamW optimization and binary
+          cross-entropy loss over five epochs.
+        </li>
+
+        <li>
+          <strong>Explainability:</strong>
+          Grad-CAM was used to visualize the image regions contributing
+          to model predictions.
+        </li>
+
+        <li>
+          <strong>Confounding analysis:</strong>
+          An additional classifier was trained to predict dataset origin
+          rather than disease status. Strong performance would indicate
+          potential source-related confounding.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- =========================
+         WORKFLOW IMAGE
+    ========================== -->
+
+    <div class="figure">
+
+      <img
+        src="02-workflow.png"
+        alt="Workflow of MASLD quality-aware deep learning analysis"
+      >
+
+      <div class="caption">
+        Figure 2. Workflow covering preprocessing, quality analysis,
+        deep learning classification, leakage auditing and explainability.
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <section>
+
+      <h2>Results</h2>
+
+      <h3>Deep Learning Model Performance</h3>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>EfficientNet-B0</th>
+              <th>ResNet-18</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Accuracy</td>
+              <td>99.53%</td>
+              <td>97.63%</td>
+            </tr>
+
+            <tr>
+              <td>AUC</td>
+              <td>99.99%</td>
+              <td>99.12%</td>
+            </tr>
+
+            <tr>
+              <td>Precision</td>
+              <td>99.57%</td>
+              <td>95.31%</td>
+            </tr>
+
+            <tr>
+              <td>Recall</td>
+              <td>99.15%</td>
+              <td>98.73%</td>
+            </tr>
+
+            <tr>
+              <td>F1 Score</td>
+              <td>99.36%</td>
+              <td>96.89%</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <h3>Data Leakage Audit</h3>
+
+      <p>
+        The leakage audit identified <strong>93 exact duplicates</strong>
+        using MD5 hashing and <strong>85 near-duplicates</strong> using
+        perceptual hashing. After removing these images, the resulting
+        dataset contained <strong>4,458 images</strong> with zero
+        cross-split overlap.
+      </p>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+
+          <span>Clean Dataset</span>
+
+          <p>
+            4,458 images
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <span>Training Set</span>
+
+          <p>
+            3,150 images
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <span>Validation Set</span>
+
+          <p>
+            675 images
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <span>Test Set</span>
+
+          <p>
+            633 images
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <h3>Quality-Stratified Evaluation</h3>
+
+      <p>
+        EfficientNet-B0 maintained approximately 99.53% accuracy across
+        low-, medium-, and high-sharpness groups. This indicates that the
+        reported performance did not show an obvious dependence on the
+        measured image-quality variation within the evaluated dataset.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         RESULTS IMAGE
+    ========================== -->
+
+    <div class="figure">
+
+      <img
+        src="03-final-results.png"
+        alt="Final results of MASLD deep learning and confounding analysis"
+      >
+
+      <div class="caption">
+        Figure 3. Final model performance, quality analysis and
+        confounding assessment.
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         KEY FINDING
+    ========================== -->
+
+    <section>
+
+      <h2>Key Finding</h2>
+
+      <div class="finding">
+
+        <div class="finding-title">
+          Dataset Confounding
+        </div>
+
+        <p>
+          A ResNet-18 classifier trained only to predict
+          <strong>dataset origin</strong> — without using disease labels —
+          achieved <strong>99.11% accuracy</strong> with an
+          <strong>AUC of 1.0000</strong>.
+        </p>
+
+        <br>
+
+        <p>
+          Because dataset origin is strongly correlated with disease status
+          in this combined dataset, the result indicates that the apparently
+          excellent disease-classification performance may be substantially
+          influenced by dataset-specific acquisition characteristics.
+        </p>
+
+      </div>
+
+      <p>
+        Grad-CAM analysis further showed diffuse activation across
+        texture-rich regions in MASLD images rather than consistently
+        localized attention within the liver parenchyma. This pattern is
+        consistent with the possibility that the model is exploiting
+        scanner, probe, or image-texture signatures instead of relying
+        exclusively on genuine hepatic biomarkers.
+      </p>
+
+      <p>
+        MASLD and healthy images also demonstrated systematic differences
+        in baseline image properties, including brightness, contrast,
+        sharpness, and entropy. These differences may arise from the
+        source datasets themselves and therefore cannot automatically be
+        interpreted as disease-specific characteristics.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         WHY IT MATTERS
+    ========================== -->
+
+    <section>
+
+      <h2>Why This Matters</h2>
+
+      <p>
+        Near-perfect accuracy in a single-source or poorly audited
+        multi-source dataset can appear to represent a major clinical
+        breakthrough while actually reflecting a data artifact.
+      </p>
+
+      <p>
+        This work emphasizes the importance of evaluating medical AI models
+        beyond conventional accuracy metrics. Leakage auditing,
+        quality-stratified analysis, source-confounding tests and
+        explainability should be incorporated before interpreting
+        high-performing models as clinically meaningful.
+      </p>
+
+      <div class="highlight">
+
+        <p>
+          <strong>Takeaway:</strong>
+          High model accuracy should not automatically be interpreted as
+          evidence of reliable disease-specific learning. Understanding
+          what information the model uses is equally important.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LIMITATIONS
+    ========================== -->
+
+    <section>
+
+      <h2>Limitations</h2>
+
+      <ul class="method-list">
+
+        <li>
+          Healthy and MASLD images originated from separate datasets,
+          meaning disease status and acquisition source are entangled.
+        </li>
+
+        <li>
+          Patient-level identifiers were not consistently available
+          across both datasets.
+        </li>
+
+        <li>
+          External multi-center validation has not yet been performed.
+        </li>
+
+        <li>
+          Disease severity and fibrosis staging were not evaluated.
+        </li>
+
+        <li>
+          The findings indicate a risk of shortcut learning but do not
+          definitively prove that the models learned no genuine
+          disease-related biomarkers.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- =========================
+         FUTURE WORK
+    ========================== -->
+
+    <section>
+
+      <h2>Future Work</h2>
+
+      <p>
+        Future extensions will focus on demographic subgroup evaluation,
+        including sex, age and BMI, alongside model calibration using
+        metrics such as Brier score and Expected Calibration Error (ECE).
+      </p>
+
+      <p>
+        Additional directions include domain adaptation, dataset
+        harmonization and external multi-center validation to determine
+        whether model performance remains robust across independent
+        acquisition environments.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECT INFORMATION
+    ========================== -->
+
+    <section>
+
+      <h2>Project Information</h2>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+
+          <span>Researcher</span>
+
+          <p>
+            Srinitha Sreekanth
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <span>Current Role</span>
+
+          <p>
+            Project Associate
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <span>Institution</span>
+
+          <p>
+            Indian Institute of Technology Madras
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <span>Domain</span>
+
+          <p>
+            Medical Imaging · Ultrasound · AI/ML
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REFERENCE
+    ========================== -->
+
+    <section>
+
+      <h2>Reference</h2>
+
+      <div class="reference">
+
+        <p>
+          Quality-Aware Evaluation and Confounding Analysis of Deep Learning
+          Models for Ultrasound-Based MASLD Detection.
+        </p>
+
+        <p>
+          Research work by Srinitha Sreekanth,
+          Indian Institute of Technology Madras.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+      <p>
+        <strong>Srinitha Sreekanth</strong>
+        · Biomedical Engineering · Medical Imaging · Artificial Intelligence
+      </p>
+
+      <p>
+        <a href="mailto:srinithassreekanth@gmail.com">
+          srinithassreekanth@gmail.com
+        </a>
+      </p>
+
+    </footer>
+
+  </main>
+
+</body>
+</html>
