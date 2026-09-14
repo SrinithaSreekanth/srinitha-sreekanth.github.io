@@ -1,208 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Srinitha Sreekanth — Biomedical Engineer &amp; ML Researcher</title>
-<meta name="description" content="Portfolio of Srinitha Sreekanth — biomedical engineer working across medical imaging, machine learning, and healthcare research." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srinitha Sreekanth — Biomedical Engineering · Medical Imaging · AI</title>
+<meta name="description" content="Portfolio of Srinitha Sreekanth — Biomedical Engineer working across medical imaging, biosignal processing, and explainable AI.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="nav" id="nav">
-  <a href="#home" class="nav-name">Srinitha Sreekanth</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <nav class="nav-links" id="navLinks">
-    <a href="#about">About</a>
-    <a href="#position">Position</a>
-    <a href="#education">Education</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo">SS</a>
+    <nav class="primary">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-links">
+      <a href="https://github.com/SrinithaSreekanth" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/srinitha-sreekanth" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
 </header>
 
-<main>
-
-  <section id="home" class="hero">
-    <svg class="hero-wave" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
-      <path id="wavePath" d="M0,110 L90,110 L120,40 L150,180 L180,20 L210,190 L240,60 L270,150 L300,110 L1200,110" />
-    </svg>
-    <div class="hero-inner">
-      <p class="hero-kicker">Chennai, India</p>
-      <h1>Srinitha<br />Sreekanth</h1>
-      <p class="hero-role">A biomedical engineer working where medical imaging, machine learning, and clinical questions meet — currently building AI/ML pipelines for pancreas MRI research at IIT&nbsp;Madras.</p>
-      <div class="hero-links">
-        <a href="https://github.com/SrinithaSreekanth" class="btn btn-gold" target="_blank" rel="noopener">GitHub</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div>
+      <div class="hero-eyebrow">HELLO, I'M</div>
+      <h1>Srinitha<br>Sreekanth</h1>
+      <p class="hero-role">Biomedical Engineering<span>·</span>Medical Imaging<span>·</span>AI</p>
+      <p class="lede">Biomedical Engineering graduate working at the intersection of medical imaging, biosignal processing, and explainable AI — currently a Project Associate at the Office of IC&amp;SR, IIT Madras, building models that hold up to scrutiny, not just benchmarks.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-solid">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
-  </section>
+    <div class="portrait">
+      <div class="portrait-frame">
+        <img src="profile.jpg" alt="Srinitha Sreekanth" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'portrait-monogram',textContent:'SS'}))">
+      </div>
+      <div class="portrait-caption">IIT MADRAS</div>
+    </div>
+  </div>
+</section>
 
-  <section id="about" class="section">
+<section id="about">
+  <div class="wrap">
     <div class="section-head">
-      <h2>About</h2>
+      <div class="section-kicker">ABOUT</div>
+      <h2>Building models that survive being questioned</h2>
     </div>
-    <div class="section-body">
-      <p>I'm a biomedical engineering graduate with a research practice that sits between hardware, signal processing, and applied machine learning. My undergraduate thesis built a facial EMG-controlled wheelchair system from the ground up — filtering raw muscle signal, extracting features, and eventually driving real hardware over Bluetooth. Since then I've stayed close to that same question in different forms: what can be read reliably from a noisy biological signal, and what can't be, no matter how sophisticated the model.</p>
-      <p>That instinct for honest evaluation carries into my current work, where I'm applying segmentation and quantitative imaging methods to pancreas MRI as part of a study on diabetes in the Indian population. I work primarily in Python, and I care about pipelines that are reproducible and results that hold up under scrutiny — including the null ones.</p>
-    </div>
-  </section>
-
-  <section id="position" class="section alt">
-    <div class="section-head">
-      <h2>Current Position</h2>
-    </div>
-    <div class="position-card">
-      <div class="position-top">
+    <div class="about-grid">
+      <div>
+        <p>I'm a Biomedical Engineering graduate from VELS University, currently working as a Project Associate in the Office of IC&amp;SR at IIT Madras. My work sits across medical imaging, biosignal processing, and machine learning — with a particular interest in whether a model's accuracy actually reflects the biology it claims to detect, or just artifacts in the data it was trained on.</p>
+        <p>That question runs through both of my current independent studies: one re-examines a facial-EMG wheelchair control dataset for real inter-subject variability, and the other audits deep learning models for ultrasound-based liver disease detection for hidden dataset confounding. I care as much about what a model gets wrong, and why, as what it gets right.</p>
+        <p>Outside formal research, I've worked across data analytics, embedded systems, and hospital biomedical engineering — which keeps the imaging and modelling work grounded in how it would actually need to function in a clinical or field setting.</p>
+      </div>
+      <div class="role-card">
+        <div class="tag">CURRENT ROLE</div>
         <h3>Project Associate</h3>
-        <span class="position-date">Sept 2026 — present</span>
+        <div class="org">Office of IC&amp;SR · IIT Madras</div>
+        <ul>
+          <li>Medical imaging &amp; explainable AI research</li>
+          <li>Biosignal acquisition &amp; analysis</li>
+          <li>Independent research authorship</li>
+        </ul>
       </div>
-      <p class="position-meta">Department of Medical Sciences &amp; Technology (MST), IIT Madras · under Dr. Rupsa Bhattacharjee</p>
-      <p>Working on <em>"Quantitative and Functional MRI Characterization of the Pancreas in the Indian Diabetic Population: A Pilot Study,"</em> a one-year project applying AI/ML methods to real-time patient MRI scans. The role combines segmentation techniques (U-Net family architectures, cross-sequence generalization) with the specific demands of building an Indian-population-specific reference for pancreatic imaging in diabetes.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="education" class="section">
+<section id="research">
+  <div class="wrap">
     <div class="section-head">
-      <h2>Education</h2>
+      <div class="section-kicker">RESEARCH INTERESTS</div>
+      <h2>Where I focus</h2>
+      <p>Four connected areas that show up across my published and ongoing work.</p>
+    </div>
+    <div class="interest-grid">
+      <div class="interest-card">
+        <div class="num">01</div>
+        <h3>Medical Imaging</h3>
+        <p>Working with ultrasound and biosignal data end-to-end — from acquisition and preprocessing (ROI cropping, CLAHE contrast enhancement) through to classification and evaluation, with an emphasis on catching dataset leakage before it inflates results.</p>
+      </div>
+      <div class="interest-card">
+        <div class="num">02</div>
+        <h3>Image Processing</h3>
+        <p>Building preprocessing pipelines that remove acquisition artifacts — probe borders, depth text, scanner noise — so a model is left with signal rather than shortcuts, using OpenCV-based cropping and quality-metric auditing (brightness, contrast, sharpness, entropy).</p>
+      </div>
+      <div class="interest-card">
+        <div class="num">03</div>
+        <h3>Image Segmentation</h3>
+        <p>Interested in segmentation as a way to localize where a model is actually looking — isolating anatomical regions of interest so downstream classification is anchored to biology rather than background texture.</p>
+      </div>
+      <div class="interest-card">
+        <div class="num">04</div>
+        <h3>Artificial Intelligence</h3>
+        <p>Applying CNN architectures (EfficientNet-B0, ResNet-18) to biomedical classification tasks, paired with explainability tools like Grad-CAM and confounding-detection classifiers to test whether a model's accuracy is trustworthy, not just high.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">EXPERIENCE</div>
+      <h2>Where I've worked</h2>
     </div>
     <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <span class="timeline-year">Graduated 2026</span>
-          <h3>B.Tech, Biomedical Engineering</h3>
-          <p>VISTAS · CGPA 8.76 — top 5% of the program</p>
-        </div>
+
+      <div class="tl-item">
+        <div class="tl-date">SEP 2025 — OCT 2025</div>
+        <h3>Research Associate</h3>
+        <div class="tl-org">India Health Link · Full-time · Chennai, Tamil Nadu · On-site</div>
+        <ul>
+          <li>Developed and optimized a urine strip auto-mapping workflow using generative AI and Python, improving mapping precision and diagnostic consistency</li>
+          <li>Improved digital stethoscope output quality with Python-based noise-cancellation for clearer cardiac and respiratory signals</li>
+          <li>Investigated CVT technical faults in J&amp;K, documented root-cause analysis, and proposed solutions for power-shortage-related failures</li>
+          <li>Executed test cycles on ZUG modules in the hPod system to validate operational readiness</li>
+          <li>Prepared structured logs, test sheets, and workflow documentation for engineering review</li>
+        </ul>
       </div>
-    </div>
-  </section>
 
-  <section id="research" class="section alt">
+      <div class="tl-item">
+        <div class="tl-date">JUN 2025 — AUG 2025</div>
+        <h3>Data Analyst Intern</h3>
+        <div class="tl-org">Labmentix · Internship · Bengaluru, Karnataka · Remote</div>
+        <ul>
+          <li>Completed 7+ end-to-end data analytics projects covering data cleaning, visualization, and healthcare insight generation</li>
+          <li>Performed statistical analysis on biomedical datasets using Python (Pandas, NumPy) and SQL</li>
+          <li>Designed interactive Power BI dashboards with DAX queries to monitor KPIs and patient-level metrics</li>
+          <li>Built foundational R programming skills for biomedical analytics</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">JUN 2025 — JUL 2025</div>
+        <h3>Data Analyst Intern</h3>
+        <div class="tl-org">NoviTech R&amp;D Pvt Ltd · Internship · Chennai, Tamil Nadu · Remote</div>
+        <ul>
+          <li>Contributed to healthcare data research, generating reports and analytical insights for project teams</li>
+          <li>Built prototype dashboards and predictive models in Python (Pandas, NumPy) and Tableau</li>
+          <li>Applied statistical concepts and scikit-learn fundamentals for AI/ML experimentation</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">DEC 2023</div>
+        <h3>Biomedical Intern</h3>
+        <div class="tl-org">Parvathy Hospital · Internship · Chennai, Tamil Nadu · On-site</div>
+        <ul>
+          <li>Assisted senior biomedical engineers with equipment maintenance, calibration, and safety checks</li>
+          <li>Applied standard troubleshooting procedures on diagnostic and therapeutic devices</li>
+          <li>Documented equipment performance across ICU, OT, and patient-monitoring areas</li>
+          <li>Gained hands-on familiarity with ventilators, defibrillators, syringe pumps, and patient monitors</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">SEP 2022</div>
+        <h3>Biomedical Intern</h3>
+        <div class="tl-org">Deepam Hospitals · Apprenticeship · On-site</div>
+        <ul>
+          <li>Observed biomedical operations across ICU, Dialysis, OT, Emergency, Radiology, Dentistry, and General Wards</li>
+          <li>Gained exposure to hemodialyzers, ventilators, and infusion systems</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
     <div class="section-head">
-      <h2>Research &amp; Projects</h2>
-    </div>
-    <div class="project-grid">
-
-      <article class="project-card">
-        <span class="project-tag">Ongoing</span>
-        <h3>Pancreas MRI for Diabetes</h3>
-        <p>AI/ML-driven quantitative and functional MRI characterization of the pancreas in the Indian diabetic population, at IIT Madras.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-tag">Thesis</span>
-        <h3>Facial EMG-Controlled Wheelchair</h3>
-        <p>Two-phase system: Phase I captured and band-pass filtered (30–500 Hz) EMG signal on a BIOPAC MP45 for feature extraction; Phase II moved to threshold-based hardware control over HC-05 Bluetooth and an Arduino UNO.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-tag">ML Reanalysis</span>
-        <h3>Revisiting the EMG Dataset</h3>
-        <p>A full Python pipeline — LOSO cross-validation, feature importance, SMOTE testing, a safety controller, and a PyBullet 3D simulation — built to re-examine the original dataset honestly rather than chase an inflated accuracy number.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-tag">Manuscript</span>
-        <h3>Quality-Aware Subgroup Calibration</h3>
-        <p>An ultrasound-based MASLD detection study asking whether deep learning models are picking up genuine disease biomarkers or dataset artifacts.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-tag">Preprint</span>
-        <h3>RE-PWFL</h3>
-        <p>A theory paper for federated learning in neuroimaging, coupling DerSimonian–Laird heterogeneity estimation, Welford online variance, and Fed-ComBat harmonization into a per-round client weighting scheme.</p>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="publications" class="section">
-    <div class="section-head">
-      <h2>Publications</h2>
-    </div>
-    <ul class="pub-list">
-      <li>
-        <div class="pub-main">
-          <h3>Facial EMG-Controlled Wheelchair Control</h3>
-          <p class="pub-venue">AIP Conference Proceedings · 2025</p>
-        </div>
-        <span class="pub-status published">Published</span>
-      </li>
-      <li>
-        <div class="pub-main">
-          <h3>Quality-Aware Subgroup Calibration of Deep Learning Models for Ultrasound-Based MASLD Detection</h3>
-          <p class="pub-venue">Manuscript</p>
-        </div>
-        <span class="pub-status">In preparation</span>
-      </li>
-      <li>
-        <div class="pub-main">
-          <h3>RE-PWFL: Random-Effects Personalized Weighted Federated Learning</h3>
-          <p class="pub-venue">arXiv preprint</p>
-        </div>
-        <span class="pub-status">Submitted</span>
-      </li>
-    </ul>
-  </section>
-
-  <section id="skills" class="section alt">
-    <div class="section-head">
-      <h2>Skills</h2>
+      <div class="section-kicker">SKILLS</div>
+      <h2>Tools &amp; methods</h2>
     </div>
     <div class="skills-grid">
       <div class="skill-group">
-        <h3>Programming &amp; ML</h3>
-        <p>Python, NumPy, pandas, scikit-learn, PyTorch basics, VS Code as primary editor, Git &amp; GitHub</p>
+        <div class="tag">PROGRAMMING &amp; ANALYSIS</div>
+        <div class="items"><span>Python</span><span>NumPy</span><span>Pandas</span><span>SciPy</span><span>MATLAB</span></div>
       </div>
       <div class="skill-group">
-        <h3>Medical Imaging &amp; Signal</h3>
-        <p>MRI segmentation (U-Net / nnU-Net family), EMG signal processing, biosignal filtering &amp; feature extraction</p>
+        <div class="tag">AI / ML</div>
+        <div class="items"><span>CNNs</span><span>EfficientNet-B0</span><span>ResNet-18</span><span>Grad-CAM</span><span>Explainable AI</span><span>Classification</span></div>
       </div>
       <div class="skill-group">
-        <h3>Hardware &amp; Systems</h3>
-        <p>Arduino, Bluetooth (HC-05) control systems, PyBullet simulation</p>
+        <div class="tag">SIGNAL PROCESSING</div>
+        <div class="items"><span>EMG</span><span>ECG</span><span>Filtering</span><span>Wavelet Analysis</span><span>Feature Extraction</span><span>Artifact Removal</span></div>
       </div>
       <div class="skill-group">
-        <h3>Research Practice</h3>
-        <p>Reproducible pipelines, cross-validation design, honest null-result reporting, technical writing</p>
+        <div class="tag">MEDICAL IMAGE PROCESSING</div>
+        <div class="items"><span>OpenCV</span><span>CLAHE</span><span>ROI Extraction</span><span>Image Quality Analysis</span><span>Ultrasound Processing</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="tag">SIMULATION &amp; EMBEDDED</div>
+        <div class="items"><span>MATLAB/Simulink</span><span>Arduino</span><span>Arduino IDE</span><span>L298 Motor Driver</span><span>Sensor Integration</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="tag">INSTRUMENTATION &amp; DATA</div>
+        <div class="items"><span>BIOPAC MP45</span><span>Biosignal Acquisition</span><span>Device Validation</span><span>Power BI</span><span>DAX</span></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="creative" class="section">
+<section id="education">
+  <div class="wrap">
     <div class="section-head">
-      <h2>Beyond Research</h2>
+      <div class="section-kicker">EDUCATION</div>
+      <h2>Academic background</h2>
     </div>
-    <div class="section-body">
-      <p>Outside the lab, I write and produce short-form video content in Malayalam, Tamil, and English — scripts, animated backgrounds, and AI-assisted production for young audiences. It's a different kind of signal-to-noise problem: figuring out what actually lands with a viewer in the first few seconds.</p>
+    <div class="edu-card">
+      <div>
+        <h3>VELS University</h3>
+        <div class="org">Bachelor of Engineering, Biomedical / Medical Engineering</div>
+        <div class="meta">2021 — May 2025 · Biomedical Devices, Medical Devices +6 skills</div>
+      </div>
+      <div class="edu-grade">
+        <div class="num">8.76</div>
+        <div class="lbl">CGPA</div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="section alt contact">
+<section id="projects">
+  <div class="wrap">
     <div class="section-head">
-      <h2>Get in touch</h2>
+      <div class="section-kicker">PROJECTS</div>
+      <h2>Independent studies</h2>
+      <p>Three separate projects — each asks its own question about a model's reliability, not just its accuracy.</p>
     </div>
-    <p class="contact-text">I'm always glad to talk about medical imaging, biosignal work, or postgraduate research opportunities.</p>
-    <div class="contact-links">
-      <a href="mailto:your.email@example.com" class="btn btn-gold">your.email@example.com</a>
-      <a href="https://github.com/SrinithaSreekanth" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+    <div class="project-list">
+
+      <div class="project-row">
+        <div class="idx">01</div>
+        <div>
+          <h3>Facial EMG Wheelchair Control</h3>
+          <p class="desc">The original hardware and signal-acquisition system: a threshold-based facial-sEMG wheelchair control interface for quadriplegia, using Buccinator and Zygomaticus Major muscle activation to drive simulated mobility commands.</p>
+          <div class="meta-row"><span>BIOPAC MP45</span><span>Threshold Control</span><span>Hardware</span></div>
+        </div>
+        <a class="go" href="https://github.com/SrinithaSreekanth/srinitha-sreekanth.github.io/tree/main/projects/facial-emg-wheelchair" target="_blank" rel="noopener">View →</a>
+      </div>
+
+      <div class="project-row">
+        <div class="idx">02</div>
+        <div>
+          <h3>Subject-Level Heterogeneity in Facial EMG</h3>
+          <p class="desc">An independent machine-learning reanalysis of the same trial recordings, asking whether personalized per-subject models actually outperform a pooled, subject-generalized classifier — evaluated with rigorous 5-fold stratified cross-validation and LOSO validation.</p>
+          <div class="meta-row"><span>Logistic Regression</span><span>XGBoost</span><span>KNN</span><span>LOSO CV</span></div>
+        </div>
+        <a class="go" href="https://github.com/SrinithaSreekanth/srinitha-sreekanth.github.io/tree/main/projects/facial-emg-heterogeneity" target="_blank" rel="noopener">View →</a>
+      </div>
+
+      <div class="project-row">
+        <div class="idx">03</div>
+        <div>
+          <h3>Quality-Aware MASLD Detection from Ultrasound</h3>
+          <p class="desc">A quality-aware, explainable framework auditing deep learning models for ultrasound-based liver disease detection — testing whether near-perfect accuracy reflects real biomarkers or hidden dataset-source confounding, using Grad-CAM and a dedicated source-classifier probe.</p>
+          <div class="meta-row"><span>EfficientNet-B0</span><span>ResNet-18</span><span>Grad-CAM</span><span>Leakage Audit</span></div>
+        </div>
+        <a class="go" href="https://github.com/SrinithaSreekanth/srinitha-sreekanth.github.io/tree/main/projects/masld-quality-calibration" target="_blank" rel="noopener">View →</a>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-</main>
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">PUBLICATIONS &amp; CONFERENCES</div>
+      <h2>Peer review &amp; presentations</h2>
+    </div>
 
-<footer class="footer">
-  <p>© <span id="year"></span> Srinitha Sreekanth</p>
+    <div class="pub-item">
+      <div>
+        <h3>Facial EMG Based Simulation Module for Quadriplegia</h3>
+        <p style="color:var(--muted); font-size:14px;">Accepted across multiple venues for oral presentation; accepted for publication in AIP Conference Proceedings following presentation at CoaCoNS 2025, SRM Institute of Science and Technology.</p>
+        <div class="venues">
+          <span>EAIC 2025 — Oral, Track 9: Biomedical Engineering &amp; Healthcare Technologies</span>
+          <span>ICMBPS-24 — Bangalore, Dec 2024</span>
+          <span>CoaCoNS 2025 — SRMIST, Mar 2025</span>
+        </div>
+      </div>
+      <div class="pub-status">ACCEPTED · AIP PROCEEDINGS</div>
+    </div>
+
+    <div class="pub-item">
+      <div>
+        <h3>ICTMIM 2025</h3>
+        <p style="color:var(--muted); font-size:14px;">5th International Conference on Trends in Material Science and Inventive Materials — article accepted, camera-ready submission in progress.</p>
+      </div>
+      <div class="pub-status">ACCEPTED</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <h2>Let's talk research.</h2>
+      <div class="contact-links">
+        <a href="mailto:srinithassreekanth@gmail.com">srinithassreekanth@gmail.com</a>
+        <a href="https://www.linkedin.com/in/srinitha-sreekanth" target="_blank" rel="noopener">linkedin.com/in/srinitha-sreekanth</a>
+        <a href="https://github.com/SrinithaSreekanth" target="_blank" rel="noopener">github.com/SrinithaSreekanth</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Srinitha Sreekanth · Biomedical Engineering · Medical Imaging · AI
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
