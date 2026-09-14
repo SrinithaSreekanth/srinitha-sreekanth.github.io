@@ -5,7 +5,7 @@
 *Undergraduate Extension Study — Machine Learning Reanalysis of a Prior Hardware System*
 
 Srinitha Sreekanth · Department of Biomedical Engineering
-Independent Researcher / Incoming Project Intern, IIT Madras
+Independent Researcher / Project Associate, IIT Madras
 
 ---
 
@@ -52,11 +52,3 @@ No meaningful heterogeneity penalty was observed — the generalized model *slig
 - Personalized models trained on only ~2–3 trials per class per subject — likely too few to build a reliable subject-specific boundary
 - A null result here doesn't disprove inter-subject heterogeneity in facial sEMG generally — it means this dataset is underpowered to detect it
 - No claim is made about real-world deployable classification accuracy; the contribution is methodological
-
-## Reference
-
-[1] T. R. Thamizhvani, R. Chandrasekaran, S. Yazhini, and P. Deepika, "Facial EMG Controlled Wheelchair - A Simulated Mobility Assistance for Quadriplegia," *2026 Twelfth International Conference on Bio Signals, Images, and Instrumentation (ICBSII)*, Chennai, India, 2026, pp. 1-4, doi: 10.1109/ICBSII69710.2026.11479230.
-
----
-
-📧 srinithassreekanth@gmail.com
