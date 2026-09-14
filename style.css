@@ -1,388 +1,327 @@
-/* =========================================================
-   SRINITHA SREEKANTH — PORTFOLIO
-   Black + antique gold, academic / research aesthetic
-========================================================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srinitha Sreekanth — Biomedical Engineering · Medical Imaging · AI</title>
+<meta name="description" content="Portfolio of Srinitha Sreekanth — Biomedical Engineer working across medical imaging, biosignal processing, and explainable AI.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* ---------- Tokens ---------- */
-:root {
-  --bg: #0a0908;
-  --bg-soft: #110f0c;
-  --surface: #161310;
-  --surface-hover: #1c1813;
-  --border: #2a2318;
-  --border-strong: #3d3220;
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="logo">SS</a>
+    <nav class="primary">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-links">
+      <a href="https://github.com/SrinithaSreekanth" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/srinitha-sreekanth" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
 
-  --gold: #c9a24b;
-  --gold-bright: #e6c477;
-  --gold-dim: #8a7038;
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div>
+      <div class="hero-eyebrow">HELLO, I'M</div>
+      <h1>Srinitha<br>Sreekanth</h1>
+      <p class="hero-role">Biomedical Engineering<span>·</span>Medical Imaging<span>·</span>AI</p>
+      <p class="lede">Biomedical Engineering graduate working at the intersection of medical imaging, biosignal processing, and explainable AI — currently a Project Associate at the Office of IC&amp;SR, IIT Madras, building models that hold up to scrutiny, not just benchmarks.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-solid">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="portrait-frame">
+        <img src="profile.jpg" alt="Srinitha Sreekanth" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'portrait-monogram',textContent:'SS'}))">
+      </div>
+      <div class="portrait-caption">IIT MADRAS</div>
+    </div>
+  </div>
+</section>
 
-  --ivory: #f1ecdf;
-  --ivory-dim: #bdb5a2;
-  --text-muted: #8c8474;
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">ABOUT</div>
+      <h2>Building models that survive being questioned</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a Biomedical Engineering graduate from VELS University, currently working as a Project Associate in the Office of IC&amp;SR at IIT Madras. My work sits across medical imaging, biosignal processing, and machine learning — with a particular interest in whether a model's accuracy actually reflects the biology it claims to detect, or just artifacts in the data it was trained on.</p>
+        <p>That question runs through both of my current independent studies: one re-examines a facial-EMG wheelchair control dataset for real inter-subject variability, and the other audits deep learning models for ultrasound-based liver disease detection for hidden dataset confounding. I care as much about what a model gets wrong, and why, as what it gets right.</p>
+        <p>Outside formal research, I've worked across data analytics, embedded systems, and hospital biomedical engineering — which keeps the imaging and modelling work grounded in how it would actually need to function in a clinical or field setting.</p>
+      </div>
+      <div class="role-card">
+        <div class="tag">CURRENT ROLE</div>
+        <h3>Project Associate</h3>
+        <div class="org">Office of IC&amp;SR · IIT Madras</div>
+        <ul>
+          <li>Medical imaging &amp; explainable AI research</li>
+          <li>Biosignal acquisition &amp; analysis</li>
+          <li>Independent research authorship</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+<section id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">RESEARCH INTERESTS</div>
+      <h2>Where I focus</h2>
+      <p>Four connected areas that show up across my published and ongoing work.</p>
+    </div>
+    <div class="interest-grid">
+      <div class="interest-card">
+        <div class="num">01</div>
+        <h3>Medical Imaging</h3>
+        <p>Working with ultrasound and biosignal data end-to-end — from acquisition and preprocessing (ROI cropping, CLAHE contrast enhancement) through to classification and evaluation, with an emphasis on catching dataset leakage before it inflates results.</p>
+      </div>
+      <div class="interest-card">
+        <div class="num">02</div>
+        <h3>Image Processing</h3>
+        <p>Building preprocessing pipelines that remove acquisition artifacts — probe borders, depth text, scanner noise — so a model is left with signal rather than shortcuts, using OpenCV-based cropping and quality-metric auditing (brightness, contrast, sharpness, entropy).</p>
+      </div>
+      <div class="interest-card">
+        <div class="num">03</div>
+        <h3>Image Segmentation</h3>
+        <p>Interested in segmentation as a way to localize where a model is actually looking — isolating anatomical regions of interest so downstream classification is anchored to biology rather than background texture.</p>
+      </div>
+      <div class="interest-card">
+        <div class="num">04</div>
+        <h3>Artificial Intelligence</h3>
+        <p>Applying CNN architectures (EfficientNet-B0, ResNet-18) to biomedical classification tasks, paired with explainability tools like Grad-CAM and confounding-detection classifiers to test whether a model's accuracy is trustworthy, not just high.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  --max: 880px;
-}
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">EXPERIENCE</div>
+      <h2>Where I've worked</h2>
+    </div>
+    <div class="timeline">
 
-* { box-sizing: border-box; }
+      <div class="tl-item">
+        <div class="tl-date">SEP 2025 — OCT 2025</div>
+        <h3>Research Associate</h3>
+        <div class="tl-org">India Health Link · Full-time · Chennai, Tamil Nadu · On-site</div>
+        <ul>
+          <li>Developed and optimized a urine strip auto-mapping workflow using generative AI and Python, improving mapping precision and diagnostic consistency</li>
+          <li>Improved digital stethoscope output quality with Python-based noise-cancellation for clearer cardiac and respiratory signals</li>
+          <li>Investigated CVT technical faults in J&amp;K, documented root-cause analysis, and proposed solutions for power-shortage-related failures</li>
+          <li>Executed test cycles on ZUG modules in the hPod system to validate operational readiness</li>
+          <li>Prepared structured logs, test sheets, and workflow documentation for engineering review</li>
+        </ul>
+      </div>
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 84px;
-}
+      <div class="tl-item">
+        <div class="tl-date">JUN 2025 — AUG 2025</div>
+        <h3>Data Analyst Intern</h3>
+        <div class="tl-org">Labmentix · Internship · Bengaluru, Karnataka · Remote</div>
+        <ul>
+          <li>Completed 7+ end-to-end data analytics projects covering data cleaning, visualization, and healthcare insight generation</li>
+          <li>Performed statistical analysis on biomedical datasets using Python (Pandas, NumPy) and SQL</li>
+          <li>Designed interactive Power BI dashboards with DAX queries to monitor KPIs and patient-level metrics</li>
+          <li>Built foundational R programming skills for biomedical analytics</li>
+        </ul>
+      </div>
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-}
+      <div class="tl-item">
+        <div class="tl-date">JUN 2025 — JUL 2025</div>
+        <h3>Data Analyst Intern</h3>
+        <div class="tl-org">NoviTech R&amp;D Pvt Ltd · Internship · Chennai, Tamil Nadu · Remote</div>
+        <ul>
+          <li>Contributed to healthcare data research, generating reports and analytical insights for project teams</li>
+          <li>Built prototype dashboards and predictive models in Python (Pandas, NumPy) and Tableau</li>
+          <li>Applied statistical concepts and scikit-learn fundamentals for AI/ML experimentation</li>
+        </ul>
+      </div>
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ivory-dim);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
+      <div class="tl-item">
+        <div class="tl-date">DEC 2023</div>
+        <h3>Biomedical Intern</h3>
+        <div class="tl-org">Parvathy Hospital · Internship · Chennai, Tamil Nadu · On-site</div>
+        <ul>
+          <li>Assisted senior biomedical engineers with equipment maintenance, calibration, and safety checks</li>
+          <li>Applied standard troubleshooting procedures on diagnostic and therapeutic devices</li>
+          <li>Documented equipment performance across ICU, OT, and patient-monitoring areas</li>
+          <li>Gained hands-on familiarity with ventilators, defibrillators, syringe pumps, and patient monitors</li>
+        </ul>
+      </div>
 
-h1, h2, h3 {
-  font-family: var(--serif);
-  color: var(--ivory);
-  margin: 0;
-  font-weight: 500;
-}
+      <div class="tl-item">
+        <div class="tl-date">SEP 2022</div>
+        <h3>Biomedical Intern</h3>
+        <div class="tl-org">Deepam Hospitals · Apprenticeship · On-site</div>
+        <ul>
+          <li>Observed biomedical operations across ICU, Dialysis, OT, Emergency, Radiology, Dentistry, and General Wards</li>
+          <li>Gained exposure to hemodialyzers, ventilators, and infusion systems</li>
+        </ul>
+      </div>
 
-a { color: inherit; text-decoration: none; }
+    </div>
+  </div>
+</section>
 
-p { margin: 0 0 1em; max-width: 66ch; }
-p:last-child { margin-bottom: 0; }
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">SKILLS</div>
+      <h2>Tools &amp; methods</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="tag">PROGRAMMING &amp; ANALYSIS</div>
+        <div class="items"><span>Python</span><span>NumPy</span><span>Pandas</span><span>SciPy</span><span>MATLAB</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="tag">AI / ML</div>
+        <div class="items"><span>CNNs</span><span>EfficientNet-B0</span><span>ResNet-18</span><span>Grad-CAM</span><span>Explainable AI</span><span>Classification</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="tag">SIGNAL PROCESSING</div>
+        <div class="items"><span>EMG</span><span>ECG</span><span>Filtering</span><span>Wavelet Analysis</span><span>Feature Extraction</span><span>Artifact Removal</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="tag">MEDICAL IMAGE PROCESSING</div>
+        <div class="items"><span>OpenCV</span><span>CLAHE</span><span>ROI Extraction</span><span>Image Quality Analysis</span><span>Ultrasound Processing</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="tag">SIMULATION &amp; EMBEDDED</div>
+        <div class="items"><span>MATLAB/Simulink</span><span>Arduino</span><span>Arduino IDE</span><span>L298 Motor Driver</span><span>Sensor Integration</span></div>
+      </div>
+      <div class="skill-group">
+        <div class="tag">INSTRUMENTATION &amp; DATA</div>
+        <div class="items"><span>BIOPAC MP45</span><span>Biosignal Acquisition</span><span>Device Validation</span><span>Power BI</span><span>DAX</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-::selection { background: var(--gold-dim); color: var(--bg); }
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">EDUCATION</div>
+      <h2>Academic background</h2>
+    </div>
+    <div class="edu-card">
+      <div>
+        <h3>VELS University</h3>
+        <div class="org">Bachelor of Engineering, Biomedical / Medical Engineering</div>
+        <div class="meta">2021 — May 2025 · Biomedical Devices, Medical Devices +6 skills</div>
+      </div>
+      <div class="edu-grade">
+        <div class="num">8.76</div>
+        <div class="lbl">CGPA</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-/* ---------- Nav ---------- */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 6%;
-  background: rgba(10, 9, 8, 0.82);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-}
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">PROJECTS</div>
+      <h2>Independent studies</h2>
+      <p>Three separate projects — each asks its own question about a model's reliability, not just its accuracy.</p>
+    </div>
+    <div class="project-list">
 
-.nav-name {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  color: var(--ivory);
-  letter-spacing: 0.01em;
-}
+      <div class="project-row">
+        <div class="idx">01</div>
+        <div>
+          <h3>Facial EMG Wheelchair Control</h3>
+          <p class="desc">The original hardware and signal-acquisition system: a threshold-based facial-sEMG wheelchair control interface for quadriplegia, using Buccinator and Zygomaticus Major muscle activation to drive simulated mobility commands.</p>
+          <div class="meta-row"><span>BIOPAC MP45</span><span>Threshold Control</span><span>Hardware</span></div>
+        </div>
+        <a class="go" href="https://github.com/SrinithaSreekanth/srinitha-sreekanth.github.io/tree/main/projects/facial-emg-wheelchair" target="_blank" rel="noopener">View →</a>
+      </div>
 
-.nav-links {
-  display: flex;
-  gap: 32px;
-}
+      <div class="project-row">
+        <div class="idx">02</div>
+        <div>
+          <h3>Subject-Level Heterogeneity in Facial EMG</h3>
+          <p class="desc">An independent machine-learning reanalysis of the same trial recordings, asking whether personalized per-subject models actually outperform a pooled, subject-generalized classifier — evaluated with rigorous 5-fold stratified cross-validation and LOSO validation.</p>
+          <div class="meta-row"><span>Logistic Regression</span><span>XGBoost</span><span>KNN</span><span>LOSO CV</span></div>
+        </div>
+        <a class="go" href="https://github.com/SrinithaSreekanth/srinitha-sreekanth.github.io/tree/main/projects/facial-emg-heterogeneity" target="_blank" rel="noopener">View →</a>
+      </div>
 
-.nav-links a {
-  font-size: 0.88rem;
-  color: var(--ivory-dim);
-  position: relative;
-  padding-bottom: 4px;
-  transition: color 0.2s ease;
-}
+      <div class="project-row">
+        <div class="idx">03</div>
+        <div>
+          <h3>Quality-Aware MASLD Detection from Ultrasound</h3>
+          <p class="desc">A quality-aware, explainable framework auditing deep learning models for ultrasound-based liver disease detection — testing whether near-perfect accuracy reflects real biomarkers or hidden dataset-source confounding, using Grad-CAM and a dedicated source-classifier probe.</p>
+          <div class="meta-row"><span>EfficientNet-B0</span><span>ResNet-18</span><span>Grad-CAM</span><span>Leakage Audit</span></div>
+        </div>
+        <a class="go" href="https://github.com/SrinithaSreekanth/srinitha-sreekanth.github.io/tree/main/projects/masld-quality-calibration" target="_blank" rel="noopener">View →</a>
+      </div>
 
-.nav-links a:hover { color: var(--gold-bright); }
+    </div>
+  </div>
+</section>
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  transition: width 0.25s ease;
-}
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">PUBLICATIONS &amp; CONFERENCES</div>
+      <h2>Peer review &amp; presentations</h2>
+    </div>
 
-.nav-links a.active { color: var(--gold-bright); }
-.nav-links a.active::after { width: 100%; }
+    <div class="pub-item">
+      <div>
+        <h3>Facial EMG Based Simulation Module for Quadriplegia</h3>
+        <p style="color:var(--muted); font-size:14px;">Accepted across multiple venues for oral presentation; accepted for publication in AIP Conference Proceedings following presentation at CoaCoNS 2025, SRM Institute of Science and Technology.</p>
+        <div class="venues">
+          <span>EAIC 2025 — Oral, Track 9: Biomedical Engineering &amp; Healthcare Technologies</span>
+          <span>ICMBPS-24 — Bangalore, Dec 2024</span>
+          <span>CoaCoNS 2025 — SRMIST, Mar 2025</span>
+        </div>
+      </div>
+      <div class="pub-status">ACCEPTED · AIP PROCEEDINGS</div>
+    </div>
 
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
+    <div class="pub-item">
+      <div>
+        <h3>ICTMIM 2025</h3>
+        <p style="color:var(--muted); font-size:14px;">5th International Conference on Trends in Material Science and Inventive Materials — article accepted, camera-ready submission in progress.</p>
+      </div>
+      <div class="pub-status">ACCEPTED</div>
+    </div>
 
-.nav-toggle span {
-  display: block;
-  height: 1px;
-  background: var(--gold);
-  width: 100%;
-}
+  </div>
+</section>
 
-/* ---------- Hero ---------- */
-.hero {
-  position: relative;
-  min-height: 86vh;
-  display: flex;
-  align-items: center;
-  padding: 0 6%;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border);
-}
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <h2>Let's talk research.</h2>
+      <div class="contact-links">
+        <a href="mailto:srinithassreekanth@gmail.com">srinithassreekanth@gmail.com</a>
+        <a href="https://www.linkedin.com/in/srinitha-sreekanth" target="_blank" rel="noopener">linkedin.com/in/srinitha-sreekanth</a>
+        <a href="https://github.com/SrinithaSreekanth" target="_blank" rel="noopener">github.com/SrinithaSreekanth</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-.hero-wave {
-  position: absolute;
-  inset: auto 0 0 0;
-  width: 100%;
-  height: 46%;
-  opacity: 0.55;
-}
+<footer>
+  © 2026 Srinitha Sreekanth · Biomedical Engineering · Medical Imaging · AI
+</footer>
 
-.hero-wave path {
-  fill: none;
-  stroke: var(--gold-dim);
-  stroke-width: 1.4;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-  animation: draw 2.4s ease-out 0.3s forwards;
-}
-
-@keyframes draw { to { stroke-dashoffset: 0; } }
-
-.hero-inner { max-width: 720px; position: relative; z-index: 1; }
-
-.hero-kicker {
-  font-size: 0.85rem;
-  color: var(--gold);
-  margin: 0 0 20px;
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out 0.15s forwards;
-}
-
-.hero h1 {
-  font-size: clamp(2.8rem, 7vw, 5.2rem);
-  line-height: 1.02;
-  letter-spacing: -0.01em;
-  opacity: 0;
-  animation: fadeUp 0.8s ease-out 0.3s forwards;
-}
-
-.hero-role {
-  margin-top: 26px;
-  font-size: 1.08rem;
-  color: var(--ivory-dim);
-  max-width: 54ch;
-  opacity: 0;
-  animation: fadeUp 0.8s ease-out 0.55s forwards;
-}
-
-.hero-links {
-  margin-top: 36px;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.8s ease-out 0.75s forwards;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------- Buttons ---------- */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 24px;
-  font-size: 0.9rem;
-  border-radius: 2px;
-  transition: all 0.2s ease;
-  border: 1px solid transparent;
-}
-
-.btn-gold {
-  background: var(--gold);
-  color: var(--bg);
-  font-weight: 600;
-}
-.btn-gold:hover { background: var(--gold-bright); }
-
-.btn-ghost {
-  border-color: var(--border-strong);
-  color: var(--ivory-dim);
-}
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold-bright); }
-
-/* ---------- Sections ---------- */
-.section {
-  padding: 100px 6%;
-  border-bottom: 1px solid var(--border);
-}
-
-.section.alt { background: var(--bg-soft); }
-
-.section-head { max-width: var(--max); margin: 0 auto 44px; }
-.section-head h2 { font-size: 2rem; }
-
-.section-body { max-width: var(--max); margin: 0 auto; }
-
-#about .section-body p,
-#creative .section-body p { font-size: 1.02rem; }
-
-/* ---------- Position card ---------- */
-.position-card {
-  max-width: var(--max);
-  margin: 0 auto;
-  border: 1px solid var(--border-strong);
-  border-left: 2px solid var(--gold);
-  padding: 32px 36px;
-  background: var(--surface);
-}
-
-.position-top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-.position-top h3 { font-size: 1.3rem; }
-.position-date { font-size: 0.85rem; color: var(--gold); }
-.position-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 18px; }
-
-/* ---------- Timeline ---------- */
-.timeline {
-  max-width: var(--max);
-  margin: 0 auto;
-  position: relative;
-  padding-left: 28px;
-  border-left: 1px solid var(--border-strong);
-}
-
-.timeline-item { position: relative; padding-bottom: 6px; }
-
-.timeline-marker {
-  position: absolute;
-  left: -33px;
-  top: 6px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 3px var(--bg-soft);
-}
-
-.timeline-year { font-size: 0.82rem; color: var(--gold); display: block; margin-bottom: 6px; }
-.timeline-content h3 { font-size: 1.15rem; margin-bottom: 6px; }
-
-/* ---------- Project grid ---------- */
-.project-grid {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-
-.project-card { background: var(--surface); padding: 30px; transition: background 0.25s ease; }
-.project-card:hover { background: var(--surface-hover); }
-
-.project-tag {
-  font-size: 0.72rem;
-  color: var(--gold);
-  border: 1px solid var(--gold-dim);
-  padding: 3px 9px;
-  border-radius: 2px;
-  display: inline-block;
-  margin-bottom: 14px;
-}
-
-.project-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
-.project-card p { font-size: 0.92rem; color: var(--ivory-dim); }
-
-/* ---------- Publications ---------- */
-.pub-list {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  max-width: var(--max);
-  border-top: 1px solid var(--border-strong);
-}
-
-.pub-list li {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 26px 0;
-  border-bottom: 1px solid var(--border-strong);
-}
-
-.pub-main h3 { font-size: 1.05rem; margin-bottom: 6px; font-weight: 500; }
-.pub-venue { font-size: 0.88rem; color: var(--text-muted); margin: 0; }
-.pub-status { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; padding-top: 4px; }
-.pub-status.published { color: var(--gold-bright); }
-
-/* ---------- Skills ---------- */
-.skills-grid {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 36px 48px;
-}
-
-.skill-group h3 { font-size: 1rem; color: var(--gold-bright); margin-bottom: 10px; font-weight: 500; }
-.skill-group p { font-size: 0.92rem; }
-
-/* ---------- Contact ---------- */
-.contact { text-align: left; }
-.contact-text { max-width: var(--max); margin: 0 auto 32px; }
-.contact-links { max-width: var(--max); margin: 0 auto; display: flex; gap: 16px; flex-wrap: wrap; }
-
-/* ---------- Footer ---------- */
-.footer { padding: 32px 6%; text-align: center; font-size: 0.8rem; color: var(--text-muted); }
-
-/* ---------- Responsive ---------- */
-@media (max-width: 760px) {
-  .nav-links {
-    position: fixed;
-    top: 65px;
-    left: 0;
-    right: 0;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    padding: 20px 6% 28px;
-    gap: 18px;
-    transform: translateY(-140%);
-    transition: transform 0.3s ease;
-  }
-
-  .nav-links.open { transform: translateY(0); }
-  .nav-toggle { display: flex; }
-  .section { padding: 70px 6%; }
-  .project-grid, .skills-grid { grid-template-columns: 1fr; }
-  .pub-list li { flex-direction: column; gap: 6px; }
-  .position-card { padding: 26px 22px; }
-}
+</body>
+</html>
