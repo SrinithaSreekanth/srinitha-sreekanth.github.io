@@ -22,31 +22,22 @@ Surface EMG electrodes are used to acquire signals from facial muscles. The sign
 
 ## Key Features
 
-- **Non-Invasive Control**  
-  Uses surface EMG electrodes placed on the facial region.
-
-- **Real-Time Signal Processing**  
-  EMG signals are processed using a **30–500 Hz bandpass filter**.
-
-- **Feature-Based Control**  
-  Uses statistical and wavelet-based features to distinguish facial movements.
-
-- **Wireless Communication**  
-  Uses an **HC-05 Bluetooth module** to transmit movement commands.
-
-- **Four-Directional Control**  
-  Supports forward, backward, left and right wheelchair movement.
+- **Non-Invasive Control** — Uses surface EMG electrodes placed on the facial region.
+- **Real-Time Signal Processing** — Uses a 30–500 Hz bandpass filter.
+- **Feature-Based Control** — Uses statistical and wavelet-based features.
+- **Wireless Communication** — Uses an HC-05 Bluetooth module.
+- **Four-Directional Control** — Forward, backward, left and right.
 
 ---
 
 ## Movement Classification
 
-| Facial Muscle | Gesture | Wheelchair Command |
+| Muscle Activated | Target Gesture | Wheelchair Command |
 |---|---|---|
 | Left Buccinator | Left cheek movement | Left Turn |
 | Right Buccinator | Right cheek movement | Right Turn |
-| Zygomaticus Major | Smiling | Forward |
-| Zygomaticus Major | Strained expression | Backward |
+| Zygomaticus Major | Smiling | Forward Movement |
+| Zygomaticus Major | Strained Expression | Backward Movement |
 
 ---
 
@@ -79,59 +70,92 @@ DC Motors
         ↓
 Wheelchair Movement
 
-Signal Processing
+---
+
+## Signal Processing
 
 The acquired EMG signals are processed to extract meaningful features for movement classification.
 
-Features
-Peak-to-Peak Amplitude
-Kurtosis
-Skewness
-Signal Area
-Wavelet Coefficients
+### Processing Pipeline
 
-The extracted features are evaluated against predefined threshold boundaries for movement classification.
+**Raw EMG Signal → Filtering → Wavelet Analysis → Feature Extraction → Threshold Evaluation**
 
-Hardware & Software
-Hardware
-BIOPAC MP45
-Surface EMG Electrodes
-Arduino UNO
-HC-05 Bluetooth Module
-L298N Motor Driver
-12V 1.3AH SLA Battery
-DC Motors
-4WD Prototype Chassis
-Software
-MATLAB
-Simulink
-Arduino C
-SoftwareSerial Library
-Results & Validation
+### Extracted Features
+
+- Peak-to-Peak Amplitude
+- Kurtosis
+- Skewness
+- Signal Area
+- Wavelet Coefficients
+
+The extracted features are evaluated against predefined threshold boundaries for classification of distinct facial movements.
+
+---
+
+## Hardware & Software
+
+### Hardware
+
+- BIOPAC MP45
+- Surface EMG Electrodes
+- Arduino UNO
+- HC-05 Bluetooth Module
+- L298N Motor Driver
+- 12V 1.3AH SLA Battery
+- DC Motors
+- 4WD Prototype Chassis
+
+### Software
+
+- MATLAB
+- Simulink
+- Arduino C
+- SoftwareSerial Library
+
+---
+
+## Results & Validation
 
 The developed prototype was tested for four-directional movement:
 
-Forward • Backward • Left • Right
+**Forward • Backward • Left • Right**
 
-The system demonstrated the conversion of facial EMG activity into directional movement commands and their execution through the motor-control system.
+The system demonstrated conversion of facial EMG activity into directional movement commands and their execution through the motor-control system.
 
-Project Posters
-Introduction
+The **Kruskal–Wallis test** was used to evaluate the extracted features for distinguishing between different facial gestures.
 
-System Workflow
+---
 
-Final Results
+## Project Posters
 
-Project Team
+### Introduction
 
-Srinitha S
-Nivedha E
-Ramya Bharathi S
+![Project Introduction](01-introduction.png)
 
-Department of Biomedical Engineering
+### System Workflow
+
+![Project Workflow](02-workflow.png)
+
+### Final Results
+
+![Final Results](03-final-results.png)
+
+---
+
+## Project Team
+
+**Srinitha S**  
+**Nivedha E**  
+**Ramya Bharathi S**
+
+Department of Biomedical Engineering  
 Vels Institute of Science, Technology and Advanced Studies (VISTAS), Chennai
 
-Citation
+---
+
+## Citation
+
+```bibtex
 @bachelorsthesis{srinitha2025facialemg,
   author       = {Srinitha S and Nivedha E and Ramya Bharathi S},
   title        = {Facial EMG Controlled Wheelchair – A Mobility Assistance for Quadriplegia},
@@ -139,6 +163,3 @@ Citation
   year         = {2025},
   type         = {B.E. Biomedical Engineering Project Phase II Report}
 } 
-
-
-
