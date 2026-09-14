@@ -1,6 +1,7 @@
 /* =========================================================
    GLOBAL VARIABLES & THEME
    ========================================================= */
+
 :root {
     --bg: #0d0e10;
     --panel: #141619;
@@ -38,9 +39,11 @@ a {
     transition: color 0.2s ease, border-color 0.2s ease;
 }
 
+
 /* =========================================================
    NAVIGATION BAR
    ========================================================= */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -91,9 +94,11 @@ a {
     color: var(--gold);
 }
 
+
 /* =========================================================
    HERO / PROFILE SECTION
    ========================================================= */
+
 .profile {
     padding: 40px 8% 80px 8%;
 }
@@ -182,9 +187,11 @@ a {
     background: var(--panel-hover);
 }
 
+
 /* =========================================================
    COMMON SECTION LAYOUTS
    ========================================================= */
+
 .section {
     padding: 90px 8%;
     border-top: 1px solid var(--border-soft);
@@ -213,9 +220,11 @@ a {
     color: var(--cream);
 }
 
+
 /* =========================================================
    ABOUT ME SECTION
    ========================================================= */
+
 .about-content {
     max-width: 1000px;
 }
@@ -242,7 +251,9 @@ a {
     margin-bottom: 18px;
 }
 
+
 /* Pipeline Banner */
+
 .pipeline-wrapper {
     margin: 45px 0;
     padding: 28px 24px;
@@ -278,7 +289,9 @@ a {
     font-weight: 600;
 }
 
+
 /* Two-Column Grid */
+
 .about-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -318,7 +331,9 @@ a {
     color: var(--cream-soft);
 }
 
+
 /* Questions Grid */
+
 .questions-block {
     margin: 50px 0 35px;
 }
@@ -374,9 +389,11 @@ a {
     line-height: 1.7;
 }
 
+
 /* =========================================================
    RESEARCH INTERESTS
    ========================================================= */
+
 .research-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -417,9 +434,17 @@ a {
     line-height: 1.6;
 }
 
+
 /* =========================================================
-   PROJECTS (Original tags CSS preserved)
+   PROJECTS
    ========================================================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
 .project-card {
     background: var(--panel);
     border: 1px solid var(--border-soft);
@@ -482,9 +507,11 @@ a {
     letter-spacing: 0.5px;
 }
 
+
 /* =========================================================
    PUBLICATIONS & CONTACT
    ========================================================= */
+
 .publication-list {
     display: flex;
     flex-direction: column;
@@ -543,9 +570,11 @@ a {
     color: var(--gold-light);
 }
 
+
 /* =========================================================
    FOOTER
    ========================================================= */
+
 footer {
     padding: 40px 8%;
     border-top: 1px solid var(--border-soft);
@@ -555,127 +584,13 @@ footer {
     color: var(--muted);
 }
 
-/* =========================================================
-   FEATURED IMAGE CARDS (Matches Reference Layout)
-   ========================================================= */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-.featured-card {
-    background-color: var(--cream);
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.featured-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.card-img-container {
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-    background-color: #fff;
-    border-bottom: 2px solid var(--border-soft);
-}
-
-.card-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-}
-
-.card-body {
-    padding: 24px;
-    color: var(--bg);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-body h3 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--bg);
-    margin-bottom: 12px;
-    line-height: 1.4;
-}
-
-/* Status Badge */
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    background-color: #dcfce7;
-    color: #166534;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 16px;
-    width: fit-content;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #22c55e;
-    border-radius: 50%;
-    margin-right: 6px;
-}
-
-.card-body p {
-    font-size: 14px;
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.card-meta {
-    margin-top: auto;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    padding-top: 16px;
-}
-
-.card-meta p {
-    font-size: 12px;
-    margin-bottom: 4px;
-    color: #444;
-}
-
-.card-meta strong {
-    color: #111;
-}
-
-.card-links {
-    margin-top: 16px;
-}
-
-.github-link {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.github-link:hover {
-    color: var(--bg);
-    border-bottom: 1px solid var(--bg);
-}
 
 /* =========================================================
    RESPONSIVE LAYOUT (TABLETS & PHONES)
    ========================================================= */
+
 @media (max-width: 900px) {
+
     .profile-content {
         grid-template-columns: 1fr;
     }
@@ -693,5 +608,6 @@ footer {
 
     .navbar nav {
         display: none;
+        /* Can be paired with a mobile menu toggle */
     }
 }
