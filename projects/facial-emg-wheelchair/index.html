@@ -1,1 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Facial EMG-Controlled Wheelchair | Srinitha S</title>
+
+    <style>
+        :root {
+            --bg: #0d0e10;
+            --panel: #141619;
+            --panel-hover: #1c1f24;
+            --border: #262930;
+            --cream: #f0ede6;
+            --cream-soft: #c8c5be;
+            --muted: #8c9099;
+            --gold: #d4af37;
+            --gold-light: #e5c158;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--cream-soft);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 22px 8%;
+
+            background: rgba(13, 14, 16, 0.94);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            color: var(--cream);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            color: var(--muted);
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .back-link:hover {
+            color: var(--gold-light);
+        }
+
+        /* HERO */
+
+        .hero {
+            padding: 70px 8% 50px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-label {
+            color: var(--gold-light);
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            max-width: 950px;
+
+            color: var(--cream);
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(38px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+        }
+
+        .hero-description {
+            max-width: 850px;
+
+            color: var(--cream-soft);
+            font-size: 18px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-top: 25px;
+            padding: 7px 14px;
+
+            border: 1px solid var(--border);
+            background: var(--panel);
+
+            color: var(--cream-soft);
+
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        /* MAIN */
+
+        main {
+            padding: 60px 8%;
+        }
+
+        .content {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section {
+            margin-bottom: 70px;
+        }
+
+        .section-number {
+            color: var(--gold-light);
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            margin-bottom: 7px;
+        }
+
+        .section h2 {
+            color: var(--cream);
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 32px;
+            font-weight: 400;
+
+            margin-bottom: 25px;
+        }
+
+        .section p {
+            max-width: 950px;
+            margin-bottom: 18px;
+        }
+
+        /* IMAGE */
+
+        .project-image {
+            width: 100%;
+
+            border: 1px solid var(--border);
+            background: var(--panel);
+
+            margin: 30px 0;
+        }
+
+        .project-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .caption {
+            padding: 12px 16px;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* FEATURE GRID */
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            padding: 28px;
+
+            background: var(--panel);
+            border: 1px solid var(--border);
+
+            transition: border-color 0.2s ease,
+                        transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .feature-card h3 {
+            color: var(--cream);
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
+            font-weight: 400;
+
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        /* HARDWARE */
+
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .hardware-card {
+            padding: 25px;
+
+            background: var(--panel);
+            border: 1px solid var(--border);
+        }
+
+        .hardware-card strong {
+            display: block;
+
+            color: var(--cream);
+            margin-bottom: 5px;
+        }
+
+        .hardware-card span {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* TABLE */
+
+        .table-wrapper {
+            overflow-x: auto;
+
+            border: 1px solid var(--border);
+            background: var(--panel);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        th,
+        td {
+            padding: 16px 18px;
+            text-align: left;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            color: var(--gold-light);
+
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        td {
+            color: var(--cream-soft);
+            font-size: 14px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* WORKFLOW IMAGE */
+
+        .workflow-image {
+            margin-top: 30px;
+        }
+
+        /* RESULTS */
+
+        .result-list {
+            display: grid;
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .result-item {
+            padding: 22px 25px;
+
+            background: var(--panel);
+            border-left: 3px solid var(--gold);
+        }
+
+        .result-item strong {
+            color: var(--cream);
+        }
+
+        /* PUBLICATIONS */
+
+        .publication {
+            padding: 25px;
+
+            background: var(--panel);
+            border: 1px solid var(--border);
+
+            margin-bottom: 15px;
+        }
+
+        .publication h3 {
+            color: var(--cream);
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 19px;
+            font-weight: 400;
+
+            margin-bottom: 7px;
+        }
+
+        .publication p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* CITATION */
+
+        .citation {
+            padding: 25px;
+
+            background: #0a0b0d;
+            border: 1px solid var(--border);
+
+            overflow-x: auto;
+        }
+
+        .citation pre {
+            color: var(--cream-soft);
+            font-family: Consolas, Monaco, monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 40px 8%;
+
+            border-top: 1px solid var(--border);
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .feature-grid,
+            .hardware-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 18px 6%;
+            }
+
+            .hero,
+            main {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            SS
+        </div>
+
+        <a
+            href="../../index.html"
+            class="back-link"
+        >
+            ← Back to Portfolio
+        </a>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="content">
+
+            <div class="project-label">
+                PROJECT 01 · ASSISTIVE TECHNOLOGY
+            </div>
+
+            <h1>
+                Facial EMG-Controlled Wheelchair
+                <span>– A Mobility Assistance for Quadriplegia</span>
+            </h1>
+
+            <p class="hero-description">
+                A hands-free, cost-effective smart wheelchair designed
+                for individuals with quadriplegia using facial surface
+                Electromyography (EMG) signals for real-time directional
+                control.
+            </p>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                COMPLETED · 2025
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <main>
+
+        <div class="content">
+
+
+            <!-- OVERVIEW -->
+
+            <section class="section">
+
+                <div class="section-number">
+                    01 · OVERVIEW
+                </div>
+
+                <h2>
+                    Project Overview
+                </h2>
+
+                <p>
+                    This project presents the hardware and software
+                    architecture of a hands-free, cost-effective smart
+                    wheelchair designed for individuals with quadriplegia.
+                </p>
+
+                <p>
+                    The system captures and translates surface
+                    Electromyography (EMG) signals from specific facial
+                    muscles into real-time directional commands. By
+                    bypassing the need for upper limb functionality,
+                    the system provides an alternative to traditional
+                    joystick-operated assistive devices.
+                </p>
+
+                <div class="project-image">
+
+                    <img
+                        src="01-introduction.png"
+                        alt="Facial EMG-Controlled Wheelchair project introduction"
+                    >
+
+                    <div class="caption">
+                        Facial EMG-Controlled Wheelchair — Project Introduction
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- KEY FEATURES -->
+
+            <section class="section">
+
+                <div class="section-number">
+                    02 · KEY FEATURES
+                </div>
+
+                <h2>
+                    System Highlights
+                </h2>
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+
+                        <h3>
+                            Non-Invasive Control
+                        </h3>
+
+                        <p>
+                            Surface electrodes placed on the cheeks
+                            capture intentional facial gestures.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <h3>
+                            Real-Time Processing
+                        </h3>
+
+                        <p>
+                            A 30 Hz to 500 Hz bandpass filter is used
+                            to reduce physiological artifacts and
+                            electronic noise.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <h3>
+                            Wireless Transmission
+                        </h3>
+
+                        <p>
+                            An HC-05 Bluetooth module transmits digital
+                            command signals to the wheelchair hardware.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <h3>
+                            Custom Threshold Mapping
+                        </h3>
+
+                        <p>
+                            Digital stair plots, statistical parameters,
+                            and wavelet transform analysis are used to
+                            classify distinct facial movements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- HARDWARE -->
+
+            <section class="section">
+
+                <div class="section-number">
+                    03 · HARDWARE & SOFTWARE
+                </div>
+
+                <h2>
+                    Technical Environment
+                </h2>
+
+                <div class="hardware-grid">
+
+                    <div class="hardware-card">
+                        <strong>BIOPAC MP45</strong>
+                        <span>EMG signal acquisition</span>
+                    </div>
+
+                    <div class="hardware-card">
+                        <strong>Arduino UNO</strong>
+                        <span>Microcontroller and command processing</span>
+                    </div>
+
+                    <div class="hardware-card">
+                        <strong>HC-05 Bluetooth</strong>
+                        <span>Wireless command transmission</span>
+                    </div>
+
+                    <div class="hardware-card">
+                        <strong>L298N Motor Driver</strong>
+                        <span>DC motor control</span>
+                    </div>
+
+                    <div class="hardware-card">
+                        <strong>12V 1.3AH SLA Battery</strong>
+                        <span>Power supply</span>
+                    </div>
+
+                    <div class="hardware-card">
+                        <strong>MATLAB Simulink</strong>
+                        <span>Signal processing and analysis</span>
+                    </div>
+
+                    <div class="hardware-card">
+                        <strong>Arduino IDE</strong>
+                        <span>C++ development environment</span>
+                    </div>
+
+                    <div class="hardware-card">
+                        <strong>DC Motors</strong>
+                        <span>Wheelchair actuation</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MOVEMENT CLASSIFICATION -->
+
+            <section class="section">
+
+                <div class="section-number">
+                    04 · MOVEMENT CLASSIFICATION
+                </div>
+
+                <h2>
+                    Facial Gesture → Wheelchair Command
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Muscle Activated</th>
+                                <th>Target Gesture</th>
+                                <th>Wheelchair Command</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Left Buccinator</td>
+                                <td>Left Cheek Movement</td>
+                                <td>Left Turn</td>
+                            </tr>
+
+                            <tr>
+                                <td>Right Buccinator</td>
+                                <td>Right Cheek Movement</td>
+                                <td>Right Turn</td>
+                            </tr>
+
+                            <tr>
+                                <td>Zygomaticus Major</td>
+                                <td>Smiling</td>
+                                <td>Forward Movement</td>
+                            </tr>
+
+                            <tr>
+                                <td>Zygomaticus Major</td>
+                                <td>Strained Expression</td>
+                                <td>Backward Movement</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- WORKFLOW -->
+
+            <section class="section">
+
+                <div class="section-number">
+                    05 · SYSTEM WORKFLOW
+                </div>
+
+                <h2>
+                    From Facial Signal to Wheelchair Motion
+                </h2>
+
+                <p>
+                    Surface electrodes detect microvolt-level electrical
+                    activity from targeted facial muscles. The signals
+                    are then processed, classified, and converted into
+                    directional commands.
+                </p>
+
+                <div class="project-image workflow-image">
+
+                    <img
+                        src="02-workflow.png"
+                        alt="Facial EMG wheelchair system workflow"
+                    >
+
+                    <div class="caption">
+                        System workflow and signal-processing pipeline
+                    </div>
+
+                </div>
+
+                <div class="result-list">
+
+                    <div class="result-item">
+                        <strong>1. Signal Acquisition</strong><br>
+                        Surface electrodes detect electrical activity
+                        from targeted facial muscles.
+                    </div>
+
+                    <div class="result-item">
+                        <strong>2. Processing & Digitization</strong><br>
+                        Analog signals are amplified, filtered, and
+                        digitized through the BIOPAC MP45 system.
+                    </div>
+
+                    <div class="result-item">
+                        <strong>3. Feature Extraction</strong><br>
+                        Peak-to-peak amplitude, kurtosis, skewness,
+                        signal area, and wavelet coefficients are
+                        calculated.
+                    </div>
+
+                    <div class="result-item">
+                        <strong>4. Threshold Evaluation</strong><br>
+                        Extracted features are compared against
+                        predefined threshold boundaries statistically
+                        validated using the Kruskal-Wallis test.
+                    </div>
+
+                    <div class="result-item">
+                        <strong>5. Actuation</strong><br>
+                        Directional commands are transmitted through
+                        Bluetooth to the Arduino UNO, which controls
+                        the DC motors through the L298N driver.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESULTS -->
+
+            <section class="section">
+
+                <div class="section-number">
+                    06 · RESULTS & VALIDATION
+                </div>
+
+                <h2>
+                    Results
+                </h2>
+
+                <div class="result-list">
+
+                    <div class="result-item">
+                        <strong>Statistical Significance</strong><br>
+                        The Kruskal-Wallis test confirmed that extracted
+                        features such as peak-to-peak amplitude and
+                        signal area significantly differentiate between
+                        distinct facial gestures.
+                    </div>
+
+                    <div class="result-item">
+                        <strong>Hardware Execution</strong><br>
+                        The 4WD prototype successfully demonstrated
+                        smooth and accurate mobility in all four
+                        directions without noticeable latency.
+                    </div>
+
+                    <div class="result-item">
+                        <strong>Stability Improvements</strong><br>
+                        High-torque motors and dedicated L298N motor
+                        drivers helped resolve early prototype issues
+                        related to jerky movements and load management.
+                    </div>
+
+                </div>
+
+                <div class="project-image">
+
+                    <img
+                        src="03-final-results.png"
+                        alt="Facial EMG wheelchair final prototype results"
+                    >
+
+                    <div class="caption">
+                        Final prototype and experimental results
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PUBLICATIONS -->
+
+            <section class="section">
+
+                <div class="section-number">
+                    07 · PUBLICATIONS & PRESENTATIONS
+                </div>
+
+                <h2>
+                    Academic Contributions
+                </h2>
+
+                <div class="publication">
+
+                    <h3>
+                        CoaCoNS 2025
+                    </h3>
+
+                    <p>
+                        Accepted for presentation at the Conference on
+                        Advances in Communication Networks & Systems,
+                        SRM Institute of Science and Technology.
+                    </p>
+
+                </div>
+
+                <div class="publication">
+
+                    <h3>
+                        NCRTAS 2024
+                    </h3>
+
+                    <p>
+                        Presented at the 2nd National Conference on
+                        Recent Trends in Artificial Intelligence and
+                        Soft Computing, Bannari Amman Institute of
+                        Technology.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- SIGNIFICANCE -->
+
+            <section class="section">
+
+                <div class="section-number">
+                    08 · PROJECT SIGNIFICANCE
+                </div>
+
+                <h2>
+                    Why This Project Matters
+                </h2>
+
+                <p>
+                    The project demonstrates how facial EMG signals can
+                    be used as an alternative human-machine interface
+                    for assistive mobility.
+                </p>
+
+                <p>
+                    By translating intentional facial muscle activity
+                    into directional wheelchair commands, the system
+                    aims to provide hands-free mobility for individuals
+                    who cannot rely on conventional joystick-based
+                    control.
+                </p>
+
+            </section>
+
+
+            <!-- CITATION -->
+
+            <section class="section">
+
+                <div class="section-number">
+                    09 · CITATION
+                </div>
+
+                <h2>
+                    Cite This Project
+                </h2>
+
+                <div class="citation">
+
+<pre>@bachelorsthesis{srinitha2025facialemg,
+  author       = {Srinitha S and Nivedha E and Ramya Bharathi S},
+  title        = {Facial EMG controlled Wheelchair – a Mobility Assistance for Quadriplegia},
+  school       = {Vels Institute of Science, Technology and Advanced Studies (VISTAS)},
+  year         = {2025},
+  type         = {B.E. Biomedical Engineering Project Phase II Report}
+}</pre>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 Srinitha S
+        </p>
+
+        <p>
+            Biomedical Engineering · Medical Imaging · AI
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
