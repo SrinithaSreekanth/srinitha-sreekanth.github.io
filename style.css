@@ -418,74 +418,120 @@ a {
 }
 
 /* =========================================================
-   PROJECTS
+   PROJECTS (FEATURED IMAGE CARDS)
    ========================================================= */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
 }
 
-.project-card {
-    background: var(--panel);
-    border: 1px solid var(--border-soft);
-    padding: 30px;
+.featured-card {
+    background-color: var(--cream);
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: border-color 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.project-card:hover {
-    border-color: var(--gold);
+.featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.project-top {
+.card-img-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: #fff;
+    border-bottom: 2px solid var(--border-soft);
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.card-body {
+    padding: 24px;
+    color: var(--bg);
+    flex-grow: 1;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+    flex-direction: column;
 }
 
-.project-number {
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--gold-light);
-}
-
-.project-arrow {
-    color: var(--muted);
-    font-size: 18px;
-}
-
-.project-card h3 {
+.card-body h3 {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--cream);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--bg);
     margin-bottom: 12px;
+    line-height: 1.4;
 }
 
-.project-card p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 24px;
-    line-height: 1.6;
-}
-
-.project-tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.project-tags span {
-    font-size: 11px;
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #dcfce7;
+    color: #166534;
+    font-size: 12px;
+    font-weight: 600;
     padding: 4px 10px;
-    background: #0d0e10;
-    border: 1px solid var(--border-soft);
-    color: var(--cream-soft);
+    border-radius: 20px;
+    margin-bottom: 16px;
+    width: fit-content;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-meta {
+    margin-top: auto;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 16px;
+}
+
+.card-meta p {
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+.card-meta strong {
+    color: #111;
+}
+
+.card-links {
+    margin-top: 16px;
+}
+
+.github-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.github-link:hover {
+    color: var(--bg);
+    border-bottom: 1px solid var(--bg);
 }
 
 /* =========================================================
@@ -575,12 +621,15 @@ footer {
 
     .about-grid,
     .questions-grid,
-    .research-grid,
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
     .navbar nav {
-        display: none; /* Can be paired with a mobile menu toggle */
+        display: none;
     }
 }
