@@ -1,560 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Srinitha S | Biomedical Engineering</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Srinitha Sreekanth — Biomedical Engineer &amp; ML Researcher</title>
+<meta name="description" content="Portfolio of Srinitha Sreekanth — biomedical engineer working across medical imaging, machine learning, and healthcare research." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+<header class="nav" id="nav">
+  <a href="#home" class="nav-name">Srinitha Sreekanth</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#position">Position</a>
+    <a href="#education">Education</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <header class="navbar">
+<main>
 
-        <div class="nav-container">
+  <section id="home" class="hero">
+    <svg class="hero-wave" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <path id="wavePath" d="M0,110 L90,110 L120,40 L150,180 L180,20 L210,190 L240,60 L270,150 L300,110 L1200,110" />
+    </svg>
+    <div class="hero-inner">
+      <p class="hero-kicker">Chennai, India</p>
+      <h1>Srinitha<br />Sreekanth</h1>
+      <p class="hero-role">A biomedical engineer working where medical imaging, machine learning, and clinical questions meet — currently building AI/ML pipelines for pancreas MRI research at IIT&nbsp;Madras.</p>
+      <div class="hero-links">
+        <a href="https://github.com/SrinithaSreekanth" class="btn btn-gold" target="_blank" rel="noopener">GitHub</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
 
-            <a href="#" class="logo">SS</a>
+  <section id="about" class="section">
+    <div class="section-head">
+      <h2>About</h2>
+    </div>
+    <div class="section-body">
+      <p>I'm a biomedical engineering graduate with a research practice that sits between hardware, signal processing, and applied machine learning. My undergraduate thesis built a facial EMG-controlled wheelchair system from the ground up — filtering raw muscle signal, extracting features, and eventually driving real hardware over Bluetooth. Since then I've stayed close to that same question in different forms: what can be read reliably from a noisy biological signal, and what can't be, no matter how sophisticated the model.</p>
+      <p>That instinct for honest evaluation carries into my current work, where I'm applying segmentation and quantitative imaging methods to pancreas MRI as part of a study on diabetes in the Indian population. I work primarily in Python, and I care about pipelines that are reproducible and results that hold up under scrutiny — including the null ones.</p>
+    </div>
+  </section>
 
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#research">Research</a>
-                <a href="#projects">Projects</a>
-                <a href="#publications">Publications</a>
-                <a href="#contact">Contact</a>
-            </nav>
+  <section id="position" class="section alt">
+    <div class="section-head">
+      <h2>Current Position</h2>
+    </div>
+    <div class="position-card">
+      <div class="position-top">
+        <h3>Project Associate</h3>
+        <span class="position-date">Sept 2026 — present</span>
+      </div>
+      <p class="position-meta">Department of Medical Sciences &amp; Technology (MST), IIT Madras · under Dr. Rupsa Bhattacharjee</p>
+      <p>Working on <em>"Quantitative and Functional MRI Characterization of the Pancreas in the Indian Diabetic Population: A Pilot Study,"</em> a one-year project applying AI/ML methods to real-time patient MRI scans. The role combines segmentation techniques (U-Net family architectures, cross-sequence generalization) with the specific demands of building an Indian-population-specific reference for pancreatic imaging in diabetes.</p>
+    </div>
+  </section>
 
-            <div class="social-links">
-                <a href="https://github.com/" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-            </div>
-
+  <section id="education" class="section">
+    <div class="section-head">
+      <h2>Education</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">Graduated 2026</span>
+          <h3>B.Tech, Biomedical Engineering</h3>
+          <p>VISTAS · CGPA 8.76 — top 5% of the program</p>
         </div>
+      </div>
+    </div>
+  </section>
 
-    </header>
+  <section id="research" class="section alt">
+    <div class="section-head">
+      <h2>Research &amp; Projects</h2>
+    </div>
+    <div class="project-grid">
 
+      <article class="project-card">
+        <span class="project-tag">Ongoing</span>
+        <h3>Pancreas MRI for Diabetes</h3>
+        <p>AI/ML-driven quantitative and functional MRI characterization of the pancreas in the Indian diabetic population, at IIT Madras.</p>
+      </article>
 
-    <!-- =========================
-         HERO
-    ========================== -->
+      <article class="project-card">
+        <span class="project-tag">Thesis</span>
+        <h3>Facial EMG-Controlled Wheelchair</h3>
+        <p>Two-phase system: Phase I captured and band-pass filtered (30–500 Hz) EMG signal on a BIOPAC MP45 for feature extraction; Phase II moved to threshold-based hardware control over HC-05 Bluetooth and an Arduino UNO.</p>
+      </article>
 
-    <section class="hero">
+      <article class="project-card">
+        <span class="project-tag">ML Reanalysis</span>
+        <h3>Revisiting the EMG Dataset</h3>
+        <p>A full Python pipeline — LOSO cross-validation, feature importance, SMOTE testing, a safety controller, and a PyBullet 3D simulation — built to re-examine the original dataset honestly rather than chase an inflated accuracy number.</p>
+      </article>
 
-        <div class="hero-background"></div>
+      <article class="project-card">
+        <span class="project-tag">Manuscript</span>
+        <h3>Quality-Aware Subgroup Calibration</h3>
+        <p>An ultrasound-based MASLD detection study asking whether deep learning models are picking up genuine disease biomarkers or dataset artifacts.</p>
+      </article>
 
-        <div class="hero-content">
+      <article class="project-card">
+        <span class="project-tag">Preprint</span>
+        <h3>RE-PWFL</h3>
+        <p>A theory paper for federated learning in neuroimaging, coupling DerSimonian–Laird heterogeneity estimation, Welford online variance, and Fed-ComBat harmonization into a per-round client weighting scheme.</p>
+      </article>
 
-            <div class="profile-photo">
-                <img src="profile.jpg" alt="Srinitha S">
-            </div>
+    </div>
+  </section>
 
-            <div class="hero-text">
-
-                <p class="eyebrow">
-                    HELLO, I'M
-                </p>
-
-                <h1>
-                    Srinitha Sreekanth
-                </h1>
-
-                <h2>
-                    Biomedical Engineering
-                    <span>·</span>
-                    Medical Imaging
-                    <span>·</span>
-                    AI
-                </h2>
-
-                <p class="hero-description">
-                    Biomedical Engineering graduate interested in medical imaging,
-                    artificial intelligence, biosignal processing, and healthcare
-                    technology. I am interested in developing meaningful solutions
-                    at the intersection of engineering, computation, and medicine.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#projects" class="gold-button">
-                        View Projects
-                        <span>→</span>
-                    </a>
-
-                    <a href="#contact" class="outline-button">
-                        Contact Me
-                    </a>
-
-                </div>
-
-            </div>
-
+  <section id="publications" class="section">
+    <div class="section-head">
+      <h2>Publications</h2>
+    </div>
+    <ul class="pub-list">
+      <li>
+        <div class="pub-main">
+          <h3>Facial EMG-Controlled Wheelchair Control</h3>
+          <p class="pub-venue">AIP Conference Proceedings · 2025</p>
         </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================== -->
-
-    <section id="about" class="section">
-
-        <div class="section-header">
-
-            <p class="section-label">
-                01 / ABOUT
-            </p>
-
-            <h2>
-                About Me
-            </h2>
-
+        <span class="pub-status published">Published</span>
+      </li>
+      <li>
+        <div class="pub-main">
+          <h3>Quality-Aware Subgroup Calibration of Deep Learning Models for Ultrasound-Based MASLD Detection</h3>
+          <p class="pub-venue">Manuscript</p>
         </div>
-
-
-        <div class="about-layout">
-
-            <div class="about-text">
-
-                <p class="lead">
-                    I am passionate about applying biomedical engineering,
-                    computational methods, and artificial intelligence to
-                    real-world healthcare problems.
-                </p>
-
-                <p>
-                    My interests include medical imaging, biosignal processing,
-                    machine learning, assistive technologies, and data-driven
-                    healthcare. I enjoy exploring problems from both biological
-                    and engineering perspectives.
-                </p>
-
-                <p>
-                    My academic work has provided hands-on experience with
-                    physiological signals, image analysis, statistical analysis,
-                    hardware systems, MATLAB, Arduino, and machine learning.
-                </p>
-
-            </div>
-
-
-            <div class="about-quote">
-
-                <div class="quote-mark">“</div>
-
-                <p>
-                    Engineering becomes meaningful when it improves the way
-                    healthcare is understood, delivered, and experienced.
-                </p>
-
-                <div class="quote-mark closing">”</div>
-
-            </div>
-
+        <span class="pub-status">In preparation</span>
+      </li>
+      <li>
+        <div class="pub-main">
+          <h3>RE-PWFL: Random-Effects Personalized Weighted Federated Learning</h3>
+          <p class="pub-venue">arXiv preprint</p>
         </div>
-
-    </section>
-
-
-    <!-- =========================
-         RESEARCH
-    ========================== -->
-
-    <section id="research" class="section dark-section">
-
-        <div class="section-header">
-
-            <p class="section-label">
-                02 / RESEARCH
-            </p>
-
-            <h2>
-                Research Interests
-            </h2>
-
-        </div>
-
-
-        <div class="research-grid">
-
-            <div class="research-card">
-
-                <span class="research-number">01</span>
-
-                <h3>
-                    Medical Imaging
-                </h3>
-
-                <p>
-                    Medical image analysis, segmentation, image processing,
-                    and computational approaches for clinical applications.
-                </p>
-
-            </div>
-
-
-            <div class="research-card">
-
-                <span class="research-number">02</span>
-
-                <h3>
-                    Artificial Intelligence
-                </h3>
-
-                <p>
-                    Machine learning and deep learning approaches for solving
-                    biomedical and healthcare problems.
-                </p>
-
-            </div>
-
-
-            <div class="research-card">
-
-                <span class="research-number">03</span>
-
-                <h3>
-                    Biosignal Processing
-                </h3>
-
-                <p>
-                    Processing physiological signals and extracting meaningful
-                    features for biomedical applications.
-                </p>
-
-            </div>
-
-
-            <div class="research-card">
-
-                <span class="research-number">04</span>
-
-                <h3>
-                    Assistive Technology
-                </h3>
-
-                <p>
-                    Intelligent assistive systems designed to improve mobility,
-                    independence, and quality of life.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         PROJECTS
-    ========================== -->
-
-    <section id="projects" class="section projects-section">
-
-        <div class="section-header centered">
-
-            <p class="section-label">
-                03 / PROJECTS
-            </p>
-
-            <h2>
-                Research &amp; Academic Projects
-            </h2>
-
-            <p class="section-intro">
-                Selected academic and research work exploring biomedical
-                engineering, assistive technology, medical imaging, and AI.
-            </p>
-
-        </div>
-
-
-        <!-- PROJECT GRID -->
-
-        <div class="projects-grid">
-
-
-            <!-- =========================
-                 PROJECT 01
-            ========================== -->
-
-            <article class="project-card">
-
-                <!-- IMAGE -->
-
-                <div class="project-image">
-
-                    <img
-                        src="projects/facial-emg-wheelchair/01-introduction.png"
-                        alt="Facial EMG Controlled Wheelchair"
-                    >
-
-                </div>
-
-
-                <!-- CONTENT -->
-
-                <div class="project-content">
-
-                    <div class="project-heading">
-
-                        <span class="project-number">
-                            01
-                        </span>
-
-                        <span class="status completed">
-                            ● Completed
-                        </span>
-
-                    </div>
-
-
-                    <h3>
-                        Facial EMG-Controlled Wheelchair –
-                        A Mobility Assistance for Quadriplegia
-                    </h3>
-
-
-                    <p class="project-description">
-                        Developed a hands-free, cost-effective smart wheelchair
-                        that translates facial surface EMG signals into
-                        real-time directional commands for individuals with
-                        quadriplegia.
-                    </p>
-
-
-                    <!-- DETAILS -->
-
-                    <div class="project-details">
-
-                        <div class="detail-row">
-
-                            <span>
-                                Institute
-                            </span>
-
-                            <strong>
-                                VISTAS
-                            </strong>
-
-                        </div>
-
-
-                        <div class="detail-row">
-
-                            <span>
-                                Type
-                            </span>
-
-                            <strong>
-                                B.E. Biomedical Engineering Project
-                            </strong>
-
-                        </div>
-
-
-                        <div class="detail-row">
-
-                            <span>
-                                Year
-                            </span>
-
-                            <strong>
-                                2025
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- TAGS -->
-
-                    <div class="project-tags">
-
-                        <span>Facial EMG</span>
-                        <span>Biosignal Processing</span>
-                        <span>Arduino</span>
-                        <span>MATLAB</span>
-
-                    </div>
-
-
-                    <!-- BUTTON -->
-
-                    <div class="project-actions">
-
-                        <a
-                            href="projects/facial-emg-wheelchair/index.html"
-                            class="project-button"
-                        >
-                            View Project
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!--
-                Future project cards can be added here.
-                The layout automatically becomes 2 or 3 columns.
-            -->
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         PUBLICATIONS
-    ========================== -->
-
-    <section id="publications" class="section dark-section">
-
-        <div class="section-header">
-
-            <p class="section-label">
-                04 / PUBLICATIONS
-            </p>
-
-            <h2>
-                Presentations &amp; Publications
-            </h2>
-
-        </div>
-
-
-        <div class="publication-list">
-
-
-            <article class="publication">
-
-                <div class="publication-number">
-                    01
-                </div>
-
-                <div class="publication-content">
-
-                    <h3>
-                        CoaCoNS 2025
-                    </h3>
-
-                    <p>
-                        Research work accepted for presentation at CoaCoNS 2025,
-                        SRM Institute of Science and Technology.
-                    </p>
-
-                    <span>
-                        Conference Presentation · 2025
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="publication">
-
-                <div class="publication-number">
-                    02
-                </div>
-
-                <div class="publication-content">
-
-                    <h3>
-                        NCRTAS 2024
-                    </h3>
-
-                    <p>
-                        Research work presented at NCRTAS 2024,
-                        Bannari Amman Institute of Technology.
-                    </p>
-
-                    <span>
-                        Conference Presentation · 2024
-                    </span>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================== -->
-
-    <section id="contact" class="section contact-section">
-
-        <div class="section-header centered">
-
-            <p class="section-label">
-                05 / CONTACT
-            </p>
-
-            <h2>
-                Let's Connect.
-            </h2>
-
-            <p class="section-intro">
-                Interested in biomedical engineering, medical imaging,
-                AI, or research collaborations? I'd love to connect.
-            </p>
-
-        </div>
-
-
-        <div class="contact-links">
-
-            <a href="mailto:your-email@example.com">
-                Email
-            </a>
-
-            <a href="https://github.com/" target="_blank">
-                GitHub
-            </a>
-
-            <a href="https://www.linkedin.com/" target="_blank">
-                LinkedIn
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <p>
-            © 2026 Srinitha S
-        </p>
-
-        <p>
-            Biomedical Engineering · Research · Technology
-        </p>
-
-    </footer>
-
-
+        <span class="pub-status">Submitted</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills" class="section alt">
+    <div class="section-head">
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Programming &amp; ML</h3>
+        <p>Python, NumPy, pandas, scikit-learn, PyTorch basics, VS Code as primary editor, Git &amp; GitHub</p>
+      </div>
+      <div class="skill-group">
+        <h3>Medical Imaging &amp; Signal</h3>
+        <p>MRI segmentation (U-Net / nnU-Net family), EMG signal processing, biosignal filtering &amp; feature extraction</p>
+      </div>
+      <div class="skill-group">
+        <h3>Hardware &amp; Systems</h3>
+        <p>Arduino, Bluetooth (HC-05) control systems, PyBullet simulation</p>
+      </div>
+      <div class="skill-group">
+        <h3>Research Practice</h3>
+        <p>Reproducible pipelines, cross-validation design, honest null-result reporting, technical writing</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="creative" class="section">
+    <div class="section-head">
+      <h2>Beyond Research</h2>
+    </div>
+    <div class="section-body">
+      <p>Outside the lab, I write and produce short-form video content in Malayalam, Tamil, and English — scripts, animated backgrounds, and AI-assisted production for young audiences. It's a different kind of signal-to-noise problem: figuring out what actually lands with a viewer in the first few seconds.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section alt contact">
+    <div class="section-head">
+      <h2>Get in touch</h2>
+    </div>
+    <p class="contact-text">I'm always glad to talk about medical imaging, biosignal work, or postgraduate research opportunities.</p>
+    <div class="contact-links">
+      <a href="mailto:your.email@example.com" class="btn btn-gold">your.email@example.com</a>
+      <a href="https://github.com/SrinithaSreekanth" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© <span id="year"></span> Srinitha Sreekanth</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
-
 </html>
