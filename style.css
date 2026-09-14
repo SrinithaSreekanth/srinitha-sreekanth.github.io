@@ -1,19 +1,385 @@
-/* =========================================================
-GLOBAL VARIABLES & THEME
-========================================================= */
- {
---bg: #0d0e10;
---panel: #141619;
---panel-hover: #1c1f24;
---border-soft: #262930;
---cream: #f0ede6;
---cream-soft: #c8c5be;
---muted: #8c9099;
---gold: #d4af37;
---gold-light: #e5c158;
---accent: #4a7bb0;
-}
+<!DOCTYPE html>
 
-{
-margin: 0;
-padding: 0;
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinitha Sreekanth | Biomedical Engineering & AI</title>
+    <meta name="description" content="Srinitha Sreekanth - Biomedical Engineering, Medical Imaging, Artificial Intelligence and Machine Learning.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+     ========================= -->
+
+<header class="navbar">
+    <div class="logo">
+        SS
+    </div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="social-links">
+        <a href="YOUR_GITHUB_LINK" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="YOUR_LINKEDIN_LINK" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+</header>
+
+<!-- =========================
+     PROFILE / HERO
+     ========================= -->
+
+<main>
+
+    <section class="profile">
+
+        <!-- WIDE BANNER -->
+        <div class="banner">
+            <div class="banner-content">
+                <span>BIOMEDICAL ENGINEERING</span>
+                <span>·</span>
+                <span>MEDICAL IMAGING</span>
+                <span>·</span>
+                <span>ARTIFICIAL INTELLIGENCE</span>
+            </div>
+        </div>
+
+        <!-- PROFILE CONTENT -->
+        <div class="profile-content">
+
+            <!-- PROFILE PHOTO -->
+            <div class="profile-photo">
+                <img src="profile.jpg" alt="Srinitha Sreekanth">
+            </div>
+
+            <!-- INTRODUCTION -->
+            <div class="profile-info">
+                <p class="intro">HELLO, I'M</p>
+                <h1>Srinitha Sreekanth</h1>
+                <h2>Biomedical Engineering · Medical Imaging · AI</h2>
+                <p class="bio">
+                    Exploring the intersection of biomedical engineering, magnetic resonance imaging (MRI), image processing, and artificial intelligence to extract quantitative biological insight from medical data.
+                </p>
+
+                <div class="buttons">
+                    <a href="#research">Explore Research</a>
+                    <a href="#projects">View Projects</a>
+                    <a href="#contact">Get In Touch</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         ABOUT ME
+         ========================= -->
+
+    <section id="about" class="section">
+
+        <div class="section-title">
+            <span>01</span>
+            <h2>About Me</h2>
+        </div>
+
+        <div class="about-content">
+
+            <!-- Quote Block -->
+            <blockquote class="about-quote">
+                🩻 <span>"A medical image is more than a picture. It is a spatial map of underlying biology."</span>
+            </blockquote>
+
+            <p class="about-lead">
+                That single principle defines how I approach <strong>Medical Imaging</strong> and <strong>Artificial Intelligence</strong>.
+            </p>
+
+            <p>
+                As a Biomedical Engineer, my focus lives in the space between image acquisition and biological discovery: how magnetic resonance (MRI) signals encode tissue properties, how advanced image-processing pipelines isolate structural patterns, and how quantitative AI models turn raw pixels into clinical measurements.
+            </p>
+
+            <!-- Pipeline Display -->
+            <div class="pipeline-wrapper">
+                <span class="pipeline-label">The Processing &amp; Intelligence Pipeline</span>
+                <div class="pipeline-steps">
+                    <span>Biological Physics</span>
+                    <span class="arrow">&rarr;</span>
+                    <span>MRI Acquisition</span>
+                    <span class="arrow">&rarr;</span>
+                    <span>Image Data</span>
+                    <span class="arrow">&rarr;</span>
+                    <span>Processing &amp; Segmentation</span>
+                    <span class="arrow">&rarr;</span>
+                    <span>Quantification</span>
+                    <span class="arrow">&rarr;</span>
+                    <span>AI / Intelligence</span>
+                    <span class="arrow">&rarr;</span>
+                    <span class="highlight">Clinical Insight</span>
+                </div>
+            </div>
+
+            <!-- Core Focus & Computational Toolkit Grid -->
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Core Technical Focus</h3>
+                    <ul>
+                        <li><strong>MRI &amp; Medical Imaging:</strong> Anatomical, functional, and quantitative MRI protocols and signal interpretation.</li>
+                        <li><strong>Image Processing &amp; Segmentation:</strong> Multi-contrast alignment, artifact reduction, denoising, and deep-learning-driven organ/tissue segmentation.</li>
+                        <li><strong>Quantitative Analysis:</strong> Feature extraction, tissue characterization, and reproducible biomarker measurement.</li>
+                        <li><strong>AI &amp; Machine Learning:</strong> Model training, computer vision, and deep learning for clinical decision support.</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h3>Computational Toolkit</h3>
+                    <ul>
+                        <li><strong>Languages &amp; Analytics:</strong> Python, SQL, NumPy, Pandas, SciPy</li>
+                        <li><strong>Medical Image Analysis:</strong> OpenCV, PyTorch, Scikit-Image, SimpleITK, DICOM &amp; NIfTI handling</li>
+                        <li><strong>Methodologies:</strong> Cellular bioimage analysis, image segmentation, signal normalization, and quantitative feature extraction</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Questions Block -->
+            <div class="questions-block">
+                <h3>The Questions Behind The Model</h3>
+                <div class="questions-grid">
+                    <div class="q-item">
+                        <span class="q-number">01</span>
+                        <h4>Representation</h4>
+                        <p>What specific physical property or tissue state does the image signal encode?</p>
+                    </div>
+                    <div class="q-item">
+                        <span class="q-number">02</span>
+                        <h4>Extraction</h4>
+                        <p>How do we separate meaningful clinical signal from imaging artifacts and noise?</p>
+                    </div>
+                    <div class="q-item">
+                        <span class="q-number">03</span>
+                        <h4>Reliability</h4>
+                        <p>How robust, reproducible, and standardized are quantitative outputs across scanners?</p>
+                    </div>
+                    <div class="q-item">
+                        <span class="q-number">04</span>
+                        <h4>Clinical Impact</h4>
+                        <p>How directly does this computational insight translate to improved patient care?</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="about-closing">
+                My objective is not simply teaching algorithms to view medical images—it is enabling them to extract the physiological truth needed to transform healthcare. 🔬
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         RESEARCH INTERESTS
+         ========================= -->
+
+    <section id="research" class="section dark-section">
+
+        <div class="section-title">
+            <span>02</span>
+            <h2>Research Interests</h2>
+        </div>
+
+        <div class="research-grid">
+
+            <div class="research-card">
+                <span class="card-number">01</span>
+                <h3>Medical Imaging &amp; MRI</h3>
+                <p>
+                    Computational analysis of MRI and medical image acquisitions to extract structural, anatomical, and tissue-level biological characteristics.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span class="card-number">02</span>
+                <h3>Artificial Intelligence</h3>
+                <p>
+                    Machine learning and deep learning methodologies designed for computer vision in clinical diagnostic workflows.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span class="card-number">03</span>
+                <h3>Image Segmentation</h3>
+                <p>
+                    Deep learning techniques for automatically delineating anatomical structures, lesions, and cellular regions from complex biomedical image sets.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span class="card-number">04</span>
+                <h3>Quantitative Imaging</h3>
+                <p>
+                    Converting raw image intensity data into standardized, reproducible quantitative metrics to support research and clinical decisions.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         PROJECTS
+         ========================= -->
+
+    <section id="projects" class="section">
+
+        <div class="section-title">
+            <span>03</span>
+            <h2>Selected Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- PROJECT 1 -->
+            <article class="project-card">
+                <div class="project-top">
+                    <span class="project-number">PROJECT 01</span>
+                    <span class="project-arrow">↗</span>
+                </div>
+                <h3>Medical Image Analysis</h3>
+                <p>
+                    Development of computational pipelines for analyzing multi-modal medical imaging data and extracting physiological metrics.
+                </p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>Deep Learning</span>
+                    <span>Medical Imaging</span>
+                </div>
+            </article>
+
+            <!-- PROJECT 2 -->
+            <article class="project-card">
+                <div class="project-top">
+                    <span class="project-number">PROJECT 02</span>
+                    <span class="project-arrow">↗</span>
+                </div>
+                <h3>Medical Image Segmentation</h3>
+                <p>
+                    Exploration of deep learning architectures (including MONAI &amp; custom PyTorch pipelines) for automated anatomical structure segmentation.
+                </p>
+                <div class="project-tags">
+                    <span>PyTorch</span>
+                    <span>MONAI</span>
+                    <span>DICOM / NIfTI</span>
+                </div>
+            </article>
+
+            <!-- PROJECT 3 -->
+            <article class="project-card">
+                <div class="project-top">
+                    <span class="project-number">PROJECT 03</span>
+                    <span class="project-arrow">↗</span>
+                </div>
+                <h3>Quantitative Medical Imaging</h3>
+                <p>
+                    Investigating normalization and feature extraction techniques to pair automated segmentation with precise quantitative tissue measurements.
+                </p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>DICOM</span>
+                    <span>Image Analysis</span>
+                </div>
+            </article>
+
+            <!-- PROJECT 4 -->
+            <article class="project-card">
+                <div class="project-top">
+                    <span class="project-number">PROJECT 04</span>
+                    <span class="project-arrow">↗</span>
+                </div>
+                <h3>Machine Learning for Healthcare</h3>
+                <p>
+                    Building Machine Learning and Computer Vision algorithms for biomedical data processing and diagnostic decision support.
+                </p>
+                <div class="project-tags">
+                    <span>Machine Learning</span>
+                    <span>Python</span>
+                    <span>Healthcare AI</span>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         PUBLICATIONS
+         ========================= -->
+
+    <section id="publications" class="section dark-section">
+
+        <div class="section-title">
+            <span>04</span>
+            <h2>Publications</h2>
+        </div>
+
+        <div class="publication-list">
+
+            <article class="publication">
+                <div class="publication-number">01</div>
+                <div>
+                    <h3>Research Publications</h3>
+                    <p>
+                        Peer-reviewed papers, conference presentations, and academic contributions will be detailed here.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         CONTACT
+         ========================= -->
+
+    <section id="contact" class="section contact">
+
+        <div class="section-title">
+            <span>05</span>
+            <h2>Let's Connect</h2>
+        </div>
+
+        <p>
+            I am open to research opportunities and engineering collaborations involving MRI, medical image processing, and artificial intelligence in healthcare.
+        </p>
+
+        <div class="contact-links">
+            <a href="mailto:YOUR_EMAIL@gmail.com">YOUR_EMAIL@gmail.com</a>
+            <a href="YOUR_GITHUB_LINK" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="YOUR_LINKEDIN_LINK" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+
+    </section>
+
+</main>
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer>
+    <p>© 2026 Srinitha Sreekanth</p>
+    <p>Biomedical Engineering · Medical Imaging · AI</p>
+</footer>
+
+</body>
+
+</html>
