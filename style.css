@@ -1131,3 +1131,113 @@ footer a:hover {
         justify-content: center;
     }
 }
+
+
+/* =========================================================
+   FINAL PROFILE PHOTO FIX
+   DO NOT CROP THE FACE
+========================================================= */
+
+.hero .profile-photo {
+    position: absolute !important;
+
+    /* Centre horizontally */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    /* Overlap bottom of banner */
+    top: -95px !important;
+
+    /* SMALL SQUARE BOX */
+    width: 210px !important;
+    height: 210px !important;
+
+    min-width: 210px !important;
+    min-height: 210px !important;
+    max-width: 210px !important;
+    max-height: 210px !important;
+
+    overflow: hidden !important;
+
+    background: #111 !important;
+
+    border: 5px solid #050607 !important;
+
+    z-index: 100 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   CONTAIN = NOTHING GETS CROPPED
+========================================================= */
+
+.hero .profile-photo img {
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    object-position: center center !important;
+
+    display: block !important;
+
+    margin: 0 !important;
+
+    transform: none !important;
+}
+
+
+/* =========================================================
+   DESKTOP HERO TEXT
+========================================================= */
+
+.hero .hero-text {
+    position: relative !important;
+
+    padding-top: 145px !important;
+
+    max-width: 900px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    text-align: center !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .hero .profile-photo {
+        width: 165px !important;
+        height: 165px !important;
+
+        min-width: 165px !important;
+        min-height: 165px !important;
+
+        max-width: 165px !important;
+        max-height: 165px !important;
+
+        top: -78px !important;
+    }
+
+    .hero .profile-photo img {
+        object-fit: contain !important;
+        object-position: center center !important;
+    }
+
+    .hero .hero-text {
+        padding-top: 115px !important;
+    }
+}
