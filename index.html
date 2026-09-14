@@ -1,1137 +1,1298 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MASLD Quality-Aware Deep Learning Study | Srinitha Sreekanth</title>
+    <title>Srinitha Sreekanth | Biomedical Engineering & Medical Imaging</title>
 
-    <style>
-        :root {
-            --bg: #0b0c0e;
-            --panel: #121417;
-            --panel-light: #171a1e;
-            --border: #292c32;
+    <meta name="description"
+        content="Srinitha Sreekanth - Biomedical Engineering, Medical Imaging, Image Processing, AI and Biomedical Research.">
 
-            --cream: #f2eee5;
-            --cream-soft: #cbc6bb;
-            --muted: #92959d;
-
-            --gold: #d4af37;
-            --gold-light: #e5c158;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--cream);
-            font-family: Georgia, "Times New Roman", serif;
-            line-height: 1.8;
-        }
-
-        a {
-            color: var(--gold-light);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: var(--cream);
-        }
-
-        /* =========================
-           TOP NAVIGATION
-        ========================= */
-
-        .topbar {
-            border-bottom: 1px solid var(--border);
-            padding: 22px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #090a0c;
-        }
-
-        .brand {
-            font-family: Arial, sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--gold);
-        }
-
-        .back-link {
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            letter-spacing: 1px;
-            color: var(--muted);
-            transition: 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: var(--gold-light);
-        }
-
-        /* =========================
-           MAIN CONTAINER
-        ========================= */
-
-        .container {
-            width: min(1100px, 90%);
-            margin: 0 auto;
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            padding: 85px 0 60px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .eyebrow {
-            font-family: Arial, sans-serif;
-            color: var(--gold);
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: clamp(38px, 5vw, 64px);
-            line-height: 1.1;
-            font-weight: 500;
-            max-width: 1000px;
-            margin-bottom: 28px;
-        }
-
-        .subtitle {
-            color: var(--cream-soft);
-            font-size: 19px;
-            max-width: 900px;
-            margin-bottom: 28px;
-        }
-
-        .meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 28px;
-        }
-
-        .meta span {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            letter-spacing: 0.8px;
-            color: var(--cream-soft);
-            border: 1px solid var(--border);
-            padding: 8px 13px;
-            background: var(--panel);
-        }
-
-        .status {
-            color: var(--gold-light) !important;
-            border-color: rgba(212, 175, 55, 0.45) !important;
-        }
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            padding: 65px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-label {
-            font-family: Arial, sans-serif;
-            color: var(--gold);
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        h2 {
-            font-size: 32px;
-            font-weight: 500;
-            margin-bottom: 25px;
-            color: var(--cream);
-        }
-
-        h3 {
-            font-size: 22px;
-            font-weight: 500;
-            color: var(--gold-light);
-            margin: 35px 0 15px;
-        }
-
-        p {
-            color: var(--cream-soft);
-            font-size: 17px;
-            margin-bottom: 20px;
-        }
-
-        /* =========================
-           HIGHLIGHT BOX
-        ========================= */
-
-        .highlight {
-            background: var(--panel);
-            border-left: 3px solid var(--gold);
-            padding: 25px 28px;
-            margin: 30px 0;
-        }
-
-        .highlight p {
-            margin: 0;
-            color: var(--cream);
-        }
-
-        /* =========================
-           METHODS LIST
-        ========================= */
-
-        .methods {
-            display: grid;
-            gap: 14px;
-            margin-top: 25px;
-        }
-
-        .method {
-            display: grid;
-            grid-template-columns: 190px 1fr;
-            gap: 20px;
-            padding: 18px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .method strong {
-            color: var(--gold-light);
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-        }
-
-        .method span {
-            color: var(--cream-soft);
-            font-size: 16px;
-        }
-
-        /* =========================
-           FIGURES
-        ========================= */
-
-        .figures {
-            display: grid;
-            gap: 45px;
-            margin-top: 35px;
-        }
-
-        .figure {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            padding: 15px;
-        }
-
-        .figure img {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-height: 700px;
-            object-fit: contain;
-            background: #08090a;
-        }
-
-        .figure-caption {
-            padding: 18px 10px 8px;
-            color: var(--cream-soft);
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .figure-caption strong {
-            color: var(--gold-light);
-        }
-
-        /* =========================
-           RESULTS TABLE
-        ========================= */
-
-        .table-wrapper {
-            overflow-x: auto;
-            margin-top: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--panel);
-            font-family: Arial, sans-serif;
-        }
-
-        th,
-        td {
-            border: 1px solid var(--border);
-            padding: 15px 18px;
-            text-align: left;
-        }
-
-        th {
-            color: var(--gold-light);
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            background: #0f1114;
-        }
-
-        td {
-            color: var(--cream-soft);
-            font-size: 14px;
-        }
-
-        /* =========================
-           KEY FINDING
-        ========================= */
-
-        .finding {
-            background: linear-gradient(
-                135deg,
-                rgba(212, 175, 55, 0.10),
-                rgba(212, 175, 55, 0.02)
-            );
-
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            padding: 35px;
-            margin-top: 25px;
-        }
-
-        .finding-title {
-            font-family: Arial, sans-serif;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 12px;
-            margin-bottom: 15px;
-        }
-
-        .finding h3 {
-            margin-top: 0;
-            font-size: 28px;
-            color: var(--cream);
-        }
-
-        /* =========================
-           BULLET LIST
-        ========================= */
-
-        ul {
-            padding-left: 25px;
-            margin: 20px 0;
-        }
-
-        li {
-            color: var(--cream-soft);
-            font-size: 16px;
-            margin-bottom: 12px;
-        }
-
-        li::marker {
-            color: var(--gold);
-        }
-
-        /* =========================
-           TECH TAGS
-        ========================= */
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 25px;
-        }
-
-        .tag {
-            border: 1px solid var(--border);
-            background: var(--panel);
-            padding: 8px 13px;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            color: var(--cream-soft);
-        }
-
-        /* =========================
-           CITATION
-        ========================= */
-
-        .citation {
-            background: #08090a;
-            border: 1px solid var(--border);
-            padding: 25px;
-            margin-top: 25px;
-            overflow-x: auto;
-        }
-
-        .citation pre {
-            color: var(--cream-soft);
-            font-family: Consolas, monospace;
-            font-size: 13px;
-            line-height: 1.7;
-            white-space: pre-wrap;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: 45px 0;
-            text-align: center;
-            background: #090a0c;
-        }
-
-        footer p {
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            color: var(--muted);
-            margin-bottom: 8px;
-        }
-
-        footer .email {
-            color: var(--gold-light);
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            .topbar {
-                padding: 18px 5%;
-            }
-
-            .container {
-                width: 90%;
-            }
-
-            .hero {
-                padding: 55px 0 40px;
-            }
-
-            h1 {
-                font-size: 38px;
-            }
-
-            h2 {
-                font-size: 28px;
-            }
-
-            p {
-                font-size: 16px;
-            }
-
-            .method {
-                grid-template-columns: 1fr;
-                gap: 5px;
-            }
-
-            .finding {
-                padding: 25px;
-            }
-
-            .figure {
-                padding: 8px;
-            }
-
-            .meta {
-                gap: 8px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- =========================
-         TOP BAR
+         NAVIGATION
     ========================== -->
 
-    <header class="topbar">
-        <div class="brand">SRINITHA SREEKANTH</div>
+    <header class="navbar">
 
-        <a
-            class="back-link"
-            href="../../index.html"
-        >
-            ← Back to Portfolio
-        </a>
+        <div class="logo">
+            SS
+        </div>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href="#projects">Projects</a>
+            <a href="#publications">Publications</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="social-links">
+            <a href="https://github.com/SrinithaSreekanth" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/srinitha-sreekanth" target="_blank">LinkedIn</a>
+        </div>
+
     </header>
 
 
-    <main>
+    <!-- =========================
+         HERO
+    ========================== -->
 
-        <!-- =========================
-             HERO
-        ========================== -->
+    <section class="hero">
 
-        <div class="container">
+        <div class="hero-background"></div>
 
-            <section class="hero">
+        <div class="hero-content">
 
-                <div class="eyebrow">
-                    Research Project · Medical Imaging · AI
-                </div>
+            <div class="hero-photo">
 
-                <h1>
-                    Quality-Aware Evaluation and Confounding Analysis of Deep Learning Models for Ultrasound-Based MASLD Detection
-                </h1>
+                <img src="profile.jpg" alt="Srinitha Sreekanth">
 
-                <p class="subtitle">
-                    A quality-aware and explainable framework for evaluating
-                    deep learning models, image quality, data leakage, and
-                    dataset-level confounding in ultrasound-based MASLD detection.
-                </p>
+            </div>
 
-                <p>
-                    <strong style="color: var(--cream);">
-                        Srinitha Sreekanth
-                    </strong>
-                    · Project Associate, Office of IC&SR ·
-                    Indian Institute of Technology (IIT) Madras
-                </p>
+            <div class="hero-text">
 
-                <div class="meta">
-                    <span class="status">● Research Study</span>
-                    <span>Medical Imaging</span>
-                    <span>Deep Learning</span>
-                    <span>Ultrasound</span>
-                    <span>MASLD</span>
-                    <span>Explainable AI</span>
-                </div>
+                <span class="eyebrow">HELLO, I'M</span>
 
-            </section>
-
-
-            <!-- =========================
-                 OVERVIEW
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    01 · Overview
-                </div>
+                <h1>Srinitha<br>Sreekanth</h1>
 
                 <h2>
-                    Overview
+                    Biomedical Engineering
+                    <span>·</span>
+                    Medical Imaging
+                    <span>·</span>
+                    Artificial Intelligence
                 </h2>
 
-                <p>
-                    Deep learning models routinely report very high accuracy
-                    for detecting Metabolic Dysfunction-Associated Steatotic
-                    Liver Disease (MASLD) from ultrasound — but high accuracy
-                    alone does not confirm that a model is actually learning
-                    disease-specific biomarkers rather than exploiting
-                    shortcuts present in the dataset.
+                <p class="hero-description">
+                    Biomedical Engineering graduate and Project Associate at
+                    IIT Madras, working at the intersection of medical imaging,
+                    image processing, artificial intelligence, biosignal
+                    processing, and healthcare technology.
                 </p>
 
-                <p>
-                    This study develops a quality-aware and explainable
-                    framework to investigate that problem. EfficientNet-B0
-                    and ResNet-18 were trained on approximately 4,500 cropped
-                    liver ultrasound images from public datasets, followed by
-                    image-quality analysis, leakage auditing, dataset-origin
-                    classification, and Grad-CAM-based interpretation.
-                </p>
+                <div class="hero-buttons">
 
-                <div class="highlight">
-                    <p>
-                        <strong style="color: var(--gold-light);">
-                            Central Question:
-                        </strong>
-                        When a deep learning model achieves near-perfect
-                        diagnostic performance, is it actually learning
-                        disease-related information — or is it learning
-                        characteristics associated with the dataset itself?
-                    </p>
-                </div>
+                    <a href="#projects" class="btn btn-primary">
+                        Explore My Work
+                        <span>→</span>
+                    </a>
 
-            </section>
-
-
-            <!-- =========================
-                 METHODOLOGY
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    02 · Methodology
-                </div>
-
-                <h2>
-                    Methods
-                </h2>
-
-                <div class="methods">
-
-                    <div class="method">
-                        <strong>Datasets</strong>
-                        <span>
-                            LUS-7Seg healthy liver scans and a
-                            NAFLD/MASLD dataset, combined and standardized
-                            to grayscale 224 × 224 B-mode images.
-                        </span>
-                    </div>
-
-                    <div class="method">
-                        <strong>Leakage Auditing</strong>
-                        <span>
-                            MD5 hashing for exact duplicate detection and
-                            perceptual hashing (pHash) for near-duplicate
-                            identification, with patient-level splits
-                            wherever possible.
-                        </span>
-                    </div>
-
-                    <div class="method">
-                        <strong>Preprocessing</strong>
-                        <span>
-                            Automated ROI cropping using OpenCV to remove
-                            probe interfaces, depth text, and acoustic cone
-                            borders, followed by CLAHE contrast enhancement.
-                        </span>
-                    </div>
-
-                    <div class="method">
-                        <strong>Image Quality</strong>
-                        <span>
-                            Brightness, contrast, sharpness, and entropy
-                            were extracted for individual ultrasound images.
-                        </span>
-                    </div>
-
-                    <div class="method">
-                        <strong>Deep Learning</strong>
-                        <span>
-                            EfficientNet-B0 and ResNet-18 were fine-tuned
-                            for binary classification between normal and
-                            MASLD images using AdamW and binary
-                            cross-entropy.
-                        </span>
-                    </div>
-
-                    <div class="method">
-                        <strong>Explainability</strong>
-                        <span>
-                            Grad-CAM was used to visualize model activation
-                            and investigate whether attention was focused
-                            on liver parenchyma or other image regions.
-                        </span>
-                    </div>
-
-                    <div class="method">
-                        <strong>Confounding Analysis</strong>
-                        <span>
-                            A separate classifier was trained to predict
-                            dataset origin rather than disease status,
-                            providing a direct test for source-related
-                            confounding.
-                        </span>
-                    </div>
+                    <a href="#contact" class="btn btn-outline">
+                        Contact Me
+                    </a>
 
                 </div>
 
-                <div class="tags">
-
-                    <span class="tag">Python</span>
-                    <span class="tag">OpenCV</span>
-                    <span class="tag">EfficientNet-B0</span>
-                    <span class="tag">ResNet-18</span>
-                    <span class="tag">Grad-CAM</span>
-                    <span class="tag">CLAHE</span>
-                    <span class="tag">Medical Image Processing</span>
-                    <span class="tag">Deep Learning</span>
-
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 FIGURES
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    03 · Visual Analysis
-                </div>
-
-                <h2>
-                    Study Figures
-                </h2>
-
-                <p>
-                    The following figures summarize the study design,
-                    computational workflow, and final analysis.
-                </p>
-
-                <div class="figures">
-
-                    <div class="figure">
-
-                        <img
-                            src="01-introduction.png"
-                            alt="MASLD study introduction"
-                        >
-
-                        <div class="figure-caption">
-                            <strong>Figure 1 — Introduction.</strong>
-                            Overview of the clinical problem, dataset
-                            formulation, and motivation for quality-aware
-                            evaluation of ultrasound-based MASLD detection.
-                        </div>
-
-                    </div>
-
-
-                    <div class="figure">
-
-                        <img
-                            src="02-workflow.png"
-                            alt="MASLD study workflow"
-                        >
-
-                        <div class="figure-caption">
-                            <strong>Figure 2 — Workflow.</strong>
-                            End-to-end workflow covering image preprocessing,
-                            leakage auditing, quality analysis, deep learning,
-                            explainability, and confounding evaluation.
-                        </div>
-
-                    </div>
-
-
-                    <div class="figure">
-
-                        <img
-                            src="03-final-results.png"
-                            alt="MASLD final results"
-                        >
-
-                        <div class="figure-caption">
-                            <strong>Figure 3 — Final Results.</strong>
-                            Summary of model performance, quality-stratified
-                            evaluation, and evidence from dataset-origin
-                            classification and explainability analysis.
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 RESULTS
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    04 · Results
-                </div>
-
-                <h2>
-                    Model Performance
-                </h2>
-
-                <p>
-                    Both deep learning models achieved very high apparent
-                    diagnostic performance on the evaluated dataset.
-                </p>
-
-                <div class="table-wrapper">
-
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <th>Metric</th>
-                                <th>EfficientNet-B0</th>
-                                <th>ResNet-18</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>Accuracy</td>
-                                <td>99.53%</td>
-                                <td>97.63%</td>
-                            </tr>
-
-                            <tr>
-                                <td>AUC</td>
-                                <td>99.99%</td>
-                                <td>99.12%</td>
-                            </tr>
-
-                            <tr>
-                                <td>Precision</td>
-                                <td>99.57%</td>
-                                <td>95.31%</td>
-                            </tr>
-
-                            <tr>
-                                <td>Recall</td>
-                                <td>99.15%</td>
-                                <td>98.73%</td>
-                            </tr>
-
-                            <tr>
-                                <td>F1 Score</td>
-                                <td>99.36%</td>
-                                <td>96.89%</td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-
-                <h3>
-                    Data Leakage Audit
-                </h3>
-
-                <p>
-                    The initial dataset contained duplicate and near-duplicate
-                    images. The audit identified <strong style="color:var(--cream);">
-                    93 exact MD5 duplicates
-                    </strong>
-                    and
-                    <strong style="color:var(--cream);">
-                    85 near-duplicates using pHash
-                    </strong>.
-                </p>
-
-                <p>
-                    After removal, the resulting clean dataset contained
-                    approximately <strong style="color:var(--cream);">
-                    4,458 images
-                    </strong>
-                    distributed across training, validation, and testing
-                    splits with zero cross-split overlap.
-                </p>
-
-
-                <h3>
-                    Quality-Stratified Evaluation
-                </h3>
-
-                <p>
-                    EfficientNet-B0 maintained approximately 99.53% accuracy
-                    across low-, medium-, and high-sharpness groups,
-                    indicating that the observed performance was not strongly
-                    dependent on the measured image-quality variation.
-                </p>
-
-            </section>
-
-
-            <!-- =========================
-                 KEY FINDING
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    05 · Key Finding
-                </div>
-
-                <h2>
-                    The Accuracy Is Confounded
-                </h2>
-
-                <div class="finding">
-
-                    <div class="finding-title">
-                        Principal Observation
-                    </div>
-
-                    <h3>
-                        Near-perfect diagnostic accuracy does not necessarily
-                        imply disease-specific learning.
-                    </h3>
-
-                    <p>
-                        A ResNet-18 model trained only to predict
-                        <strong style="color:var(--cream);">
-                            dataset origin
-                        </strong>
-                        — without using the disease label — achieved
-                        <strong style="color:var(--gold-light);">
-                            99.11% accuracy
-                        </strong>
-                        with an
-                        <strong style="color:var(--gold-light);">
-                            AUC of 1.0000
-                        </strong>.
-                    </p>
-
-                    <p>
-                        Because dataset origin is strongly associated with
-                        disease status in this experimental setup, the result
-                        indicates substantial source-level confounding.
-                    </p>
-
-                    <p>
-                        Grad-CAM analysis further showed diffuse activation
-                        across texture-rich image regions rather than a
-                        consistently localized focus on liver parenchyma.
-                    </p>
-
-                </div>
-
-                <p style="margin-top:30px;">
-                    MASLD images also demonstrated systematically different
-                    baseline image properties, including lower brightness,
-                    lower contrast, lower sharpness, and higher entropy than
-                    healthy images. These differences may arise from the
-                    underlying datasets rather than the disease itself.
-                </p>
-
-            </section>
-
-
-            <!-- =========================
-                 WHY IT MATTERS
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    06 · Significance
-                </div>
-
-                <h2>
-                    Why This Matters
-                </h2>
-
-                <p>
-                    Near-perfect accuracy in a single-source or poorly audited
-                    multi-source dataset can appear to represent a clinical
-                    breakthrough while actually reflecting dataset-specific
-                    acquisition characteristics.
-                </p>
-
-                <p>
-                    This work demonstrates the importance of looking beyond
-                    accuracy and incorporating:
-                </p>
-
-                <ul>
-                    <li>Data leakage auditing</li>
-                    <li>Image-quality analysis</li>
-                    <li>Quality-stratified evaluation</li>
-                    <li>Dataset-origin classification</li>
-                    <li>Explainable AI using Grad-CAM</li>
-                    <li>External and multi-center validation</li>
-                </ul>
-
-                <p>
-                    The framework provides a practical approach for identifying
-                    potential shortcut learning before a medical imaging model
-                    is considered for real-world deployment.
-                </p>
-
-            </section>
-
-
-            <!-- =========================
-                 LIMITATIONS
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    07 · Limitations
-                </div>
-
-                <h2>
-                    Limitations
-                </h2>
-
-                <ul>
-
-                    <li>
-                        Healthy and MASLD images originated from separate
-                        datasets, creating entanglement between disease status
-                        and acquisition source.
-                    </li>
-
-                    <li>
-                        Patient-level identifiers were not consistently
-                        available across both datasets.
-                    </li>
-
-                    <li>
-                        No external multi-center validation was performed
-                        in the current study.
-                    </li>
-
-                    <li>
-                        Disease severity and fibrosis staging were not
-                        evaluated.
-                    </li>
-
-                    <li>
-                        The findings demonstrate a risk of shortcut learning
-                        and source confounding, rather than proving that the
-                        models learned no genuine disease biomarkers.
-                    </li>
-
-                </ul>
-
-            </section>
-
-
-            <!-- =========================
-                 FUTURE WORK
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    08 · Future Directions
-                </div>
-
-                <h2>
-                    Future Work
-                </h2>
-
-                <p>
-                    Future investigations can extend the framework toward
-                    stronger clinical validation and more robust model
-                    evaluation.
-                </p>
-
-                <ul>
-
-                    <li>
-                        Demographic subgroup evaluation including sex,
-                        age, and BMI.
-                    </li>
-
-                    <li>
-                        Calibration analysis using Brier score and
-                        Expected Calibration Error (ECE).
-                    </li>
-
-                    <li>
-                        Domain adaptation and dataset harmonization.
-                    </li>
-
-                    <li>
-                        Multi-center external validation.
-                    </li>
-
-                    <li>
-                        More robust evaluation of model attention and
-                        disease-specific biomarkers.
-                    </li>
-
-                </ul>
-
-            </section>
-
-
-            <!-- =========================
-                 RESEARCH PROFILE
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    09 · Research Context
-                </div>
-
-                <h2>
-                    Research Focus
-                </h2>
-
-                <p>
-                    This project sits at the intersection of biomedical
-                    engineering, medical image processing, deep learning,
-                    explainable artificial intelligence, and quality-aware
-                    evaluation of clinical imaging systems.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">Medical Imaging</span>
-                    <span class="tag">Image Processing</span>
-                    <span class="tag">Image Segmentation</span>
-                    <span class="tag">Artificial Intelligence</span>
-                    <span class="tag">Ultrasound</span>
-                    <span class="tag">MASLD</span>
-                    <span class="tag">Deep Learning</span>
-                    <span class="tag">Explainable AI</span>
-                    <span class="tag">Computer Vision</span>
-                    <span class="tag">Image Quality</span>
-
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 CITATION
-            ========================== -->
-
-            <section>
-
-                <div class="section-label">
-                    10 · Citation
-                </div>
-
-                <h2>
-                    Project Reference
-                </h2>
-
-                <div class="citation">
-
-<pre>
-Srinitha Sreekanth,
-"Quality-Aware Evaluation and Confounding Analysis of Deep Learning
-Models for Ultrasound-Based MASLD Detection."
-
-Project Associate,
-Office of IC&SR,
-Indian Institute of Technology Madras.
-</pre>
-
-                </div>
-
-            </section>
+            </div>
 
         </div>
 
-    </main>
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about" class="section">
+
+        <div class="section-heading">
+
+            <span>01</span>
+
+            <div>
+                <p class="section-label">ABOUT ME</p>
+                <h2>Engineering with a<br>medical purpose.</h2>
+            </div>
+
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-main">
+
+                <p class="large-text">
+                    I am a Biomedical Engineering graduate interested in
+                    understanding how engineering, computation and medical
+                    science can come together to solve meaningful healthcare
+                    problems.
+                </p>
+
+                <p>
+                    My interests span medical imaging, image processing,
+                    image segmentation, artificial intelligence and biomedical
+                    signal processing. I enjoy working with both physiological
+                    signals and medical images, from acquisition and
+                    preprocessing to feature extraction, machine learning,
+                    visualization and interpretation.
+                </p>
+
+                <p>
+                    Currently, I am working as a <strong>Project Associate at
+                    the Indian Institute of Technology Madras (IIT Madras)</strong>,
+                    where I am continuing to develop my research and technical
+                    experience.
+                </p>
+
+            </div>
+
+            <div class="about-side">
+
+                <div class="quote-box">
+                    <span class="quote-mark">“</span>
+
+                    <p>
+                        Developing meaningful solutions at the intersection
+                        of engineering, computation and medicine.
+                    </p>
+
+                </div>
+
+                <div class="about-stat">
+                    <span>FIELD</span>
+                    <strong>Biomedical Engineering</strong>
+                </div>
+
+                <div class="about-stat">
+                    <span>CURRENT ROLE</span>
+                    <strong>Project Associate · IIT Madras</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESEARCH INTERESTS
+    ========================== -->
+
+    <section id="research" class="section dark-section">
+
+        <div class="section-heading">
+
+            <span>02</span>
+
+            <div>
+                <p class="section-label">RESEARCH INTERESTS</p>
+                <h2>Questions I want<br>to investigate.</h2>
+            </div>
+
+        </div>
+
+        <div class="research-intro">
+
+            <p>
+                My research interests focus on developing and understanding
+                computational methods for medical imaging and healthcare,
+                particularly where advanced imaging, artificial intelligence
+                and quantitative analysis can improve medical understanding.
+            </p>
+
+        </div>
+
+        <div class="research-grid">
+
+            <div class="research-card">
+                <span>01</span>
+                <h3>Medical Imaging</h3>
+                <p>
+                    Advanced imaging techniques, quantitative imaging and
+                    computational approaches for extracting meaningful
+                    information from medical images.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span>02</span>
+                <h3>Image Processing</h3>
+                <p>
+                    Image enhancement, preprocessing, artifact correction,
+                    quality assessment, ROI extraction and computational
+                    image analysis.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span>03</span>
+                <h3>Image Segmentation</h3>
+                <p>
+                    Deep-learning based segmentation approaches including
+                    FCN, HED and related image-analysis architectures.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span>04</span>
+                <h3>Artificial Intelligence</h3>
+                <p>
+                    Machine learning, CNNs, classification, explainable AI
+                    and deep-learning approaches for biomedical applications.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span>05</span>
+                <h3>Novel MRI Technology</h3>
+                <p>
+                    Advanced MRI techniques, custom pulse sequences and image
+                    reconstruction algorithms for improved medical imaging.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span>06</span>
+                <h3>Real-Time & 4D Imaging</h3>
+                <p>
+                    Real-time therapy imaging and 4D moving-organ imaging for
+                    applications involving the chest and abdomen.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span>07</span>
+                <h3>Brain Quantitative Imaging</h3>
+                <p>
+                    Quantitative brain imaging studies including approaches
+                    such as myelin water mapping.
+                </p>
+            </div>
+
+            <div class="research-card">
+                <span>08</span>
+                <h3>Multimodal Integration</h3>
+                <p>
+                    Combining advanced imaging with medical robotics,
+                    radiation therapy, interventional procedures and
+                    deep-learning systems.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INDEPENDENT RESEARCH
+    ========================== -->
+
+    <section id="independent-research" class="section">
+
+        <div class="section-heading">
+
+            <span>03</span>
+
+            <div>
+                <p class="section-label">INDEPENDENT RESEARCH</p>
+                <h2>Research beyond<br>the classroom.</h2>
+            </div>
+
+        </div>
+
+        <div class="project-list">
+
+
+            <!-- MASLD -->
+
+            <article class="project-card featured-project">
+
+                <div class="project-image">
+
+                    <img src="projects/masld-quality-calibration/01-introduction.png"
+                        alt="MASLD quality-aware deep learning study"
+                        onerror="this.style.display='none';">
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta-top">
+
+                        <span class="project-number">01</span>
+
+                        <span class="status">
+                            🟢 Independent Research
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Quality-Aware Evaluation & Confounding Analysis of
+                        Deep Learning Models for Ultrasound-Based MASLD Detection
+                    </h3>
+
+                    <p class="project-description">
+
+                        A quality-aware and explainable deep-learning study
+                        investigating whether high diagnostic performance in
+                        ultrasound-based MASLD classification reflects genuine
+                        disease-related features or dataset and acquisition
+                        shortcuts.
+
+                    </p>
+
+                    <div class="project-details">
+
+                        <div>
+                            <span>Focus</span>
+                            <strong>Medical Imaging · AI/ML</strong>
+                        </div>
+
+                        <div>
+                            <span>Models</span>
+                            <strong>EfficientNet-B0 · ResNet-18</strong>
+                        </div>
+
+                        <div>
+                            <span>Methods</span>
+                            <strong>CLAHE · Grad-CAM · pHash · OpenCV</strong>
+                        </div>
+
+                        <div>
+                            <span>Area</span>
+                            <strong>Ultrasound · MASLD</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="projects/masld-quality-calibration/index.html"
+                            class="project-btn">
+                            View Project →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- HETEROGENEITY -->
+
+            <article class="project-card featured-project">
+
+                <div class="project-image">
+
+                    <img src="projects/facial-emg-heterogeneity/01-introduction.png"
+                        alt="Facial EMG heterogeneity study"
+                        onerror="this.style.display='none';">
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta-top">
+
+                        <span class="project-number">02</span>
+
+                        <span class="status">
+                            🟢 Independent Research
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Quantifying Subject-Level Heterogeneity in
+                        Facial Electromyography
+                    </h3>
+
+                    <p class="project-description">
+
+                        A machine-learning reanalysis of a previously collected
+                        facial-sEMG dataset investigating whether pooled,
+                        subject-generalized models are statistically justified
+                        or whether subject-specific variability warrants
+                        personalized modeling.
+
+                    </p>
+
+                    <div class="project-details">
+
+                        <div>
+                            <span>Dataset</span>
+                            <strong>120 trials · 10 subjects</strong>
+                        </div>
+
+                        <div>
+                            <span>Models</span>
+                            <strong>Logistic Regression · XGBoost · KNN</strong>
+                        </div>
+
+                        <div>
+                            <span>Validation</span>
+                            <strong>5-Fold CV · LOSO</strong>
+                        </div>
+
+                        <div>
+                            <span>Area</span>
+                            <strong>EMG · Machine Learning</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="projects/facial-emg-heterogeneity/index.html"
+                            class="project-btn">
+                            View Project →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACADEMIC PROJECTS
+    ========================== -->
+
+    <section id="projects" class="section dark-section">
+
+        <div class="section-heading">
+
+            <span>04</span>
+
+            <div>
+                <p class="section-label">ACADEMIC PROJECTS</p>
+                <h2>From signals<br>to assistive technology.</h2>
+            </div>
+
+        </div>
+
+
+        <article class="project-card featured-project">
+
+            <div class="project-image">
+
+                <img src="projects/facial-emg-wheelchair/01-introduction.png"
+                    alt="Facial EMG controlled wheelchair">
+
+            </div>
+
+            <div class="project-content">
+
+                <div class="project-meta-top">
+
+                    <span class="project-number">01</span>
+
+                    <span class="status">
+                        🟢 Completed
+                    </span>
+
+                </div>
+
+                <h3>
+                    Facial EMG-Controlled Wheelchair —
+                    A Mobility Assistance for Quadriplegia
+                </h3>
+
+                <p class="project-description">
+
+                    Developed a hands-free, cost-effective smart wheelchair
+                    that translates facial surface EMG signals into
+                    real-time directional commands for individuals with
+                    quadriplegia.
+
+                </p>
+
+                <div class="project-details">
+
+                    <div>
+                        <span>Institute</span>
+                        <strong>VISTAS</strong>
+                    </div>
+
+                    <div>
+                        <span>Type</span>
+                        <strong>B.E. Biomedical Engineering Project</strong>
+                    </div>
+
+                    <div>
+                        <span>Technology</span>
+                        <strong>BIOPAC · Arduino · MATLAB/Simulink</strong>
+                    </div>
+
+                    <div>
+                        <span>Year</span>
+                        <strong>2025</strong>
+                    </div>
+
+                </div>
+
+                <div class="project-buttons">
+
+                    <a href="projects/facial-emg-wheelchair/index.html"
+                        class="project-btn">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- =========================
+         PUBLICATIONS
+    ========================== -->
+
+    <section id="publications" class="section">
+
+        <div class="section-heading">
+
+            <span>05</span>
+
+            <div>
+                <p class="section-label">PUBLICATIONS & CONFERENCES</p>
+                <h2>Research presented<br>and published.</h2>
+            </div>
+
+        </div>
+
+
+        <div class="publication-list">
+
+
+            <article class="publication">
+
+                <div class="publication-number">
+                    01
+                </div>
+
+                <div class="publication-content">
+
+                    <div class="publication-status">
+                        ACCEPTED · PRESENTATION & PUBLICATION
+                    </div>
+
+                    <h3>
+                        Facial EMG Based Simulation Module for Quadriplegia
+                    </h3>
+
+                    <p>
+                        Accepted for Oral Presentation and Publication at
+                        CoaCoNS 2025, SRM Institute of Science and Technology,
+                        Kattankulathur, Tamil Nadu.
+                    </p>
+
+                    <div class="publication-info">
+                        <span>CoaCoNS 2025</span>
+                        <span>SRMIST</span>
+                        <span>AIP Conference Proceedings</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="publication">
+
+                <div class="publication-number">
+                    02
+                </div>
+
+                <div class="publication-content">
+
+                    <div class="publication-status">
+                        ACCEPTED
+                    </div>
+
+                    <h3>
+                        Facial EMG Based Simulation Module for Quadriplegia
+                    </h3>
+
+                    <p>
+                        Accepted for oral presentation at the IEEE International
+                        Conference on Emerging Applications of Intelligence and
+                        Computing (EAIC 2025), Dr. B. R. Ambedkar National
+                        Institute of Technology Jalandhar.
+                    </p>
+
+                    <div class="publication-info">
+                        <span>EAIC 2025</span>
+                        <span>IEEE Conference</span>
+                        <span>Biomedical Engineering & Healthcare Technologies</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="publication">
+
+                <div class="publication-number">
+                    03
+                </div>
+
+                <div class="publication-content">
+
+                    <div class="publication-status">
+                        PRESENTED · ACCEPTED
+                    </div>
+
+                    <h3>
+                        Facial EMG Based Mobilisation Device for Quadriplegia
+                    </h3>
+
+                    <p>
+                        Research article accepted for presentation at the
+                        International Conference on Medical, Biological and
+                        Pharmaceutical Sciences (ICMBPS-24), Bangalore, India.
+                    </p>
+
+                    <div class="publication-info">
+                        <span>ICMBPS 2024</span>
+                        <span>Bangalore</span>
+                        <span>Presented Research</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="publication">
+
+                <div class="publication-number">
+                    04
+                </div>
+
+                <div class="publication-content">
+
+                    <div class="publication-status">
+                        PRESENTED
+                    </div>
+
+                    <h3>
+                        Biomedical Engineering Research & Conference Work
+                    </h3>
+
+                    <p>
+                        Conference-based research presentation experience
+                        involving biomedical signals, assistive technology and
+                        healthcare engineering.
+                    </p>
+
+                    <div class="publication-info">
+                        <span>Research Communication</span>
+                        <span>Biomedical Engineering</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
+
+    <section id="experience" class="section dark-section">
+
+        <div class="section-heading">
+
+            <span>06</span>
+
+            <div>
+                <p class="section-label">EXPERIENCE</p>
+                <h2>Where I have<br>worked & learned.</h2>
+            </div>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- IIT -->
+
+            <article class="experience-item current">
+
+                <div class="experience-date">
+                    CURRENT
+                </div>
+
+                <div class="experience-line"></div>
+
+                <div class="experience-content">
+
+                    <span class="experience-role">
+                        Project Associate
+                    </span>
+
+                    <h3>Indian Institute of Technology Madras</h3>
+
+                    <p class="experience-location">
+                        IIT Madras · Chennai, Tamil Nadu
+                    </p>
+
+                    <p>
+                        Currently working as a Project Associate in biomedical
+                        research, contributing to research activities involving
+                        medical imaging, image processing, computational
+                        analysis and healthcare applications.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- India Health Link -->
+
+            <article class="experience-item">
+
+                <div class="experience-date">
+                    SEP — OCT<br>2025
+                </div>
+
+                <div class="experience-line"></div>
+
+                <div class="experience-content">
+
+                    <span class="experience-role">
+                        Research Associate
+                    </span>
+
+                    <h3>India Health Link</h3>
+
+                    <p class="experience-location">
+                        Chennai, Tamil Nadu · On-site
+                    </p>
+
+                    <ul>
+                        <li>
+                            Developed and optimized urine strip auto-mapping
+                            workflow using Generative AI and Python.
+                        </li>
+
+                        <li>
+                            Enhanced digital stethoscope output using
+                            Python-based noise-cancellation algorithms.
+                        </li>
+
+                        <li>
+                            Investigated CVT technical faults and documented
+                            root-cause analysis.
+                        </li>
+
+                        <li>
+                            Executed ZUG module test cycles in the hPod system.
+                        </li>
+
+                        <li>
+                            Prepared structured logs, Excel test sheets and
+                            engineering workflow documentation.
+                        </li>
+
+                        <li>
+                            Coordinated module updates, validation status and
+                            field reports with cross-functional teams.
+                        </li>
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- Labmentix -->
+
+            <article class="experience-item">
+
+                <div class="experience-date">
+                    JUN — AUG<br>2025
+                </div>
+
+                <div class="experience-line"></div>
+
+                <div class="experience-content">
+
+                    <span class="experience-role">
+                        Data Analyst Intern
+                    </span>
+
+                    <h3>Labmentix</h3>
+
+                    <p class="experience-location">
+                        Bengaluru, Karnataka · Remote
+                    </p>
+
+                    <ul>
+                        <li>
+                            Completed 7+ end-to-end data analytics projects
+                            involving data cleaning and visualization.
+                        </li>
+
+                        <li>
+                            Performed statistical analysis on biomedical
+                            datasets using Python and SQL.
+                        </li>
+
+                        <li>
+                            Designed interactive Power BI dashboards and
+                            applied DAX for KPI analysis.
+                        </li>
+
+                        <li>
+                            Developed foundational experience in R programming
+                            for biomedical analytics.
+                        </li>
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- NoviTech -->
+
+            <article class="experience-item">
+
+                <div class="experience-date">
+                    JUN — JUL<br>2025
+                </div>
+
+                <div class="experience-line"></div>
+
+                <div class="experience-content">
+
+                    <span class="experience-role">
+                        Data Analyst Intern
+                    </span>
+
+                    <h3>NoviTech R&D Pvt Ltd</h3>
+
+                    <p class="experience-location">
+                        Chennai, Tamil Nadu · Remote
+                    </p>
+
+                    <ul>
+                        <li>
+                            Contributed to healthcare data research and
+                            analytical reporting.
+                        </li>
+
+                        <li>
+                            Built prototype dashboards and predictive models
+                            using Python and Tableau.
+                        </li>
+
+                        <li>
+                            Applied statistical concepts, Excel and
+                            Scikit-learn for biomedical data analysis.
+                        </li>
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- Parvathy -->
+
+            <article class="experience-item">
+
+                <div class="experience-date">
+                    DEC<br>2023
+                </div>
+
+                <div class="experience-line"></div>
+
+                <div class="experience-content">
+
+                    <span class="experience-role">
+                        Biomedical Intern
+                    </span>
+
+                    <h3>Parvathy Hospital</h3>
+
+                    <p class="experience-location">
+                        Chennai, Tamil Nadu · On-site
+                    </p>
+
+                    <ul>
+                        <li>
+                            Assisted biomedical engineers with equipment
+                            maintenance, calibration and safety checks.
+                        </li>
+
+                        <li>
+                            Supported troubleshooting and quality-assurance
+                            activities.
+                        </li>
+
+                        <li>
+                            Observed biomedical equipment operation across
+                            ICU, OT and patient-monitoring areas.
+                        </li>
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <!-- Deepam -->
+
+            <article class="experience-item">
+
+                <div class="experience-date">
+                    SEP<br>2022
+                </div>
+
+                <div class="experience-line"></div>
+
+                <div class="experience-content">
+
+                    <span class="experience-role">
+                        Biomedical Intern
+                    </span>
+
+                    <h3>Deepam Hospitals</h3>
+
+                    <p class="experience-location">
+                        On-site
+                    </p>
+
+                    <ul>
+                        <li>
+                            Observed biomedical operations across ICU,
+                            Dialysis, OT, Emergency, Radiology, Dentistry
+                            and General Wards.
+                        </li>
+
+                        <li>
+                            Gained exposure to hospital biomedical equipment
+                            and clinical workflows.
+                        </li>
+                    </ul>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
+    <section id="education" class="section">
+
+        <div class="section-heading">
+
+            <span>07</span>
+
+            <div>
+                <p class="section-label">EDUCATION</p>
+                <h2>Academic foundation.</h2>
+            </div>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <div class="education-year">
+                2021<br>—<br>2025
+            </div>
+
+            <div class="education-content">
+
+                <span>BACHELOR'S DEGREE</span>
+
+                <h3>
+                    VELS University
+                </h3>
+
+                <p>
+                    Bachelor of Engineering in Biomedical / Medical Engineering
+                </p>
+
+                <div class="education-details">
+
+                    <div>
+                        <span>Graduated</span>
+                        <strong>May 2025</strong>
+                    </div>
+
+                    <div>
+                        <span>Grade</span>
+                        <strong>8.76</strong>
+                    </div>
+
+                    <div>
+                        <span>Specialization</span>
+                        <strong>Biomedical Engineering</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         KNOWLEDGE / SKILLS
+    ========================== -->
+
+    <section id="skills" class="section dark-section">
+
+        <div class="section-heading">
+
+            <span>08</span>
+
+            <div>
+                <p class="section-label">KNOWLEDGE & SKILLS</p>
+                <h2>Tools I use to<br>build & investigate.</h2>
+            </div>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-category">
+
+                <span>01</span>
+
+                <h3>Programming & Analysis</h3>
+
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>NumPy</span>
+                    <span>Pandas</span>
+                    <span>SciPy</span>
+                    <span>MATLAB</span>
+                    <span>SQL</span>
+                    <span>R</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <span>02</span>
+
+                <h3>AI / Machine Learning</h3>
+
+                <div class="skill-tags">
+                    <span>Machine Learning</span>
+                    <span>CNNs</span>
+                    <span>VGG16</span>
+                    <span>FCN</span>
+                    <span>HED</span>
+                    <span>EfficientNet-B0</span>
+                    <span>ResNet-18</span>
+                    <span>Grad-CAM</span>
+                    <span>Classification</span>
+                    <span>Explainable AI</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <span>03</span>
+
+                <h3>Medical Image Processing</h3>
+
+                <div class="skill-tags">
+                    <span>Image Processing</span>
+                    <span>Image Segmentation</span>
+                    <span>OpenCV</span>
+                    <span>CLAHE</span>
+                    <span>ROI Extraction</span>
+                    <span>Image Quality Analysis</span>
+                    <span>Ultrasound Processing</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <span>04</span>
+
+                <h3>Signal Processing</h3>
+
+                <div class="skill-tags">
+                    <span>EMG</span>
+                    <span>ECG</span>
+                    <span>Filtering</span>
+                    <span>Wavelet Analysis</span>
+                    <span>Feature Extraction</span>
+                    <span>Noise Removal</span>
+                    <span>Artifact Removal</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <span>05</span>
+
+                <h3>Simulation & Embedded Systems</h3>
+
+                <div class="skill-tags">
+                    <span>MATLAB / Simulink</span>
+                    <span>Arduino</span>
+                    <span>Arduino IDE</span>
+                    <span>L298 Motor Driver</span>
+                    <span>Sensor Integration</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <span>06</span>
+
+                <h3>Biomedical Instrumentation</h3>
+
+                <div class="skill-tags">
+                    <span>BIOPAC MP45</span>
+                    <span>Biosignal Acquisition</span>
+                    <span>Medical Device Testing</span>
+                    <span>Validation</span>
+                    <span>ICU Equipment</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <span>07</span>
+
+                <h3>Data & Visualization</h3>
+
+                <div class="skill-tags">
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>SciPy</span>
+                    <span>Power BI</span>
+                    <span>Tableau</span>
+                    <span>DAX</span>
+                    <span>Excel</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <span>08</span>
+
+                <h3>Biomedical Research</h3>
+
+                <div class="skill-tags">
+                    <span>ICM</span>
+                    <span>CRM</span>
+                    <span>Segmentation</span>
+                    <span>Statistical Analysis</span>
+                    <span>Experimental Validation</span>
+                    <span>Research Documentation</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact" class="section contact-section">
+
+        <div class="contact-inner">
+
+            <span class="section-label">LET'S CONNECT</span>
+
+            <h2>
+                Interested in research,<br>
+                imaging & healthcare AI?
+            </h2>
+
+            <p>
+                I am open to research discussions, collaborations,
+                biomedical engineering opportunities and projects involving
+                medical imaging, image processing and artificial intelligence.
+            </p>
+
+            <div class="contact-links">
+
+                <a href="mailto:srinithassreekanth@gmail.com">
+                    <span>Email</span>
+                    srinithassreekanth@gmail.com
+                </a>
+
+                <a href="https://www.linkedin.com/in/srinitha-sreekanth"
+                    target="_blank">
+
+                    <span>LinkedIn</span>
+                    linkedin.com/in/srinitha-sreekanth
+
+                </a>
+
+                <a href="https://github.com/SrinithaSreekanth"
+                    target="_blank">
+
+                    <span>GitHub</span>
+                    github.com/SrinithaSreekanth
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
     <!-- =========================
@@ -1140,19 +1301,16 @@ Indian Institute of Technology Madras.
 
     <footer>
 
-        <p>
-            Srinitha Sreekanth · Biomedical Engineering · Medical Imaging · AI
-        </p>
-
-        <p class="email">
-            srinithassreekanth@gmail.com
-        </p>
-
-        <p>
+        <div>
             © 2026 Srinitha Sreekanth
-        </p>
+        </div>
+
+        <div>
+            Biomedical Engineering · Medical Imaging · AI
+        </div>
 
     </footer>
+
 
 </body>
 </html>
