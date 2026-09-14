@@ -1,6 +1,6 @@
 /* =========================================================
    SRINITHA SREEKANTH
-   BLACK + GOLD ACADEMIC PORTFOLIO
+   BLACK + GOLD PORTFOLIO
 ========================================================= */
 
 :root {
@@ -10,11 +10,11 @@
     --card: #101214;
 
     --gold: #d4af37;
-    --gold-light: #e3c45a;
+    --gold-light: #e4c65a;
 
     --white: #f2f2f2;
-    --text: #d6d6d6;
-    --muted: #94979b;
+    --text: #d4d4d4;
+    --muted: #96999d;
 
     --border: #25282b;
 
@@ -37,7 +37,9 @@ html {
 }
 
 body {
+
     background: var(--black);
+
     color: var(--white);
 
     font-family:
@@ -66,6 +68,7 @@ img {
 .navbar {
 
     position: sticky;
+
     top: 0;
 
     z-index: 1000;
@@ -79,16 +82,19 @@ img {
 .nav-container {
 
     width: 100%;
+
     max-width: var(--max-width);
 
     min-height: 105px;
 
-    margin: 0 auto;
+    margin: auto;
 
     padding: 0 55px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 }
 
@@ -103,33 +109,40 @@ img {
     border: 1px solid var(--gold);
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     color: var(--gold);
 
     font-size: 17px;
+
     font-weight: 700;
 
     transition: 0.3s ease;
 }
 
+
 .logo:hover {
 
     background: var(--gold);
+
     color: #000;
 }
 
 
-/* NAV LINKS */
+/* NAVIGATION */
 
 .nav-links {
 
     display: flex;
+
     align-items: center;
 
     gap: 43px;
 }
+
 
 .nav-links a,
 .social-links a {
@@ -142,6 +155,7 @@ img {
 
     transition: 0.3s ease;
 }
+
 
 .nav-links a:hover,
 .social-links a:hover {
@@ -182,7 +196,7 @@ img {
 
     width: 100%;
 
-    height: 490px;
+    height: 430px;
 
     overflow: hidden;
 
@@ -195,13 +209,14 @@ img {
 .hero-banner img {
 
     width: 100%;
+
     height: 100%;
+
+    display: block;
 
     object-fit: cover;
 
     object-position: center center;
-
-    display: block;
 
     opacity: 1;
 
@@ -210,7 +225,7 @@ img {
 
 
 /* =========================================================
-   BLACK AREA UNDER BANNER
+   HERO BLACK SECTION
 ========================================================= */
 
 .hero-main {
@@ -226,44 +241,57 @@ img {
 .hero-container {
 
     width: 100%;
+
     max-width: var(--max-width);
 
-    min-height: 470px;
+    margin: auto;
 
-    margin: 0 auto;
+    min-height: 520px;
 
-    padding: 0 70px 90px;
+    padding:
+        0 70px 100px;
 
     position: relative;
+
+    text-align: center;
 }
 
 
 /* =========================================================
    PROFILE PHOTO
-   IMPORTANT: PHOTO IS LOWERED TO OVERLAP BANNER EDGE
+   SMALL + SQUARE + CENTRED
 ========================================================= */
 
 .profile-photo {
 
     position: absolute;
 
-    left: 70px;
-
     /*
-       Banner ends above.
-       -120px means the photo overlaps the
-       LOWER part of the banner instead of
-       sitting too high inside it.
+       CENTER THE PHOTO HORIZONTALLY
     */
 
-    top: -120px;
+    left: 50%;
 
-    width: 305px;
-    height: 305px;
+    transform: translateX(-50%);
 
-    overflow: hidden;
+    /*
+       Move it slightly upward so it overlaps
+       the bottom of the banner.
+    */
+
+    top: -95px;
+
+    /*
+       SMALL SQUARE
+    */
+
+    width: 210px;
+
+    height: 210px;
 
     background: #111;
+
+    overflow: hidden;
 
     border: 5px solid var(--black);
 
@@ -274,11 +302,19 @@ img {
 .profile-photo img {
 
     width: 100%;
+
     height: 100%;
+
+    /*
+       Keeps the image square and crops it
+       neatly around the centre of your face.
+    */
 
     object-fit: cover;
 
     object-position: center center;
+
+    display: block;
 }
 
 
@@ -288,11 +324,11 @@ img {
 
 .hero-text {
 
-    padding-top: 82px;
+    padding-top: 145px;
 
-    padding-left: 365px;
+    max-width: 900px;
 
-    max-width: 1120px;
+    margin: auto;
 }
 
 
@@ -306,7 +342,7 @@ img {
 
     letter-spacing: 5px;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 
@@ -314,7 +350,7 @@ img {
 
     color: var(--white);
 
-    font-size: clamp(48px, 6vw, 82px);
+    font-size: clamp(48px, 6vw, 78px);
 
     line-height: 1.05;
 
@@ -342,25 +378,27 @@ img {
 
 .hero-description {
 
-    max-width: 760px;
+    max-width: 750px;
+
+    margin: auto auto 34px;
 
     color: var(--muted);
 
     font-size: 16px;
 
     line-height: 1.9;
-
-    margin-bottom: 34px;
 }
 
 
 /* =========================================================
-   HERO BUTTONS
+   BUTTONS
 ========================================================= */
 
 .hero-buttons {
 
     display: flex;
+
+    justify-content: center;
 
     flex-wrap: wrap;
 
@@ -377,6 +415,7 @@ img {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     font-size: 12px;
@@ -422,15 +461,16 @@ img {
 
 
 /* =========================================================
-   SECTIONS
+   GENERAL SECTIONS
 ========================================================= */
 
 .section {
 
     width: 100%;
+
     max-width: var(--max-width);
 
-    margin: 0 auto;
+    margin: auto;
 
     padding: 120px 70px;
 }
@@ -633,6 +673,7 @@ img {
 .project-image img {
 
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -763,8 +804,6 @@ img {
 }
 
 
-/* PROJECT BUTTON */
-
 .project-button {
 
     color: var(--gold);
@@ -869,7 +908,8 @@ img {
 
     gap: 35px;
 
-    padding: 0 0 55px 40px;
+    padding:
+        0 0 55px 40px;
 }
 
 
@@ -884,6 +924,7 @@ img {
     top: 7px;
 
     width: 9px;
+
     height: 9px;
 
     border-radius: 50%;
@@ -1012,7 +1053,8 @@ img {
 
     max-width: 650px;
 
-    margin: -25px auto 35px;
+    margin:
+        -25px auto 35px;
 
     color: var(--muted);
 
@@ -1087,25 +1129,15 @@ footer a:hover {
     .hero-container {
 
         padding-left: 40px;
+
         padding-right: 40px;
-    }
-
-
-    .profile-photo {
-
-        left: 40px;
-    }
-
-
-    .hero-text {
-
-        padding-left: 335px;
     }
 
 
     .section {
 
         padding-left: 40px;
+
         padding-right: 40px;
     }
 
@@ -1113,6 +1145,7 @@ footer a:hover {
     .section-dark {
 
         padding-left: 40px;
+
         padding-right: 40px;
     }
 
@@ -1149,6 +1182,7 @@ footer a:hover {
     .logo {
 
         width: 45px;
+
         height: 45px;
     }
 
@@ -1159,58 +1193,58 @@ footer a:hover {
     }
 
 
-    /* BANNER */
+    /* MOBILE BANNER */
 
     .hero-banner {
 
-        height: 280px;
+        height: 260px;
     }
 
 
-    /* HERO BLACK AREA */
+    /* HERO */
 
     .hero-container {
 
         min-height: auto;
 
         padding:
-            0 25px 70px;
+            0 25px 75px;
     }
 
 
-    /* PROFILE PHOTO */
+    /* SMALL CENTRED PHOTO */
 
     .profile-photo {
 
-        position: relative;
+        width: 165px;
 
-        left: auto;
-        top: auto;
+        height: 165px;
 
-        width: 190px;
-        height: 190px;
-
-        margin:
-            -80px auto 0;
+        top: -75px;
 
         border-width: 5px;
     }
 
 
-    /* HERO TEXT */
+    /* TEXT */
 
     .hero-text {
 
-        padding:
-            45px 0 0;
+        padding-top: 115px;
+    }
 
-        text-align: center;
+
+    .hero-eyebrow {
+
+        font-size: 12px;
+
+        letter-spacing: 4px;
     }
 
 
     .hero-text h1 {
 
-        font-size: 46px;
+        font-size: 43px;
 
         letter-spacing: -2px;
     }
@@ -1218,7 +1252,7 @@ footer a:hover {
 
     .hero-text h2 {
 
-        font-size: 16px;
+        font-size: 15px;
 
         line-height: 1.5;
     }
