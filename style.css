@@ -1,10 +1,9 @@
 /* =========================================================
    SRINITHA SREEKANTH
-   BLACK + GOLD PORTFOLIO
+   BLACK + GOLD ACADEMIC PORTFOLIO
 ========================================================= */
 
 :root {
-
     --black: #050607;
     --black-soft: #0b0d0f;
     --card: #101214;
@@ -37,9 +36,7 @@ html {
 }
 
 body {
-
     background: var(--black);
-
     color: var(--white);
 
     font-family:
@@ -66,11 +63,8 @@ img {
 ========================================================= */
 
 .navbar {
-
     position: sticky;
-
     top: 0;
-
     z-index: 1000;
 
     background: rgba(5, 6, 7, 0.98);
@@ -78,23 +72,17 @@ img {
     border-bottom: 1px solid var(--border);
 }
 
-
 .nav-container {
-
     width: 100%;
-
     max-width: var(--max-width);
 
     min-height: 105px;
 
     margin: auto;
-
     padding: 0 55px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
 
@@ -102,32 +90,25 @@ img {
 /* LOGO */
 
 .logo {
-
     width: 56px;
     height: 56px;
 
     border: 1px solid var(--gold);
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     color: var(--gold);
 
     font-size: 17px;
-
     font-weight: 700;
 
     transition: 0.3s ease;
 }
 
-
 .logo:hover {
-
     background: var(--gold);
-
     color: #000;
 }
 
@@ -135,41 +116,31 @@ img {
 /* NAVIGATION */
 
 .nav-links {
-
     display: flex;
-
     align-items: center;
-
     gap: 43px;
 }
 
-
 .nav-links a,
 .social-links a {
-
     color: #a5a6a8;
 
     font-size: 14px;
-
     letter-spacing: 0.8px;
 
     transition: 0.3s ease;
 }
 
-
 .nav-links a:hover,
 .social-links a:hover {
-
     color: var(--gold);
 }
 
 
-/* SOCIAL */
+/* SOCIAL LINKS */
 
 .social-links {
-
     display: flex;
-
     gap: 30px;
 }
 
@@ -179,23 +150,18 @@ img {
 ========================================================= */
 
 .hero {
-
     width: 100%;
-
     background: var(--black);
-
     position: relative;
 }
 
 
 /* =========================================================
-   BANNER
+   FULL WIDTH BANNER
 ========================================================= */
 
 .hero-banner {
-
     width: 100%;
-
     height: 430px;
 
     overflow: hidden;
@@ -205,31 +171,25 @@ img {
     position: relative;
 }
 
-
 .hero-banner img {
-
     width: 100%;
-
     height: 100%;
 
     display: block;
 
     object-fit: cover;
-
     object-position: center center;
 
     opacity: 1;
-
     filter: none;
 }
 
 
 /* =========================================================
-   HERO BLACK SECTION
+   HERO BLACK AREA
 ========================================================= */
 
 .hero-main {
-
     width: 100%;
 
     background: var(--black);
@@ -237,19 +197,15 @@ img {
     position: relative;
 }
 
-
 .hero-container {
-
     width: 100%;
-
     max-width: var(--max-width);
 
     margin: auto;
 
     min-height: 520px;
 
-    padding:
-        0 70px 100px;
+    padding: 0 70px 100px;
 
     position: relative;
 
@@ -259,60 +215,63 @@ img {
 
 /* =========================================================
    PROFILE PHOTO
-   SMALL + SQUARE + CENTRED
+   SMALL + CENTRED + FACE NOT CUT
 ========================================================= */
 
 .profile-photo {
-
     position: absolute;
 
-    /*
-       CENTER THE PHOTO HORIZONTALLY
-    */
-
+    /* PERFECT HORIZONTAL CENTRE */
     left: 50%;
-
     transform: translateX(-50%);
 
     /*
-       Move it slightly upward so it overlaps
+       Pull the photo upward so it overlaps
        the bottom of the banner.
     */
-
-    top: -95px;
+    top: -105px;
 
     /*
        SMALL SQUARE
     */
-
     width: 210px;
-
     height: 210px;
 
     background: #111;
 
-    overflow: hidden;
-
+    /*
+       Black border separates photo
+       from banner.
+    */
     border: 5px solid var(--black);
 
-    z-index: 10;
+    overflow: hidden;
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
+/*
+   IMPORTANT:
+
+   Your original profile.jpg is portrait-shaped.
+   A normal center crop cuts the top of your head.
+
+   25% moves the crop upward so more of the
+   upper part of your portrait remains visible.
+*/
+
 .profile-photo img {
-
     width: 100%;
-
     height: 100%;
-
-    /*
-       Keeps the image square and crops it
-       neatly around the centre of your face.
-    */
 
     object-fit: cover;
 
-    object-position: center center;
+    object-position: center 25%;
 
     display: block;
 }
@@ -323,21 +282,19 @@ img {
 ========================================================= */
 
 .hero-text {
-
     padding-top: 145px;
 
     max-width: 900px;
 
     margin: auto;
+
+    text-align: center;
 }
 
-
 .hero-eyebrow {
-
     color: var(--gold);
 
     font-size: 14px;
-
     font-weight: 700;
 
     letter-spacing: 5px;
@@ -345,9 +302,7 @@ img {
     margin-bottom: 12px;
 }
 
-
 .hero-text h1 {
-
     color: var(--white);
 
     font-size: clamp(48px, 6vw, 78px);
@@ -361,9 +316,7 @@ img {
     margin-bottom: 18px;
 }
 
-
 .hero-text h2 {
-
     color: #b8b8b8;
 
     font-size: 19px;
@@ -375,9 +328,7 @@ img {
     margin-bottom: 25px;
 }
 
-
 .hero-description {
-
     max-width: 750px;
 
     margin: auto auto 34px;
@@ -391,11 +342,10 @@ img {
 
 
 /* =========================================================
-   BUTTONS
+   HERO BUTTONS
 ========================================================= */
 
 .hero-buttons {
-
     display: flex;
 
     justify-content: center;
@@ -405,9 +355,7 @@ img {
     gap: 13px;
 }
 
-
 .btn {
-
     min-height: 48px;
 
     padding: 0 25px;
@@ -415,7 +363,6 @@ img {
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     font-size: 12px;
@@ -427,33 +374,24 @@ img {
     transition: 0.3s ease;
 }
 
-
 .btn-gold {
-
     background: var(--gold);
-
     color: #050505;
 }
 
-
 .btn-gold:hover {
-
     background: var(--gold-light);
 
     transform: translateY(-2px);
 }
 
-
 .btn-outline {
-
     border: 1px solid #45484b;
 
     color: #ddd;
 }
 
-
 .btn-outline:hover {
-
     border-color: var(--gold);
 
     color: var(--gold);
@@ -465,9 +403,7 @@ img {
 ========================================================= */
 
 .section {
-
     width: 100%;
-
     max-width: var(--max-width);
 
     margin: auto;
@@ -475,9 +411,7 @@ img {
     padding: 120px 70px;
 }
 
-
 .section-dark {
-
     max-width: none;
 
     background: var(--black-soft);
@@ -495,13 +429,10 @@ img {
 ========================================================= */
 
 .section-heading {
-
     margin-bottom: 60px;
 }
 
-
 .section-label {
-
     color: var(--gold);
 
     font-size: 12px;
@@ -513,9 +444,7 @@ img {
     margin-bottom: 12px;
 }
 
-
 .section-heading h2 {
-
     color: var(--white);
 
     font-size: clamp(34px, 4vw, 52px);
@@ -533,13 +462,10 @@ img {
 ========================================================= */
 
 .about-content {
-
     max-width: 900px;
 }
 
-
 .about-content p {
-
     color: #b5b5b5;
 
     font-size: 18px;
@@ -555,7 +481,6 @@ img {
 ========================================================= */
 
 .research-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -564,9 +489,7 @@ img {
     gap: 20px;
 }
 
-
 .research-card {
-
     min-height: 260px;
 
     padding: 30px;
@@ -578,17 +501,13 @@ img {
     transition: 0.3s ease;
 }
 
-
 .research-card:hover {
-
     border-color: var(--gold);
 
     transform: translateY(-5px);
 }
 
-
 .research-card span {
-
     color: var(--gold);
 
     font-size: 12px;
@@ -596,9 +515,7 @@ img {
     letter-spacing: 2px;
 }
 
-
 .research-card h3 {
-
     margin-top: 45px;
 
     color: var(--white);
@@ -608,9 +525,7 @@ img {
     font-weight: 500;
 }
 
-
 .research-card p {
-
     margin-top: 15px;
 
     color: var(--muted);
@@ -626,7 +541,6 @@ img {
 ========================================================= */
 
 .projects-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -635,9 +549,7 @@ img {
     gap: 28px;
 }
 
-
 .project-card {
-
     background: var(--card);
 
     border: 1px solid var(--border);
@@ -647,9 +559,7 @@ img {
     transition: 0.3s ease;
 }
 
-
 .project-card:hover {
-
     border-color: var(--gold);
 
     transform: translateY(-6px);
@@ -659,9 +569,7 @@ img {
 /* PROJECT IMAGE */
 
 .project-image {
-
     width: 100%;
-
     height: 230px;
 
     overflow: hidden;
@@ -669,11 +577,8 @@ img {
     background: #111;
 }
 
-
 .project-image img {
-
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
@@ -681,9 +586,7 @@ img {
     transition: transform 0.5s ease;
 }
 
-
 .project-card:hover .project-image img {
-
     transform: scale(1.04);
 }
 
@@ -691,13 +594,10 @@ img {
 /* PROJECT BODY */
 
 .project-body {
-
     padding: 30px;
 }
 
-
 .status {
-
     display: inline-block;
 
     padding: 6px 11px;
@@ -711,21 +611,15 @@ img {
     letter-spacing: 1px;
 }
 
-
 .status.completed {
-
     color: #b8d49f;
 }
 
-
 .status.research-status {
-
     color: var(--gold);
 }
 
-
 .project-body h3 {
-
     color: var(--white);
 
     font-size: 22px;
@@ -737,9 +631,7 @@ img {
     margin-bottom: 18px;
 }
 
-
 .project-body > p {
-
     color: var(--muted);
 
     font-size: 14px;
@@ -753,11 +645,9 @@ img {
 /* PROJECT DETAILS */
 
 .project-details {
-
     padding: 18px 0;
 
     border-top: 1px solid var(--border);
-
     border-bottom: 1px solid var(--border);
 
     display: flex;
@@ -769,9 +659,7 @@ img {
     margin-bottom: 25px;
 }
 
-
 .project-details div {
-
     display: flex;
 
     justify-content: space-between;
@@ -779,9 +667,7 @@ img {
     gap: 15px;
 }
 
-
 .project-details span {
-
     color: #777;
 
     font-size: 11px;
@@ -791,9 +677,7 @@ img {
     letter-spacing: 1px;
 }
 
-
 .project-details strong {
-
     color: #ccc;
 
     font-size: 12px;
@@ -803,9 +687,7 @@ img {
     text-align: right;
 }
 
-
 .project-button {
-
     color: var(--gold);
 
     font-size: 12px;
@@ -817,9 +699,7 @@ img {
     transition: 0.3s ease;
 }
 
-
 .project-button:hover {
-
     color: var(--gold-light);
 
     transform: translateX(4px);
@@ -831,15 +711,12 @@ img {
 ========================================================= */
 
 .publication-list {
-
     display: flex;
 
     flex-direction: column;
 }
 
-
 .publication-item {
-
     display: grid;
 
     grid-template-columns: 120px 1fr;
@@ -851,9 +728,7 @@ img {
     border-bottom: 1px solid var(--border);
 }
 
-
 .publication-year {
-
     color: var(--gold);
 
     font-size: 13px;
@@ -861,9 +736,7 @@ img {
     letter-spacing: 2px;
 }
 
-
 .publication-item h3 {
-
     color: var(--white);
 
     font-size: 21px;
@@ -873,9 +746,7 @@ img {
     margin-bottom: 8px;
 }
 
-
 .publication-item p {
-
     color: var(--muted);
 
     font-size: 15px;
@@ -889,7 +760,6 @@ img {
 ========================================================= */
 
 .timeline {
-
     max-width: 950px;
 
     margin-left: 8px;
@@ -897,9 +767,7 @@ img {
     border-left: 1px solid var(--border);
 }
 
-
 .timeline-item {
-
     position: relative;
 
     display: grid;
@@ -912,9 +780,7 @@ img {
         0 0 55px 40px;
 }
 
-
 .timeline-item::before {
-
     content: "";
 
     position: absolute;
@@ -924,7 +790,6 @@ img {
     top: 7px;
 
     width: 9px;
-
     height: 9px;
 
     border-radius: 50%;
@@ -932,9 +797,7 @@ img {
     background: var(--gold);
 }
 
-
 .timeline-date {
-
     color: var(--gold);
 
     font-size: 12px;
@@ -942,9 +805,7 @@ img {
     letter-spacing: 1px;
 }
 
-
 .timeline-item h3 {
-
     color: var(--white);
 
     font-size: 22px;
@@ -954,9 +815,7 @@ img {
     margin-bottom: 5px;
 }
 
-
 .organization {
-
     color: #ddd;
 
     font-size: 14px;
@@ -964,9 +823,7 @@ img {
     margin-bottom: 10px;
 }
 
-
 .timeline-item p:not(.organization) {
-
     color: var(--muted);
 
     font-size: 14px;
@@ -978,7 +835,6 @@ img {
 ========================================================= */
 
 .education-card {
-
     max-width: 900px;
 
     padding: 45px;
@@ -988,9 +844,7 @@ img {
     border: 1px solid var(--border);
 }
 
-
 .education-year {
-
     color: var(--gold);
 
     font-size: 12px;
@@ -998,9 +852,7 @@ img {
     letter-spacing: 2px;
 }
 
-
 .education-card h3 {
-
     color: var(--white);
 
     font-size: 30px;
@@ -1010,17 +862,13 @@ img {
     margin: 20px 0 10px;
 }
 
-
 .education-card p {
-
     color: var(--muted);
 
     font-size: 16px;
 }
 
-
 .education-grade {
-
     margin-top: 25px;
 
     color: #aaa;
@@ -1028,9 +876,7 @@ img {
     font-size: 14px;
 }
 
-
 .education-grade strong {
-
     color: var(--gold);
 
     font-size: 18px;
@@ -1042,15 +888,12 @@ img {
 ========================================================= */
 
 .contact-section {
-
     text-align: center;
 
     max-width: 900px;
 }
 
-
 .contact-text {
-
     max-width: 650px;
 
     margin:
@@ -1069,7 +912,6 @@ img {
 ========================================================= */
 
 footer {
-
     min-height: 100px;
 
     padding: 0 70px;
@@ -1087,17 +929,13 @@ footer {
     font-size: 12px;
 }
 
-
 footer div {
-
     display: flex;
 
     gap: 25px;
 }
 
-
 footer a:hover {
-
     color: var(--gold);
 }
 
@@ -1109,59 +947,40 @@ footer a:hover {
 @media (max-width: 1100px) {
 
     .nav-container {
-
         padding: 0 30px;
     }
 
-
     .nav-links {
-
         gap: 22px;
     }
 
-
     .social-links {
-
         display: none;
     }
 
-
     .hero-container {
-
         padding-left: 40px;
-
         padding-right: 40px;
     }
-
 
     .section {
-
         padding-left: 40px;
-
         padding-right: 40px;
     }
-
 
     .section-dark {
-
         padding-left: 40px;
-
         padding-right: 40px;
     }
 
-
     .research-grid {
-
         grid-template-columns:
             repeat(2, 1fr);
     }
 
-
     .projects-grid {
-
         grid-template-columns: 1fr;
     }
-
 }
 
 
@@ -1172,23 +991,17 @@ footer a:hover {
 @media (max-width: 750px) {
 
     .nav-container {
-
         min-height: 75px;
 
         padding: 0 20px;
     }
 
-
     .logo {
-
         width: 45px;
-
         height: 45px;
     }
 
-
     .nav-links {
-
         display: none;
     }
 
@@ -1196,7 +1009,6 @@ footer a:hover {
     /* MOBILE BANNER */
 
     .hero-banner {
-
         height: 260px;
     }
 
@@ -1204,7 +1016,6 @@ footer a:hover {
     /* HERO */
 
     .hero-container {
-
         min-height: auto;
 
         padding:
@@ -1212,60 +1023,53 @@ footer a:hover {
     }
 
 
-    /* SMALL CENTRED PHOTO */
+    /*
+       SMALL CENTRED PROFILE
+    */
 
     .profile-photo {
-
         width: 165px;
-
         height: 165px;
 
-        top: -75px;
+        top: -78px;
 
         border-width: 5px;
     }
 
-
-    /* TEXT */
-
-    .hero-text {
-
-        padding-top: 115px;
+    .profile-photo img {
+        object-position: center 25%;
     }
 
 
-    .hero-eyebrow {
+    /* HERO TEXT */
 
+    .hero-text {
+        padding-top: 115px;
+    }
+
+    .hero-eyebrow {
         font-size: 12px;
 
         letter-spacing: 4px;
     }
 
-
     .hero-text h1 {
-
         font-size: 43px;
 
         letter-spacing: -2px;
     }
 
-
     .hero-text h2 {
-
         font-size: 15px;
 
         line-height: 1.5;
     }
 
-
     .hero-description {
-
         font-size: 14px;
     }
 
-
     .hero-buttons {
-
         justify-content: center;
     }
 
@@ -1274,7 +1078,6 @@ footer a:hover {
 
     .section,
     .section-dark {
-
         padding:
             80px 25px;
     }
@@ -1283,7 +1086,6 @@ footer a:hover {
     /* RESEARCH */
 
     .research-grid {
-
         grid-template-columns: 1fr;
     }
 
@@ -1291,7 +1093,6 @@ footer a:hover {
     /* PUBLICATIONS */
 
     .publication-item {
-
         grid-template-columns: 1fr;
 
         gap: 10px;
@@ -1301,7 +1102,6 @@ footer a:hover {
     /* EXPERIENCE */
 
     .timeline-item {
-
         grid-template-columns: 1fr;
 
         gap: 8px;
@@ -1313,7 +1113,6 @@ footer a:hover {
     /* EDUCATION */
 
     .education-card {
-
         padding: 30px;
     }
 
@@ -1321,7 +1120,6 @@ footer a:hover {
     /* FOOTER */
 
     footer {
-
         padding: 30px 25px;
 
         flex-direction: column;
@@ -1330,5 +1128,4 @@ footer a:hover {
 
         justify-content: center;
     }
-
 }
