@@ -1,1 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Facial sEMG Heterogeneity | Srinitha Sreekanth</title>
+
+    <meta name="description"
+        content="Quantifying Subject-Level Heterogeneity in Facial Electromyography — an independent small-sample cross-validation study for assistive control models.">
+
+    <style>
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        :root {
+            --bg: #0b0c0e;
+            --bg-soft: #101216;
+            --panel: #141619;
+            --panel-light: #191c21;
+
+            --gold: #d4af37;
+            --gold-light: #e5c158;
+
+            --cream: #f0ede6;
+            --cream-soft: #c8c5be;
+            --muted: #8c9099;
+
+            --border: #292c32;
+            --border-gold: rgba(212, 175, 55, 0.55);
+
+            --green: #78c98b;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            background: var(--bg);
+            color: var(--cream);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            line-height: 1.7;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(11, 12, 14, 0.94);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .nav-inner {
+            width: min(1200px, calc(100% - 50px));
+            min-height: 72px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        .logo {
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--gold);
+
+            color: var(--gold);
+
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+
+        .nav-links a {
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 1px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+
+        .back-link {
+            color: var(--gold);
+
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .back-link:hover {
+            color: var(--gold-light);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            padding: 105px 30px 90px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            top: -350px;
+            right: -250px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212, 175, 55, 0.12),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+
+            width: min(1100px, 100%);
+            margin: auto;
+        }
+
+
+        .eyebrow {
+            margin-bottom: 15px;
+
+            color: var(--gold);
+
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+
+        .hero h1 {
+            max-width: 950px;
+
+            margin-bottom: 22px;
+
+            color: var(--cream);
+
+            font-size: clamp(40px, 6vw, 72px);
+
+            line-height: 1.08;
+
+            letter-spacing: -1.5px;
+        }
+
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+
+        .subtitle {
+            max-width: 800px;
+
+            margin-bottom: 30px;
+
+            color: var(--cream-soft);
+
+            font-size: 21px;
+
+            line-height: 1.6;
+        }
+
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .meta-pill {
+            padding: 8px 13px;
+
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.4px;
+        }
+
+
+        .meta-pill.gold {
+            border-color: var(--border-gold);
+            color: var(--gold-light);
+        }
+
+
+        /* =========================================================
+           CONTENT WRAPPER
+        ========================================================= */
+
+        .container {
+            width: min(1100px, calc(100% - 50px));
+
+            margin: auto;
+        }
+
+
+        .section {
+            padding: 95px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .section.dark {
+            background: var(--bg-soft);
+        }
+
+
+        .section-label {
+            margin-bottom: 10px;
+
+            color: var(--gold);
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 3px;
+        }
+
+
+        .section-title {
+            margin-bottom: 38px;
+
+            color: var(--cream);
+
+            font-size: clamp(30px, 4vw, 46px);
+
+            line-height: 1.15;
+        }
+
+
+        /* =========================================================
+           INTRODUCTION
+        ========================================================= */
+
+        .intro-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 0.95fr;
+
+            gap: 60px;
+
+            align-items: start;
+        }
+
+
+        .intro-text p {
+            margin-bottom: 22px;
+
+            color: var(--cream-soft);
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+
+        .intro-text .lead {
+            color: var(--cream);
+
+            font-size: 21px;
+
+            line-height: 1.7;
+        }
+
+
+        .study-box {
+            padding: 30px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--border-gold);
+        }
+
+
+        .study-box h3 {
+            margin-bottom: 22px;
+
+            color: var(--gold-light);
+
+            font-size: 21px;
+        }
+
+
+        .study-item {
+            padding: 14px 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .study-item:last-child {
+            border-bottom: none;
+        }
+
+
+        .study-item span {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+
+        .study-item strong {
+            color: var(--cream-soft);
+
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+
+        /* =========================================================
+           FIGURE
+        ========================================================= */
+
+        .figure {
+            margin-top: 55px;
+
+            border: 1px solid var(--border);
+
+            background: #08090a;
+        }
+
+
+        .figure img {
+            max-height: 650px;
+
+            object-fit: contain;
+        }
+
+
+        .figure-caption {
+            padding: 12px 16px;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+        }
+
+
+        /* =========================================================
+           OBJECTIVES
+        ========================================================= */
+
+        .objectives {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .objective {
+            min-height: 190px;
+
+            padding: 28px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+
+            transition: 0.25s ease;
+        }
+
+
+        .objective:hover {
+            border-color: var(--border-gold);
+
+            transform: translateY(-3px);
+        }
+
+
+        .objective-number {
+            display: block;
+
+            margin-bottom: 35px;
+
+            color: var(--gold);
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+
+        .objective h3 {
+            margin-bottom: 10px;
+
+            color: var(--cream);
+
+            font-size: 19px;
+        }
+
+
+        .objective p {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           METHODOLOGY
+        ========================================================= */
+
+        .method-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .method-card {
+            padding: 30px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+        }
+
+
+        .method-card h3 {
+            margin-bottom: 15px;
+
+            color: var(--gold-light);
+
+            font-size: 20px;
+        }
+
+
+        .method-card p {
+            color: var(--cream-soft);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        .feature-list {
+            margin-top: 18px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 8px;
+        }
+
+
+        .feature-list span {
+            padding: 8px 10px;
+
+            background: #101216;
+
+            border: 1px solid var(--border);
+
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+        }
+
+
+        /* =========================================================
+           WORKFLOW IMAGE
+        ========================================================= */
+
+        .workflow-image {
+            margin-top: 50px;
+
+            border: 1px solid var(--border-gold);
+
+            background: #08090a;
+        }
+
+
+        .workflow-image img {
+            object-fit: contain;
+        }
+
+
+        /* =========================================================
+           RESULTS
+        ========================================================= */
+
+        .results-intro {
+            max-width: 850px;
+
+            margin-bottom: 35px;
+
+            color: var(--cream-soft);
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+
+        .results-table-wrapper {
+            overflow-x: auto;
+
+            border: 1px solid var(--border);
+        }
+
+
+        .results-table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 650px;
+        }
+
+
+        .results-table th,
+        .results-table td {
+            padding: 16px 18px;
+
+            text-align: left;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .results-table th {
+            background: var(--panel-light);
+
+            color: var(--gold-light);
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+
+        .results-table td {
+            color: var(--cream-soft);
+
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+
+        .results-table tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        .best {
+            color: var(--gold-light) !important;
+
+            font-weight: 700;
+        }
+
+
+        /* Validation comparison */
+
+        .comparison {
+            margin-top: 40px;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .comparison-card {
+            padding: 30px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+        }
+
+
+        .comparison-card h3 {
+            margin-bottom: 8px;
+
+            color: var(--cream);
+
+            font-size: 18px;
+        }
+
+
+        .comparison-card .percentage {
+            display: block;
+
+            margin: 15px 0;
+
+            color: var(--gold);
+
+            font-size: 40px;
+
+            font-weight: 700;
+
+            line-height: 1;
+        }
+
+
+        .comparison-card p {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        .result-highlight {
+            margin-top: 35px;
+
+            padding: 28px 30px;
+
+            border-left: 2px solid var(--gold);
+
+            background: var(--panel);
+        }
+
+
+        .result-highlight strong {
+            color: var(--gold-light);
+        }
+
+
+        .result-highlight p {
+            color: var(--cream-soft);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           RESULTS IMAGE
+        ========================================================= */
+
+        .results-image {
+            margin-top: 55px;
+
+            border: 1px solid var(--border);
+
+            background: #08090a;
+        }
+
+
+        .results-image img {
+            object-fit: contain;
+        }
+
+
+        /* =========================================================
+           INTERPRETATION
+        ========================================================= */
+
+        .interpretation {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+
+        .interpret-card {
+            padding: 30px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--border);
+        }
+
+
+        .interpret-card h3 {
+            margin-bottom: 14px;
+
+            color: var(--gold-light);
+
+            font-size: 19px;
+        }
+
+
+        .interpret-card p {
+            color: var(--cream-soft);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           CONCLUSION
+        ========================================================= */
+
+        .conclusion {
+            max-width: 900px;
+        }
+
+
+        .conclusion p {
+            margin-bottom: 22px;
+
+            color: var(--cream-soft);
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+
+        .future-work {
+            margin-top: 35px;
+
+            padding: 30px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--border-gold);
+        }
+
+
+        .future-work h3 {
+            margin-bottom: 15px;
+
+            color: var(--gold-light);
+
+            font-size: 20px;
+        }
+
+
+        .future-work p {
+            margin: 0;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           DISCLAIMER
+        ========================================================= */
+
+        .scope-note {
+            margin-top: 35px;
+
+            padding: 20px 22px;
+
+            background: #0e1013;
+
+            border-left: 2px solid var(--muted);
+        }
+
+
+        .scope-note p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           CITATION
+        ========================================================= */
+
+        .citation-box {
+            padding: 30px;
+
+            overflow-x: auto;
+
+            background: #090a0c;
+
+            border: 1px solid var(--border);
+        }
+
+
+        .citation-box pre {
+            color: var(--cream-soft);
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            white-space: pre-wrap;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 35px 30px;
+
+            background: #08090a;
+
+            border-top: 1px solid var(--border);
+        }
+
+
+        .footer-inner {
+            width: min(1100px, 100%);
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+
+        footer p {
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+        }
+
+
+        .footer-back {
+            color: var(--gold);
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .hero {
+                padding: 80px 20px 70px;
+            }
+
+
+            .container {
+                width: calc(100% - 40px);
+            }
+
+
+            .intro-grid,
+            .method-grid,
+            .objectives,
+            .comparison,
+            .interpretation {
+                grid-template-columns: 1fr;
+            }
+
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+
+            .section {
+                padding: 75px 0;
+            }
+
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+
+            .subtitle {
+                font-size: 17px;
+            }
+
+
+            .footer-inner {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+
+            .meta-pill {
+                width: 100%;
+            }
+
+
+            .study-box,
+            .method-card,
+            .objective,
+            .interpret-card {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-inner">
+
+            <a href="../../index.html" class="logo">
+                SS
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="#overview">
+                    Overview
+                </a>
+
+                <a href="#methodology">
+                    Methodology
+                </a>
+
+                <a href="#results">
+                    Results
+                </a>
+
+                <a href="#conclusion">
+                    Conclusion
+                </a>
+
+            </nav>
+
+            <a href="../../index.html" class="back-link">
+                ← Portfolio
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-inner">
+
+                <p class="eyebrow">
+                    Independent Research Study · 2026
+                </p>
+
+                <h1>
+                    Quantifying Subject-Level
+                    <span>Heterogeneity</span>
+                    in Facial Electromyography
+                </h1>
+
+                <p class="subtitle">
+                    A Small-Sample Cross-Validation Study for Assistive
+                    Control Models
+                </p>
+
+                <div class="hero-meta">
+
+                    <span class="meta-pill gold">
+                        Independent Research
+                    </span>
+
+                    <span class="meta-pill">
+                        Facial sEMG
+                    </span>
+
+                    <span class="meta-pill">
+                        Machine Learning
+                    </span>
+
+                    <span class="meta-pill">
+                        Cross-Validation
+                    </span>
+
+                    <span class="meta-pill">
+                        Statistical Analysis
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             OVERVIEW
+        ====================================================== -->
+
+        <section id="overview" class="section">
+
+            <div class="container">
+
+                <p class="section-label">
+                    01 / OVERVIEW
+                </p>
+
+                <h2 class="section-title">
+                    The Research Question
+                </h2>
+
+
+                <div class="intro-grid">
+
+
+                    <div class="intro-text">
+
+                        <p class="lead">
+                            This study re-examines a previously developed
+                            facial-sEMG wheelchair command dataset to ask a
+                            different question: is pooling data across
+                            subjects statistically justified, or is
+                            subject-specific variability large enough to
+                            require personalized modeling?
+                        </p>
+
+                        <p>
+                            Assistive control interfaces based on facial
+                            surface electromyography (sEMG) are often
+                            evaluated using pooled, subject-generalized
+                            models. Such approaches implicitly assume that
+                            inter-subject variability is secondary to
+                            within-subject signal consistency.
+                        </p>
+
+                        <p>
+                            This study explicitly tests that assumption by
+                            comparing personalized models with generalized
+                            leave-one-subject-out validation.
+                        </p>
+
+                        <p>
+                            The work is an independent methodological
+                            extension of the earlier hardware project. It
+                            does not propose another wheelchair control
+                            system; instead, it focuses on classification,
+                            cross-validation, and subject-level
+                            heterogeneity.
+                        </p>
+
+                    </div>
+
+
+                    <div class="study-box">
+
+                        <h3>
+                            Study at a Glance
+                        </h3>
+
+                        <div class="study-item">
+
+                            <span>
+                                Dataset
+                            </span>
+
+                            <strong>
+                                120 labeled sEMG trials
+                            </strong>
+
+                        </div>
+
+                        <div class="study-item">
+
+                            <span>
+                                Subjects
+                            </span>
+
+                            <strong>
+                                10 subjects
+                            </strong>
+
+                        </div>
+
+                        <div class="study-item">
+
+                            <span>
+                                Commands
+                            </span>
+
+                            <strong>
+                                Forward · Backward · Left · Right · Stop
+                            </strong>
+
+                        </div>
+
+                        <div class="study-item">
+
+                            <span>
+                                Classifiers
+                            </span>
+
+                            <strong>
+                                Logistic Regression · XGBoost · KNN
+                            </strong>
+
+                        </div>
+
+                        <div class="study-item">
+
+                            <span>
+                                Validation
+                            </span>
+
+                            <strong>
+                                5-Fold CV · Personalized · LOSO
+                            </strong>
+
+                        </div>
+
+                        <div class="study-item">
+
+                            <span>
+                                Acquisition
+                            </span>
+
+                            <strong>
+                                BIOPAC MP45
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INTRODUCTION IMAGE -->
+
+                <div class="figure">
+
+                    <img
+                        src="01-introduction.png"
+                        alt="Introduction, objective, and data validation methodology"
+                    >
+
+                    <div class="figure-caption">
+                        Study introduction, objectives, dataset components,
+                        and validation methodology.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             OBJECTIVES
+        ====================================================== -->
+
+        <section class="section dark">
+
+            <div class="container">
+
+                <p class="section-label">
+                    02 / OBJECTIVES
+                </p>
+
+                <h2 class="section-title">
+                    What This Study Tests
+                </h2>
+
+
+                <div class="objectives">
+
+
+                    <div class="objective">
+
+                        <span class="objective-number">
+                            OBJECTIVE 01
+                        </span>
+
+                        <h3>
+                            Re-examine the Dataset
+                        </h3>
+
+                        <p>
+                            Re-examine the 120-trial, 10-subject facial
+                            sEMG dataset to evaluate model generalization.
+                        </p>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-number">
+                            OBJECTIVE 02
+                        </span>
+
+                        <h3>
+                            Compare Classifiers
+                        </h3>
+
+                        <p>
+                            Compare Logistic Regression, XGBoost, and
+                            K-Nearest Neighbors under rigorous 5-fold
+                            cross-validation.
+                        </p>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-number">
+                            OBJECTIVE 03
+                        </span>
+
+                        <h3>
+                            Test Heterogeneity
+                        </h3>
+
+                        <p>
+                            Compare personalized within-subject models
+                            against generalized leave-one-subject-out
+                            models.
+                        </p>
+
+                    </div>
+
+
+                    <div class="objective">
+
+                        <span class="objective-number">
+                            OBJECTIVE 04
+                        </span>
+
+                        <h3>
+                            Separate Variance Sources
+                        </h3>
+
+                        <p>
+                            Determine whether the dataset can distinguish
+                            true inter-subject variance from trial-to-trial
+                            noise.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             METHODOLOGY
+        ====================================================== -->
+
+        <section id="methodology" class="section">
+
+            <div class="container">
+
+                <p class="section-label">
+                    03 / METHODOLOGY
+                </p>
+
+                <h2 class="section-title">
+                    From sEMG Signals to Statistical Testing
+                </h2>
+
+
+                <div class="method-grid">
+
+
+                    <!-- DATASET -->
+
+                    <div class="method-card">
+
+                        <h3>
+                            Dataset
+                        </h3>
+
+                        <p>
+                            The dataset contains 120 labeled sEMG trials
+                            collected from ten subjects. The five command
+                            classes contain 24 trials each and were acquired
+                            using a BIOPAC MP45 system.
+                        </p>
+
+                    </div>
+
+
+                    <!-- PREPROCESSING -->
+
+                    <div class="method-card">
+
+                        <h3>
+                            Signal Conditioning
+                        </h3>
+
+                        <p>
+                            The recordings were band-pass filtered between
+                            30–500 Hz. The original acquisition protocol
+                            involved facial sEMG recordings over the
+                            Buccinator and Zygomaticus Major muscles.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FEATURES -->
+
+                    <div class="method-card">
+
+                        <h3>
+                            Feature Extraction
+                        </h3>
+
+                        <p>
+                            Eight time- and frequency-domain features were
+                            computed for every trial.
+                        </p>
+
+
+                        <div class="feature-list">
+
+                            <span>
+                                Mean Absolute Value
+                            </span>
+
+                            <span>
+                                Root Mean Square
+                            </span>
+
+                            <span>
+                                Integrated EMG
+                            </span>
+
+                            <span>
+                                Waveform Length
+                            </span>
+
+                            <span>
+                                Zero Crossings
+                            </span>
+
+                            <span>
+                                Slope Sign Changes
+                            </span>
+
+                            <span>
+                                Mean Frequency
+                            </span>
+
+                            <span>
+                                Median Frequency
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CLASSIFIERS -->
+
+                    <div class="method-card">
+
+                        <h3>
+                            Model Comparison
+                        </h3>
+
+                        <p>
+                            Three classical machine-learning classifiers
+                            were evaluated using stratified 5-fold
+                            cross-validation on the pooled subject-mixed
+                            dataset.
+                        </p>
+
+                        <div class="feature-list">
+
+                            <span>
+                                Logistic Regression
+                            </span>
+
+                            <span>
+                                XGBoost
+                            </span>
+
+                            <span>
+                                K-Nearest Neighbors
+                            </span>
+
+                            <span>
+                                5-Fold Stratified CV
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- WORKFLOW IMAGE -->
+
+                <div class="workflow-image">
+
+                    <img
+                        src="02-workflow.png"
+                        alt="Facial sEMG research workflow"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             VALIDATION DESIGN
+        ====================================================== -->
+
+        <section class="section dark">
+
+            <div class="container">
+
+                <p class="section-label">
+                    04 / VALIDATION DESIGN
+                </p>
+
+                <h2 class="section-title">
+                    Personalized vs. Generalized
+                </h2>
+
+
+                <div class="comparison">
+
+
+                    <div class="comparison-card">
+
+                        <h3>
+                            Personalized
+                        </h3>
+
+                        <span class="percentage">
+                            58.33%
+                        </span>
+
+                        <p>
+                            A separate model was trained and tested
+                            exclusively on each subject's own trials,
+                            with accuracy averaged across subjects.
+                        </p>
+
+                    </div>
+
+
+                    <div class="comparison-card">
+
+                        <h3>
+                            Generalized — LOSO
+                        </h3>
+
+                        <span class="percentage">
+                            59.17%
+                        </span>
+
+                        <p>
+                            The model was trained on nine subjects and
+                            tested on the completely held-out tenth
+                            subject, repeated across all ten subjects.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="result-highlight">
+
+                    <p>
+                        <strong>Key observation:</strong>
+                        The generalized model did not underperform the
+                        personalized model. It marginally exceeded it by
+                        <strong>0.83 percentage points</strong>, producing
+                        a null result with respect to the original
+                        heterogeneity hypothesis.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RESULTS
+        ====================================================== -->
+
+        <section id="results" class="section">
+
+            <div class="container">
+
+                <p class="section-label">
+                    05 / RESULTS
+                </p>
+
+                <h2 class="section-title">
+                    Model Performance
+                </h2>
+
+
+                <p class="results-intro">
+                    Logistic Regression achieved the strongest and most
+                    stable generalized performance under 5-fold
+                    cross-validation. XGBoost produced a comparable mean
+                    accuracy but substantially higher fold-to-fold
+                    variability, while K-Nearest Neighbors was the weakest
+                    of the three models.
+                </p>
+
+
+                <div class="results-table-wrapper">
+
+                    <table class="results-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Model
+                                </th>
+
+                                <th>
+                                    Mean Accuracy
+                                </th>
+
+                                <th>
+                                    Standard Deviation
+                                </th>
+
+                                <th>
+                                    Observation
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td class="best">
+                                    Logistic Regression
+                                </td>
+
+                                <td class="best">
+                                    57.50%
+                                </td>
+
+                                <td>
+                                    ± 4.86%
+                                </td>
+
+                                <td>
+                                    Best mean accuracy and lowest variance
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    XGBoost
+                                </td>
+
+                                <td>
+                                    56.67%
+                                </td>
+
+                                <td>
+                                    ± 8.58%
+                                </td>
+
+                                <td>
+                                    Comparable mean with higher variance
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    K-Nearest Neighbors
+                                </td>
+
+                                <td>
+                                    48.33%
+                                </td>
+
+                                <td>
+                                    ± 5.65%
+                                </td>
+
+                                <td>
+                                    Weakest performer
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- RESULTS IMAGE -->
+
+                <div class="results-image">
+
+                    <img
+                        src="03-final-results.jpeg"
+                        alt="Final results of facial sEMG heterogeneity study"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             INTERPRETATION
+        ====================================================== -->
+
+        <section class="section dark">
+
+            <div class="container">
+
+                <p class="section-label">
+                    06 / INTERPRETATION
+                </p>
+
+                <h2 class="section-title">
+                    What the Results Mean
+                </h2>
+
+
+                <div class="interpretation">
+
+
+                    <div class="interpret-card">
+
+                        <h3>
+                            Logistic Regression Was Most Stable
+                        </h3>
+
+                        <p>
+                            Logistic Regression achieved 57.50% ± 4.86%,
+                            giving it both the highest mean accuracy and
+                            the lowest fold-to-fold variance among the
+                            three classifiers.
+                        </p>
+
+                    </div>
+
+
+                    <div class="interpret-card">
+
+                        <h3>
+                            XGBoost Showed Greater Variability
+                        </h3>
+
+                        <p>
+                            XGBoost achieved a comparable mean accuracy of
+                            56.67%, but its standard deviation was higher
+                            at ±8.58%, indicating less stable performance
+                            in the small dataset.
+                        </p>
+
+                    </div>
+
+
+                    <div class="interpret-card">
+
+                        <h3>
+                            No Measurable Heterogeneity Penalty
+                        </h3>
+
+                        <p>
+                            Personalized models achieved 58.33% accuracy,
+                            while generalized LOSO models achieved 59.17%.
+                            The difference was only 0.83 percentage points.
+                        </p>
+
+                    </div>
+
+
+                    <div class="interpret-card">
+
+                        <h3>
+                            Dataset Scale Matters
+                        </h3>
+
+                        <p>
+                            The findings suggest that trial-to-trial noise
+                            may dominate systematic inter-subject variance
+                            at this sample size. The result should therefore
+                            not be interpreted as evidence that facial sEMG
+                            has no inter-subject heterogeneity.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONCLUSION
+        ====================================================== -->
+
+        <section id="conclusion" class="section">
+
+            <div class="container">
+
+                <p class="section-label">
+                    07 / CONCLUSION
+                </p>
+
+                <h2 class="section-title">
+                    A Null Result That Is Still Informative
+                </h2>
+
+
+                <div class="conclusion">
+
+                    <p>
+                        This study set out to test, rather than assume,
+                        whether subject-level heterogeneity meaningfully
+                        limits pooled facial-sEMG classification models.
+                    </p>
+
+                    <p>
+                        Under the constraints of a 120-trial, ten-subject
+                        dataset, no measurable heterogeneity penalty was
+                        found. Personalized and generalized models produced
+                        closely matched performance.
+                    </p>
+
+                    <p>
+                        Rather than proving that personalization is
+                        unnecessary, the result highlights an important
+                        methodological issue: the dataset may not yet be
+                        large enough to distinguish true inter-subject
+                        variance from trial-level noise.
+                    </p>
+
+
+                    <div class="future-work">
+
+                        <h3>
+                            Future Direction
+                        </h3>
+
+                        <p>
+                            A substantially larger multi-session dataset,
+                            with a broader subject pool and repeated
+                            recordings per subject, would provide greater
+                            statistical power. The study also motivates
+                            variance-aware approaches such as random-effects
+                            heterogeneity estimation for future
+                            multi-subject biomedical machine-learning work.
+                        </p>
+
+                    </div>
+
+
+                    <div class="scope-note">
+
+                        <p>
+                            <strong>Scope of this study:</strong>
+                            This work makes no claim about deployable
+                            classification accuracy for a real assistive
+                            device. Its contribution is methodological:
+                            evaluating whether pooling is statistically
+                            defensible for facial sEMG at this dataset scale.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CITATION
+        ====================================================== -->
+
+        <section class="section dark">
+
+            <div class="container">
+
+                <p class="section-label">
+                    08 / CITATION
+                </p>
+
+                <h2 class="section-title">
+                    Cite This Work
+                </h2>
+
+
+                <div class="citation-box">
+
+<pre>@article{srinitha2026heterogeneity,
+  author  = {Srinitha Sreekanth},
+  title   = {Quantifying Subject-Level Heterogeneity in Facial Electromyography:
+             A Small-Sample Cross-Validation Study for Assistive Control Models},
+  year    = {2026},
+  note    = {Independent Research Study}
+}</pre>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <p>
+                © 2026 Srinitha Sreekanth · Independent Research Study
+            </p>
+
+            <a
+                href="../../index.html"
+                class="footer-back"
+            >
+                ← Back to Portfolio
+            </a>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
